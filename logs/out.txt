@@ -1,0 +1,4132 @@
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	prompt: class_name
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Set self.clip_model.parameters.reguires_grad = False!
+Setting step to 1...
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+1.0000000000  1.0000000000  0.6837647059  0.6760828625  0.7555217060  0.7301829268  0.8582006664  0.8651851852  0.0000000000  0.0000000000  0             0.0441279411 
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	prompt: class_name
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Set self.clip_model.parameters.reguires_grad = False!
+Setting step to 1...
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+1.0000000000  1.0000000000  0.6837647059  0.6760828625  0.7555217060  0.7301829268  0.8582006664  0.8651851852  0.0000000000  0.0000000000  0             0.1153140068 
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Set self.clip_model.parameters.reguires_grad = False!
+/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py:187: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(m.weight)
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.9946996466  0.9929328622  0.6461176471  0.6290018832  0.7159177456  0.7225609756  0.6927064050  0.7007407407  0.0000000000  2.3441481590  0             3.2274744511 
+0.9991166078  0.9964664311  0.7538823529  0.7589453861  0.8202589490  0.8033536585  0.8504257682  0.8666666667  8.4805653710  0.4925376386  300           0.5475847141 
+0.9991166078  0.9964664311  0.7581176471  0.7608286252  0.8400609292  0.8292682927  0.8674564976  0.8770370370  16.961130742  0.4451365722  600           0.5467119098 
+1.0000000000  1.0000000000  0.7816470588  0.7928436911  0.8472962681  0.8262195122  0.8641243984  0.8637037037  25.441696113  0.4386999093  900           0.5556419603 
+0.9991166078  1.0000000000  0.7778823529  0.7740112994  0.8335872049  0.8216463415  0.8333950389  0.8548148148  33.922261484  0.4161475175  1200          0.5521561201 
+1.0000000000  1.0000000000  0.7778823529  0.8041431262  0.8221629855  0.8216463415  0.8445020363  0.8518518519  42.402826855  0.4141572539  1500          0.5570737608 
+0.9982332155  1.0000000000  0.7844705882  0.7853107345  0.8103579589  0.7911585366  0.8541281007  0.8725925926  50.883392226  0.4107047178  1800          0.5535065134 
+0.9964664311  1.0000000000  0.7816470588  0.7627118644  0.7757044935  0.7637195122  0.8304331729  0.8400000000  59.363957597  0.4027022206  2100          0.5545156527 
+0.9982332155  1.0000000000  0.7872941176  0.8079096045  0.7886519421  0.7667682927  0.8511662347  0.8548148148  67.844522968  0.3995396349  2400          0.5536644038 
+0.9991166078  1.0000000000  0.7854117647  0.7984934087  0.8088347296  0.7987804878  0.8589411329  0.8666666667  76.325088339  0.3957521449  2700          0.5504283134 
+0.9964664311  1.0000000000  0.7971764706  0.8003766478  0.7871287129  0.7789634146  0.8544983340  0.8740740741  84.805653710  0.4046635324  3000          0.5465857267 
+0.9982332155  1.0000000000  0.7769411765  0.7928436911  0.7760853008  0.7560975610  0.8593113662  0.8711111111  93.286219081  0.3959320915  3300          0.5506979179 
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 235, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 213, in update
+    _mean_domain_features = [feature.repeat_interleave(len(self.hparams['class_names']), dim=0) for feature in mean_domain_features]
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 213, in <listcomp>
+    _mean_domain_features = [feature.repeat_interleave(len(self.hparams['class_names']), dim=0) for feature in mean_domain_features]
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	prompt: class_name
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Set self.clip_model.parameters.reguires_grad = False!
+Setting step to 1...
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.9991166078  0.9964664311  0.7002352941  0.6798493409  0.7402894136  0.7317073171  0.8393187708  0.8666666667  0.0000000000  0.0000000000  0             0.1345882416 
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	prompt: class_name
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Set self.clip_model.parameters.reguires_grad = False!
+Setting step to 1...
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.9991166078  0.9964664311  0.7002352941  0.6798493409  0.7402894136  0.7317073171  0.8393187708  0.8666666667  0.0000000000  0.0000000000  0             0.1645724773 
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	prompt: class_name
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Set self.clip_model.parameters.reguires_grad = False!
+Setting step to 1...
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+1.0000000000  1.0000000000  0.6898823529  0.6685499058  0.7098248286  0.6935975610  0.8445020363  0.8666666667  0.0000000000  0.0000000000  0             0.1521542072 
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Set self.clip_model.parameters.reguires_grad = False!
+Using sentence_prompt in DPLCLIP...
+/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py:189: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(m.weight)
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.7570671378  0.7455830389  0.5858823529  0.5461393597  0.7094440213  0.6966463415  0.5994076268  0.6029629630  0.0000000000  2.2600743771  0             2.5429613590 
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 235, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 215, in update
+    _mean_domain_features = [feature.repeat_interleave(len(self.hparams['class_names']), dim=0) for feature in mean_domain_features]
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 215, in <listcomp>
+    _mean_domain_features = [feature.repeat_interleave(len(self.hparams['class_names']), dim=0) for feature in mean_domain_features]
+                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Set self.clip_model.parameters.reguires_grad = False!
+Using sentence_prompt in DPLCLIP...
+/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py:190: UserWarning: nn.init.xavier_uniform is now deprecated in favor of nn.init.xavier_uniform_.
+  torch.nn.init.xavier_uniform(m.weight)
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.1687279152  0.1625441696  0.0296470588  0.0320150659  0.0064737243  0.0045731707  0.1007034432  0.0859259259  0.0000000000  2.7003126144  0             2.1635751724 
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 235, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 228, in update
+    loss.backward()
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 183, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 157, in __init__
+    super(DPLCLIP, self).__init__(input_shape, num_classes, num_domains, hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 132, in __init__
+    self.clip_model = clip.load(self.hparams['clip_backbone'])[0].float()
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/clip.py", line 139, in load
+    model = build_model(state_dict or model.state_dict()).to(device)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 434, in build_model
+    convert_weights(model)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 396, in convert_weights
+    model.apply(_convert_weights_to_fp16)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 884, in apply
+    module.apply(fn)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 884, in apply
+    module.apply(fn)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 884, in apply
+    module.apply(fn)
+  [Previous line repeated 3 more times]
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 885, in apply
+    fn(self)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 380, in _convert_weights_to_fp16
+    l.weight.data = l.weight.data.half()
+                    ^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Set self.clip_model.parameters.reguires_grad = False!
+Using sentence_prompt in DPLCLIP...
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.1687279152  0.1625441696  0.0296470588  0.0320150659  0.0064737243  0.0045731707  0.1007034432  0.0859259259  0.0000000000  2.7003090382  0             2.6604211330 
+0.1687279152  0.1625441696  0.0296470588  0.0320150659  0.0064737243  0.0045731707  0.1007034432  0.0859259259  8.4805653710  1.6107774774  300           0.5422678558 
+0.1687279152  0.1625441696  0.0296470588  0.0320150659  0.0064737243  0.0045731707  0.1007034432  0.0859259259  16.961130742  1.6095547529  600           0.5477187053 
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 229, in <module>
+    for x,y in next(train_minibatches_iterator)]
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/fast_data_loader.py", line 43, in __iter__
+    yield next(self._infinite_iterator)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1295, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1133, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/queues.py", line 122, in get
+    return _ForkingPickler.loads(res)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/multiprocessing/reductions.py", line 307, in rebuild_storage_fd
+    fd = df.detach()
+         ^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/resource_sharer.py", line 57, in detach
+    with _resource_sharer.get_connection(self._id) as conn:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/resource_sharer.py", line 86, in get_connection
+    c = Client(address, authkey=process.current_process().authkey)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 507, in Client
+    answer_challenge(c, authkey)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 751, in answer_challenge
+    message = connection.recv_bytes(256)         # reject large message
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 215, in recv_bytes
+    buf = self._recv_bytes(maxlength)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 413, in _recv_bytes
+    buf = self._recv(4)
+          ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 378, in _recv
+    chunk = read(handle, remaining)
+            ^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Set self.clip_model.parameters.reguires_grad = False!
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.1687279152  0.1625441696  0.0296470588  0.0320150659  0.0064737243  0.0045731707  0.1007034432  0.0859259259  0.0000000000  2.7728207111  0             1.9464280605 
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 228, in <module>
+    minibatches_device = [(x.to(device), y.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 228, in <listcomp>
+    minibatches_device = [(x.to(device), y.to(device))
+                           ^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Set self.clip_model.parameters.reguires_grad = False!
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.9946996466  0.9929328622  0.6461176471  0.6290018832  0.7159177456  0.7225609756  0.6927064050  0.7007407407  0.0000000000  2.3441479206  0             2.3150455952 
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 235, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 228, in update
+    loss.backward()
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Set self.clip_model.parameters.reguires_grad = False!
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 235, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 208, in update
+    print(image_features.shape())
+          ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'list' object has no attribute 'shape'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Set self.clip_model.parameters.reguires_grad = False!
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 235, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 213, in update
+    mean_domain_features = [feature.mean(dim=0, keepdim=True) for feature in domain_features]
+          ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'torch.Size' object is not callable
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Set self.clip_model.parameters.reguires_grad = False!
+torch.Size([96, 512])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 252, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 115, in accuracy
+    for x, y in loader:
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/fast_data_loader.py", line 70, in __iter__
+    yield next(self._infinite_iterator)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1295, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1133, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/queues.py", line 113, in get
+    if not self._poll(timeout):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 256, in poll
+    return self._poll(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 423, in _poll
+    r = wait([self], timeout)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 930, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Set self.clip_model.parameters.reguires_grad = False!
+torch.Size([1, 8192])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 252, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 118, in accuracy
+    p = network.predict(x)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 255, in predict
+    mean_domain_feature = torch.mean(domain_feature, dim=0, keepdim=True).repeat_interleave(len(self.hparams['class_names']), dim=0)
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DPLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Set self.clip_model.parameters.reguires_grad = False!
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+torch.Size([15, 512])
+torch.Size([96, 512])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 252, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 115, in accuracy
+    for x, y in loader:
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/fast_data_loader.py", line 70, in __iter__
+    yield next(self._infinite_iterator)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1295, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1133, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/queues.py", line 113, in get
+    if not self._poll(timeout):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 256, in poll
+    return self._poll(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 423, in _poll
+    r = wait([self], timeout)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 930, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CDANN
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 5e-05
+	lr_d: 5e-05
+	lr_g: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 256
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         gen_loss      step          step_time    
+0.2791519435  0.2650176678  0.4254117647  0.3804143126  0.3229246002  0.3170731707  0.2273232136  0.2237037037  0.0000000000  0.7152822018  0             9.1125497818 
+disc_loss     env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         gen_loss      step          step_time    
+0.8477322817  0.9885159011  0.9929328622  0.7600000000  0.7457627119  0.8309215537  0.7942073171  0.8715290633  0.8400000000  8.4805653710  -0.191202843  300           0.5278597061 
+0.8402747385  0.9717314488  0.9681978799  0.7891764706  0.7777777778  0.8175932978  0.7606707317  0.8548685672  0.8237037037  16.961130742  -0.339394775  600           0.5373371164 
+0.9339055077  0.9567137809  0.9681978799  0.7910588235  0.7853107345  0.8271134806  0.7423780488  0.8407997038  0.8044444444  25.441696113  -0.391073063  900           0.5383317351 
+1.0234363898  0.9196113074  0.9363957597  0.7289411765  0.6760828625  0.8175932978  0.7301829268  0.8459829693  0.7807407407  33.922261484  -0.469219646  1200          0.5407220618 
+2.4355844907  0.8957597173  0.9045936396  0.6748235294  0.6421845574  0.7383853770  0.6935975610  0.7871158830  0.7377777778  42.402826855  -0.775957479  1500          0.5447283165 
+6.9458594573  0.8639575972  0.8763250883  0.7388235294  0.6836158192  0.7635186596  0.6920731707  0.8037763791  0.7437037037  50.883392226  -0.739626876  1800          0.5503757580 
+16.416858764  0.8674911661  0.8621908127  0.7562352941  0.7495291902  0.6964965727  0.6646341463  0.7397260274  0.6948148148  59.363957597  3.3202651894  2100          0.5504004971 
+22.939546881  0.8171378092  0.8127208481  0.7247058824  0.7099811676  0.7661843107  0.7027439024  0.6923361718  0.6518518519  67.844522968  2.6220241074  2400          0.5571213579 
+2.7296414618  0.7296819788  0.7385159011  0.7176470588  0.6854990584  0.6629855293  0.6356707317  0.6638282118  0.6637037037  76.325088339  0.1994620184  2700          0.5500527883 
+45.319818505  0.6581272085  0.6537102473  0.5604705882  0.5762711864  0.5129474486  0.4771341463  0.5449833395  0.4874074074  84.805653710  -19.51519054  3000          0.5492240731 
+68.184312702  0.8030035336  0.8233215548  0.6917647059  0.7080979284  0.6667936024  0.6463414634  0.7019622362  0.6755555556  93.286219081  11.775784054  3300          0.5495746160 
+768.90063772  0.8038869258  0.8233215548  0.5369411765  0.5593220339  0.6119573496  0.5884146341  0.5975564606  0.5881481481  101.76678445  -259.9144228  3600          0.5536185789 
+447.35045111  0.5715547703  0.5865724382  0.5552941176  0.5028248588  0.5647372430  0.5060975610  0.5820066642  0.5496296296  110.24734982  148.95567327  3900          0.5519415236 
+85.363972293  0.6775618375  0.6431095406  0.7068235294  0.6930320151  0.6732673267  0.6676829268  0.6475379489  0.6118518519  118.72791519  15.384180312  4200          0.5534651160 
+622.94960226  0.5786219081  0.5689045936  0.7021176471  0.6892655367  0.5997715156  0.5792682927  0.6708626435  0.6414814815  127.20848056  378.16934259  4500          0.5544219343 
+533.73285237  0.2800353357  0.3250883392  0.4677647059  0.4858757062  0.3057882711  0.3201219512  0.4927804517  0.4800000000  135.68904593  1083.6470231  4800          0.5574490237 
+996.09573339  0.2579505300  0.2614840989  0.5110588235  0.5235404896  0.4036557502  0.3841463415  0.3065531285  0.3111111111  141.34275618  -10.26339675  5000          0.5526507258 
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DANN
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 5e-05
+	lr_d: 5e-05
+	lr_g: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 256
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         gen_loss      step          step_time    
+0.2747349823  0.2650176678  0.4225882353  0.3879472693  0.3236862148  0.3155487805  0.2302850796  0.2148148148  0.0000000000  0.7302803993  0             3.0806667805 
+disc_loss     env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         gen_loss      step          step_time    
+1.0340954276  0.9858657244  0.9823321555  0.7538823529  0.7495291902  0.8149276466  0.7743902439  0.8570899667  0.8370370370  8.4805653710  -0.346029655  300           0.5269889887 
+1.0373862445  0.9673144876  0.9681978799  0.7910588235  0.7815442561  0.8099771516  0.7423780488  0.8567197334  0.8296296296  16.961130742  -0.511504647  600           0.5288330889 
+1.0518160001  0.9814487633  0.9823321555  0.7755294118  0.7758945386  0.8412033511  0.7713414634  0.8681969641  0.8192592593  25.441696113  -0.575481120  900           0.5420341539 
+1.0713032603  0.9372791519  0.9540636042  0.8018823529  0.7683615819  0.8842345773  0.7865853659  0.8844872270  0.8237037037  33.922261484  -0.617840248  1200          0.5645712455 
+1.1288823072  0.9779151943  0.9681978799  0.7110588235  0.6629001883  0.7943640518  0.7042682927  0.8637541651  0.8059259259  42.402826855  -0.674710462  1500          0.5701526070 
+1.1494704382  0.9717314488  0.9681978799  0.8225882353  0.7758945386  0.8857578065  0.8109756098  0.9196593854  0.8459259259  50.883392226  -0.669056093  1800          0.5657355038 
+1.1346969875  0.9920494700  0.9858657244  0.8145882353  0.7457627119  0.8975628332  0.7728658537  0.9129951870  0.8251851852  59.363957597  -0.712314206  2100          0.5666930072 
+1.2629350781  0.9726148410  0.9787985866  0.8263529412  0.7796610169  0.8343488195  0.7256097561  0.9085523880  0.8281481481  67.844522968  -0.735060298  2400          0.5690000486 
+1.2880346338  0.9796819788  0.9717314488  0.8310588235  0.7664783427  0.9059405941  0.7865853659  0.9137356535  0.8207407407  76.325088339  -0.733211478  2700          0.5708391865 
+1.7452904328  0.9637809187  0.9717314488  0.7703529412  0.7118644068  0.8610053313  0.7530487805  0.8644946316  0.7911111111  84.805653710  -0.388462936  3000          0.5705004501 
+1.5006445003  0.9143109541  0.9187279152  0.7378823529  0.6779661017  0.7113480579  0.6387195122  0.8293224732  0.7481481481  93.286219081  -0.652946664  3300          0.5652285067 
+1.3183962456  0.9372791519  0.9328621908  0.7694117647  0.7175141243  0.8655750190  0.7560975610  0.8793039615  0.7777777778  101.76678445  -0.675406967  3600          0.5728720697 
+15.229522525  0.9151943463  0.9187279152  0.7581176471  0.7137476460  0.8175932978  0.7347560976  0.8089596446  0.7437037037  110.24734982  -2.399774587  3900          0.5708124725 
+2.3952628938  0.8012367491  0.8127208481  0.7124705882  0.6459510358  0.7996953542  0.7256097561  0.7682339874  0.7244444444  118.72791519  0.7295973877  4200          0.5697975969 
+14.045635781  0.8277385159  0.8127208481  0.6098823529  0.6026365348  0.7281035796  0.6951219512  0.6016290263  0.5688888889  127.20848056  2.3641176518  4500          0.5778627849 
+3.4653967690  0.9602473498  0.9646643110  0.7383529412  0.6892655367  0.8507235339  0.7560975610  0.8885597927  0.7807407407  135.68904593  -1.021336261  4800          0.5657767685 
+1.8838084531  0.9761484099  0.9787985866  0.8291764706  0.7495291902  0.8838537700  0.7576219512  0.9037393558  0.8251851852  141.34275618  -0.270049198  5000          0.5618484843 
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DANN
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [1]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 5e-05
+	lr_d: 5e-05
+	lr_g: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 256
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [1]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 190, in <module>
+    algorithm.to(device)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1145, in to
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 797, in _apply
+    module._apply(fn)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 797, in _apply
+    module._apply(fn)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 797, in _apply
+    module._apply(fn)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 820, in _apply
+    param_applied = fn(param)
+                    ^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1143, in convert
+    return t.to(device, dtype if t.is_floating_point() or t.is_complex() else None, non_blocking)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DANN
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [1]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 5e-05
+	lr_d: 5e-05
+	lr_g: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 256
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [1]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         gen_loss      step          step_time    
+0.5026501767  0.4946996466  0.3214117647  0.3088512241  0.3731911653  0.3399390244  0.2587930396  0.2592592593  0.0000000000  0.6850771904  0             2.7856163979 
+disc_loss     env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         gen_loss      step          step_time    
+1.0706101020  0.9964664311  0.9893992933  0.6334117647  0.6120527307  0.8160700685  0.7774390244  0.8633839319  0.8429629630  8.4805653710  -0.626675980  300           0.3436806885 
+1.0843243742  0.9982332155  0.9929328622  0.6545882353  0.6421845574  0.8651942117  0.7728658537  0.8952239911  0.8533333333  16.961130742  -0.771466512  600           0.3461150463 
+1.3843457015  0.9893992933  0.9929328622  0.6272941176  0.6045197740  0.8484386900  0.7621951220  0.8674564976  0.8325925926  25.441696113  -0.879482049  900           0.3447481592 
+1.3577525759  0.9302120141  0.9293286219  0.5802352941  0.5630885122  0.6561309977  0.6158536585  0.7771195853  0.7540740741  33.922261484  -0.779780459  1200          0.3519764121 
+1.4069355901  0.9973498233  0.9893992933  0.6512941176  0.6760828625  0.7825590251  0.7515243902  0.8544983340  0.8207407407  42.402826855  -0.748280349  1500          0.3516063341 
+4.9734571497  0.9955830389  0.9893992933  0.5835294118  0.5706214689  0.7433358720  0.6844512195  0.7715660866  0.7303703704  50.883392226  -1.211442831  1800          0.3506781046 
+9.3954901950  0.9116607774  0.8904593640  0.5336470588  0.5197740113  0.6401370906  0.6143292683  0.6660496113  0.6518518519  59.363957597  1.0972334500  2100          0.3470279702 
+20.745100498  0.9178445230  0.9045936396  0.5689411765  0.5461393597  0.7162985529  0.6676829268  0.7167715661  0.6859259259  67.844522968  12.383447171  2400          0.3471449598 
+305.61701056  0.9293286219  0.9010600707  0.4037647059  0.4067796610  0.4360243717  0.4070121951  0.4672343576  0.4711111111  76.325088339  -104.5101660  2700          0.3479326550 
+3721.3724542  0.7606007067  0.7773851590  0.5849411765  0.5536723164  0.4691546078  0.4679878049  0.5423917068  0.5451851852  84.805653710  -377.7173228  3000          0.3489978488 
+2510.6209681  0.7120141343  0.7137809187  0.5948235294  0.6327683616  0.4847677075  0.4954268293  0.5053683821  0.5081481481  93.286219081  515.48960755  3300          0.3478911964 
+11968.274659  0.7376325088  0.7420494700  0.4809411765  0.4896421846  0.4626808835  0.4390243902  0.5012958164  0.4903703704  101.76678445  -591.5477311  3600          0.3482523378 
+363807.37230  0.7111307420  0.6890459364  0.4908235294  0.5160075330  0.5156130998  0.5076219512  0.4261384672  0.4459259259  110.24734982  83633.514363  3900          0.3471862809 
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 338, in update
+    return {'disc_loss': disc_loss.item()}
+                         ^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DANN
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 5e-05
+	lr_d: 5e-05
+	lr_g: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 256
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+ViT-B/16
+Using ViT-B/16...
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 307, in update
+    all_z = self.featurizer(all_x)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/networks.py", line 256, in forward
+    return self.clip_model.encode_image(x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 341, in encode_image
+    return self.visual(image.type(self.dtype))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 232, in forward
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 203, in forward
+    return self.resblocks(x)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 191, in forward
+    x = x + self.mlp(self.ln_2(x))
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 222.00 MiB (GPU 0; 23.62 GiB total capacity; 5.79 GiB already allocated; 106.25 MiB free; 5.91 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DANN
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [1]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 5e-05
+	lr_d: 5e-05
+	lr_g: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 256
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [1]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+ViT-B/16
+Using ViT-B/16...
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 307, in update
+    all_z = self.featurizer(all_x)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/networks.py", line 256, in forward
+    return self.clip_model.encode_image(x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 341, in encode_image
+    return self.visual(image.type(self.dtype))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 232, in forward
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 203, in forward
+    return self.resblocks(x)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 191, in forward
+    x = x + self.mlp(self.ln_2(x))
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 222.00 MiB (GPU 0; 23.62 GiB total capacity; 5.79 GiB already allocated; 106.25 MiB free; 5.91 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DANN
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [2]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 5e-05
+	lr_d: 5e-05
+	lr_g: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 256
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [2]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 110, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 240, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 214, in __init__
+    clip_transform = clip.load(hparams['clip_backbone'])[1]
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/clip.py", line 129, in load
+    model = torch.jit.load(opened_file, map_location=device if jit else "cpu").eval()
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/jit/_serialization.py", line 165, in load
+    cu, f.read(), map_location, _extra_files, _restore_shapes
+        ^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DANN
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: resnet50
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: False
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 5e-05
+	lr_d: 5e-05
+	lr_g: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 256
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torchvision/models/_utils.py:208: UserWarning: The parameter 'pretrained' is deprecated since 0.13 and may be removed in the future, please use 'weights' instead.
+  warnings.warn(
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torchvision/models/_utils.py:223: UserWarning: Arguments other than a weight enum or `None` for 'weights' are deprecated since 0.13 and may be removed in the future. The current behavior is equivalent to passing `weights=ResNet50_Weights.IMAGENET1K_V1`. You can also use `weights=ResNet50_Weights.DEFAULT` to get the most up-to-date weights.
+  warnings.warn(msg)
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         gen_loss      step          step_time    
+0.2747349823  0.2650176678  0.4225882353  0.3879472693  0.3236862148  0.3155487805  0.2302850796  0.2148148148  0.0000000000  0.7302803993  0             2.4521124363 
+disc_loss     env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         gen_loss      step          step_time    
+1.0340954276  0.9858657244  0.9823321555  0.7538823529  0.7495291902  0.8149276466  0.7743902439  0.8570899667  0.8370370370  8.4805653710  -0.346029655  300           0.5191902113 
+1.0373862445  0.9673144876  0.9681978799  0.7910588235  0.7815442561  0.8099771516  0.7423780488  0.8567197334  0.8296296296  16.961130742  -0.511504647  600           0.5063405967 
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 253, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 124, in accuracy
+    batch_weights = batch_weights.to(device)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DANN
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"backbone": "clip"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 5e-05
+	lr_d: 5e-05
+	lr_g: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 256
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 110, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 240, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 213, in __init__
+    print('Using clip_transform', hparams['clip_backbone'])
+                                  ~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'clip_backbone'
+Exception ignored in: <module 'threading' from '/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/threading.py'>
+Traceback (most recent call last):
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/threading.py", line 1583, in _shutdown
+    lock.acquire()
+KeyboardInterrupt: 
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DANN
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"backbone": "clip"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 5e-05
+	lr_d: 5e-05
+	lr_g: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 256
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 110, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 240, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 213, in __init__
+    print('Using clip_transform', hparams['clip_backbone'])
+                                  ~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'clip_backbone'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: DANN
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 5e-05
+	lr_d: 5e-05
+	lr_g: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 256
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+ViT-B/16
+Using ViT-B/16...
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 307, in update
+    all_z = self.featurizer(all_x)
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/networks.py", line 256, in forward
+    return self.clip_model.encode_image(x)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 341, in encode_image
+    return self.visual(image.type(self.dtype))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 232, in forward
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 203, in forward
+    return self.resblocks(x)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 191, in forward
+    x = x + self.mlp(self.ln_2(x))
+            ^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 222.00 MiB (GPU 0; 23.62 GiB total capacity; 5.79 GiB already allocated; 105.75 MiB free; 5.91 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CLPS
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 183, in <module>
+    algorithm_class = algorithms.get_algorithm_class(args.algorithm)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 40, in get_algorithm_class
+    raise NotImplementedError("Algorithm not found: {}".format(algorithm_name))
+NotImplementedError: Algorithm not found: CLPS
+WARNING:root:The WILDS package is out of date. Your version is 1.2.2, while the latest version is 2.0.0.
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	prompt: class_name
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Setting step to 1...
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.9991166078  1.0000000000  0.6992941176  0.7080979284  0.7364813404  0.7317073171  0.8578304332  0.8725925926  0.0000000000  0.0000000000  0             0.0992636681 
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 164, in __init__
+    self.prompt_generator = CoCoOpPromptLearner()
+                            ^^^^^^^^^^^^^^^^^^^^^
+TypeError: CoCoOpPromptLearner.__init__() missing 4 required positional arguments: 'input_shape', 'num_classes', 'num_domains', and 'hparams'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 164, in __init__
+    self.prompt_generator = CoCoOpPromptLearner(input_shape, num_classes, num_domains, hparams)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 228, in __init__
+    super(DPLCLIP, self).__init__(input_shape, num_classes, num_domains, hparams)
+    ^^^^^^^^^^^^^^^^^^^^
+TypeError: super(type, obj): obj must be an instance or subtype of type
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 166, in __init__
+    self.dtype = self.clip.dtype
+                 ^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'CoCoOpCLIP' object has no attribute 'clip'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 166, in __init__
+    self.dtype = self.clip.dtype
+                 ^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'CoCoOpCLIP' object has no attribute 'clip'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 169, in __init__
+    [self.prompt_generator.meta_net.parameters(), self.prompt_generator.ctx.parameters()],
+                                                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Parameter' object has no attribute 'parameters'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 171, in __init__
+    momentum=self.hparams["momentum"]
+             ~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'momentum'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 83, in <module>
+    hparams = hparams_registry.default_hparams(args.algorithm, args.dataset)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/hparams_registry.py", line 147, in default_hparams
+    _hparams(algorithm, dataset, 0).items()}
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/hparams_registry.py", line 107, in _hparams
+    _hparam('weight_decay', 0., lambda r: 0.)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/hparams_registry.py", line 21, in _hparam
+    assert(name not in hparams)
+           ^^^^^^^^^^^^^^^^^^^
+AssertionError
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 168, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 512, in add_param_group
+    raise TypeError("optimizer can only optimize Tensors, "
+TypeError: optimizer can only optimize Tensors, but one of the params is Module.parameters
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 175, in update
+    all_x = [data[0].cuda().float() for data in minibatches]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 175, in <listcomp>
+    all_x = [data[0].cuda().float() for data in minibatches]
+             ^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/cuda/__init__.py", line 247, in _lazy_init
+    torch._C._cuda_init()
+RuntimeError: No CUDA GPUs are available
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 168, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 512, in add_param_group
+    raise TypeError("optimizer can only optimize Tensors, "
+TypeError: optimizer can only optimize Tensors, but one of the params is torch.nn.modules.container.Sequential
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 169, in __init__
+    (list(self.prompt_generator.meta_net.parameters()) + self.prompt_generator.ctx),
+     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~
+TypeError: can only concatenate list (not "Parameter") to list
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 168, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 515, in add_param_group
+    raise ValueError("can't optimize a non-leaf Tensor")
+ValueError: can't optimize a non-leaf Tensor
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 169, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 515, in add_param_group
+    raise ValueError("can't optimize a non-leaf Tensor")
+ValueError: can't optimize a non-leaf Tensor
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 169, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 515, in add_param_group
+    raise ValueError("can't optimize a non-leaf Tensor")
+ValueError: can't optimize a non-leaf Tensor
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 169, in __init__
+    self.prompt_generator.meta_net.parameters().requires_grad = True
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'generator' object has no attribute 'requires_grad'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 170, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 515, in add_param_group
+    raise ValueError("can't optimize a non-leaf Tensor")
+ValueError: can't optimize a non-leaf Tensor
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 175, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 512, in add_param_group
+    raise TypeError("optimizer can only optimize Tensors, "
+TypeError: optimizer can only optimize Tensors, but one of the params is Module.parameters
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 175, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 512, in add_param_group
+    raise TypeError("optimizer can only optimize Tensors, "
+TypeError: optimizer can only optimize Tensors, but one of the params is Module.parameters
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 164, in __init__
+    self.prompt_generator = CoCoOpPromptLearner(input_shape, num_classes, num_domains, hparams)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 260, in __init__
+    self.meta_net = nn.Sequential([
+                    ^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 104, in __init__
+    self.add_module(str(idx), module)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 596, in add_module
+    raise TypeError("{} is not a Module subclass".format(
+TypeError: list is not a Module subclass
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 164, in __init__
+    self.prompt_generator = CoCoOpPromptLearner(input_shape, num_classes, num_domains, hparams)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 260, in __init__
+    self.meta_net = nn.Sequential(
+                    ^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 104, in __init__
+    self.add_module(str(idx), module)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 596, in add_module
+    raise TypeError("{} is not a Module subclass".format(
+TypeError: tuple is not a Module subclass
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 182, in update
+    all_x = [data[0].self.device().float() for data in minibatches]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 182, in <listcomp>
+    all_x = [data[0].self.device().float() for data in minibatches]
+             ^^^^^^^^^^^^
+AttributeError: 'Tensor' object has no attribute 'self'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 170, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 515, in add_param_group
+    raise ValueError("can't optimize a non-leaf Tensor")
+ValueError: can't optimize a non-leaf Tensor
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 170, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 515, in add_param_group
+    raise ValueError("can't optimize a non-leaf Tensor")
+ValueError: can't optimize a non-leaf Tensor
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 175, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 178, in __init__
+    raise TypeError("params argument given to the optimizer should be "
+TypeError: params argument given to the optimizer should be an iterable of Tensors or dicts, but got torch.FloatTensor
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 182, in update
+    all_x = [data[0].self.device().float() for data in minibatches]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 182, in <listcomp>
+    all_x = [data[0].self.device().float() for data in minibatches]
+             ^^^^^^^^^^^^
+AttributeError: 'Tensor' object has no attribute 'self'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 182, in update
+    all_x = [data[0].self.device().float() for data in minibatches]
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 182, in <listcomp>
+    all_x = [data[0].self.device().float() for data in minibatches]
+             ^^^^^^^^^^^^
+AttributeError: 'Tensor' object has no attribute 'self'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 192, in update
+    ctx = ctx.permute(1, 0, 2, 3)
+          ^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: permute(sparse_coo): number of dimensions in the tensor input does not match the length of the desired ordering of dimensions i.e. input.dim() = 3 is not equal to len(dims) = 4
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 254, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 118, in accuracy
+    p = network.predict(x)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 227, in predict
+    domain_feature = self.network(image_feature)
+                     ^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1614, in __getattr__
+    raise AttributeError("'{}' object has no attribute '{}'".format(
+AttributeError: 'CoCoOpCLIP' object has no attribute 'network'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 254, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 118, in accuracy
+    p = network.predict(x)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 223, in predict
+    image_feature = self.clip_model.encode_image(x)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 341, in encode_image
+    return self.visual(image.type(self.dtype))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 232, in forward
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 203, in forward
+    return self.resblocks(x)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 190, in forward
+    x = x + self.attention(self.ln_1(x))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 187, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 5188, in multi_head_attention_forward
+    q, k, v = _in_projection_packed(query, key, value, in_proj_weight, in_proj_bias)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 4765, in _in_projection_packed
+    proj = linear(q, w, b)
+           ^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 5e-05
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.5600706714  0.5653710247  0.4117647059  0.3992467043  0.5099009901  0.4893292683  0.5494261385  0.5377777778  0.0000000000  1.3760367632  0             3.0747578144 
+0.7614840989  0.7455830389  0.5731764706  0.5536723164  0.6207159177  0.5807926829  0.6323583858  0.6562962963  8.4805653710  0.7919628300  300           0.4437368202 
+0.8206713781  0.8056537102  0.5948235294  0.5894538606  0.6325209444  0.5884146341  0.6590151796  0.6888888889  16.961130742  0.6573661895  600           0.4451538436 
+0.8489399293  0.8445229682  0.6051764706  0.6158192090  0.6439451637  0.6082317073  0.6775268419  0.7081481481  25.441696113  0.6304748643  900           0.4370550410 
+0.8701413428  0.8798586572  0.6207058824  0.6139359699  0.6538461538  0.6280487805  0.6915957053  0.7259259259  33.922261484  0.6116706348  1200          0.4402727890 
+0.9028268551  0.8975265018  0.6338823529  0.6252354049  0.6656511805  0.6493902439  0.7145501666  0.7318518519  42.402826855  0.6042753930  1500          0.4396988312 
+0.9169611307  0.9081272085  0.6550588235  0.6421845574  0.6782178218  0.6722560976  0.7282487967  0.7496296296  50.883392226  0.5935157572  1800          0.4383070954 
+0.9293286219  0.9151943463  0.6583529412  0.6516007533  0.6862147753  0.6783536585  0.7345427619  0.7525925926  59.363957597  0.5856123381  2100          0.4390215890 
+0.9346289753  0.9187279152  0.6635294118  0.6629001883  0.6911652704  0.6814024390  0.7382450944  0.7540740741  67.844522968  0.5780590340  2400          0.4382510877 
+0.9372791519  0.9222614841  0.6672941176  0.6647834275  0.6980198020  0.6829268293  0.7445390596  0.7600000000  76.325088339  0.5629629481  2700          0.4460424081 
+0.9363957597  0.9293286219  0.6701176471  0.6741996234  0.6991622239  0.6814024390  0.7437985931  0.7644444444  84.805653710  0.5641348299  3000          0.4408245047 
+0.9390459364  0.9257950530  0.6720000000  0.6723163842  0.6999238385  0.6875000000  0.7482413921  0.7688888889  93.286219081  0.5612948867  3300          0.4312407978 
+0.9408127208  0.9293286219  0.6743529412  0.6817325800  0.7041127190  0.6890243902  0.7515734913  0.7762962963  101.76678445  0.5545234728  3600          0.4422986118 
+0.9416961131  0.9293286219  0.6748235294  0.6817325800  0.7044935263  0.6905487805  0.7512032581  0.7733333333  110.24734982  0.5591427666  3900          0.4464870334 
+0.9425795053  0.9363957597  0.6743529412  0.6836158192  0.7075399848  0.6905487805  0.7530544243  0.7733333333  118.72791519  0.5543321248  4200          0.4433058794 
+0.9434628975  0.9399293286  0.6734117647  0.6854990584  0.7105864433  0.6890243902  0.7512032581  0.7718518519  127.20848056  0.5563286760  4500          0.4438060435 
+0.9434628975  0.9469964664  0.6729411765  0.6836158192  0.7090632140  0.6890243902  0.7530544243  0.7762962963  135.68904593  0.5482026912  4800          0.4446667560 
+0.9443462898  0.9469964664  0.6734117647  0.6854990584  0.7113480579  0.6920731707  0.7545353573  0.7733333333  141.34275618  0.5336151531  5000          0.4454899967 
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.5945229682  0.5936395760  0.4814117647  0.4595103578  0.5144706778  0.5274390244  0.5568308034  0.5674074074  0.0000000000  1.3760386705  0             1.4529082775 
+0.9408127208  0.9399293286  0.6767058824  0.7024482109  0.7235338919  0.7073170732  0.7567567568  0.7718518519  8.4805653710  0.5740692938  300           0.4529184484 
+0.9593639576  0.9469964664  0.6781176471  0.6873822976  0.7345773039  0.7240853659  0.7745279526  0.7911111111  16.961130742  0.5380056226  600           0.4504019260 
+0.9743816254  0.9717314488  0.6847058824  0.6911487759  0.7528560548  0.7271341463  0.7915586820  0.8088888889  25.441696113  0.5111018291  900           0.4543985518 
+0.9770318021  0.9752650177  0.6870588235  0.6967984934  0.7520944402  0.7393292683  0.7941503147  0.8177777778  33.922261484  0.4949727360  1200          0.4562332106 
+0.9770318021  0.9681978799  0.6894117647  0.6949152542  0.7589489718  0.7408536585  0.7982228804  0.8148148148  42.402826855  0.4904989140  1500          0.3967677800 
+0.9823321555  0.9823321555  0.6889411765  0.6911487759  0.7539984768  0.7378048780  0.8000740466  0.8207407407  50.883392226  0.4779609464  1800          0.3985597229 
+0.9814487633  0.9858657244  0.6912941176  0.6986817326  0.7578065499  0.7439024390  0.8082191781  0.8266666667  59.363957597  0.4746817180  2100          0.4476964021 
+0.9832155477  0.9929328622  0.6964705882  0.6967984934  0.7608530084  0.7378048780  0.8111810441  0.8266666667  67.844522968  0.4649076784  2400          0.4457710950 
+0.9805653710  0.9823321555  0.7021176471  0.7043314501  0.7578065499  0.7301829268  0.8156238430  0.8148148148  76.325088339  0.4495931040  2700          0.4511759130 
+0.9867491166  0.9858657244  0.7035294118  0.7024482109  0.7578065499  0.7286585366  0.8141429100  0.8281481481  84.805653710  0.4516507374  3000          0.4444776678 
+0.9893992933  0.9893992933  0.7040000000  0.7062146893  0.7631378522  0.7256097561  0.8119215106  0.8355555556  93.286219081  0.4456204010  3300          0.4514728443 
+0.9858657244  0.9893992933  0.7087058824  0.7212806026  0.7638994669  0.7256097561  0.8174750093  0.8266666667  101.76678445  0.4446282206  3600          0.4501188986 
+0.9911660777  0.9964664311  0.7105882353  0.7212806026  0.7619954303  0.7271341463  0.8182154757  0.8340740741  110.24734982  0.4454416043  3900          0.4375015720 
+0.9867491166  0.9929328622  0.7162352941  0.7175141243  0.7623762376  0.7378048780  0.8167345428  0.8281481481  118.72791519  0.4413326246  4200          0.3969980717 
+0.9911660777  0.9964664311  0.7124705882  0.7231638418  0.7623762376  0.7362804878  0.8126619770  0.8251851852  127.20848056  0.4401236254  4500          0.3972209867 
+0.9876325088  0.9929328622  0.7101176471  0.7175141243  0.7677075400  0.7408536585  0.8152536098  0.8296296296  135.68904593  0.4363256457  4800          0.4413378127 
+0.9885159011  0.9964664311  0.7218823529  0.7193973635  0.7677075400  0.7545731707  0.8208071085  0.8266666667  141.34275618  0.4229005443  5000          0.4483230639 
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"backbone": "clip"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [1]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [1]
+	weight_decay: 0.0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 240, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 213, in __init__
+    print('Using clip_transform', hparams['clip_backbone'])
+                                  ~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'clip_backbone'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"backbone": "clip"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [2]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [2]
+	weight_decay: 0.0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 240, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 213, in __init__
+    print('Using clip_transform', hparams['clip_backbone'])
+                                  ~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'clip_backbone'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CoCoOpCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"backbone": "clip"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [3]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [3]
+	weight_decay: 0.0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 240, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 213, in __init__
+    print('Using clip_transform', hparams['clip_backbone'])
+                                  ~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'clip_backbone'
