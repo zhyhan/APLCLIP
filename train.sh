@@ -1,6 +1,6 @@
 #!/bin/bash
-#SBATCH --job-name=CoCoOpCLIP          # Job name
-#SBATCH --output=output.%A_%a.txt   # Standard output and error log
+#SBATCH --job-name=test          # Job name
+#SBATCH --output=output.txt   # Standard output and error log.%A_%a
 #SBATCH --nodes=1                   # Run all processes on a single node    
 #SBATCH --ntasks=1                  # Run on a single CPU
 #SBATCH --mem=40G                   # Total RAM to be used
@@ -13,31 +13,31 @@
 python -m domainbed.scripts.train\
        --data_dir ~/dataset\
        --output_dir ./logs\
-       --algorithm CoCoOpCLIP\
+       --algorithm APLCLIP\
        --dataset VLCS\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
        --test_envs 0
 
-python -m domainbed.scripts.train\
-       --data_dir ~/dataset\
-       --output_dir ./logs\
-       --algorithm CoCoOpCLIP\
-       --dataset VLCS\
-       --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
-       --test_envs 1
+# python -m domainbed.scripts.train\
+#        --data_dir ~/dataset\
+#        --output_dir ./logs\
+#        --algorithm APLCLIP\
+#        --dataset VLCS\
+#        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
+#        --test_envs 1
 
-python -m domainbed.scripts.train\
-       --data_dir ~/dataset\
-       --output_dir ./logs\
-       --algorithm CoCoOpCLIP\
-       --dataset VLCS\
-       --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
-       --test_envs 2
+# python -m domainbed.scripts.train\
+#        --data_dir ~/dataset\
+#        --output_dir ./logs\
+#        --algorithm APLCLIP\
+#        --dataset VLCS\
+#        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
+#        --test_envs 2
 
-python -m domainbed.scripts.train\
-       --data_dir ~/dataset\
-       --output_dir ./logs\
-       --algorithm CoCoOpCLIP\
-       --dataset VLCS\
-       --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
-       --test_envs 3
+# python -m domainbed.scripts.train\
+#        --data_dir ~/dataset\
+#        --output_dir ./logs\
+#        --algorithm APLCLIP\
+#        --dataset VLCS\
+#        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
+#        --test_envs 3

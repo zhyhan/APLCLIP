@@ -85,7 +85,7 @@ def _hparams(algorithm, dataset, random_seed):
     elif algorithm == "CLIP":
         _hparam('prompt', 'class_name', lambda r: r.choice(['class_name', 'domain_name']))
         
-    elif algorithm in ["DPLCLIP", "CoCoOpCLIP"]:
+    elif algorithm in ["DPLCLIP", "APLCLIP"]:
         _hparam('num_domain_tokens', 16, lambda r: int(r.choice([2, 4, 8, 16])))  # the parameter should be int, not numpy.int, due to dump into results.jsonl.
         # MLP
         _hparam('mlp_depth', 3, lambda r: int(r.choice([3])))
@@ -98,7 +98,7 @@ def _hparams(algorithm, dataset, random_seed):
     else:
         _hparam('lr', 1e-3, lambda r: 10**r.uniform(-5, -3.5))#TODO: adjust learning rate
 
-    if dataset in SMALL_IMAGES or algorithm in ["DPLCLIP", "CoCoOpCLIP"]:
+    if dataset in SMALL_IMAGES or algorithm in ["DPLCLIP", "APLCLIP"]:
         _hparam('weight_decay', 0., lambda r: 0.)
         _hparam('momentum', 0.1, lambda r: r.choice([0.0, 0.1, 0.2]))
     else:

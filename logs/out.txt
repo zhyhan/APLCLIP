@@ -4130,3 +4130,800 @@ Traceback (most recent call last):
     print('Using clip_transform', hparams['clip_backbone'])
                                   ~~~~~~~^^^^^^^^^^^^^^^^^
 KeyError: 'clip_backbone'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm_class = algorithms.get_algorithm_class(args.algorithm)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 46, in get_algorithm_class
+    raise NotImplementedError("Algorithm not found: {}".format(algorithm_name))
+NotImplementedError: Algorithm not found: APLCLIP
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 185, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 114, in __init__
+    momentum=self.hparams["momentum"]
+             ~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'momentum'
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 127, in update
+    all_acl = torch.zeros(all_y.size[0], 3, 512)
+                          ~~~~~~~~~~^^^
+TypeError: 'builtin_function_or_method' object is not subscriptable
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 136, in update
+    acl_features = torch.cat([all_acl, image_features.unsqueeze(dim=1)], dim = 1)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0! (when checking argument for argument tensors in method wrapper_CUDA_cat)
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 140, in update
+    ctx = self.prompt_generator(acl_features, ctx_only=True)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 296, in forward
+    bias = torch.cat(acps, dim=1)      # (batch, n_ctx, ctx_dim)
+           ^^^^^^^^^^^^^^^^^^^^^^
+TypeError: expected Tensor as element 0 in argument 0, but got list
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 149, in update
+    prompts = torch.cat([
+              ^^^^^^^^^^^
+RuntimeError: Sizes of tensors must match except in dimension 2. Expected size 1 but got size 96 for tensor number 1 in the list.
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+torch.Size([96, 4, 512])
+torch.Size([1, 5, 1, 512]) torch.Size([96, 5, 4, 512]) torch.Size([1, 5, 72, 512])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 149, in update
+    prompts = torch.cat([
+              ^^^^^^^^^^^
+RuntimeError: Sizes of tensors must match except in dimension 2. Expected size 1 but got size 96 for tensor number 1 in the list.
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+torch.Size([96, 4, 512])
+torch.Size([96, 5, 1, 512]) torch.Size([96, 5, 4, 512]) torch.Size([96, 5, 72, 512])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 254, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 118, in accuracy
+    p = network.predict(x)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 176, in predict
+    all_acl = torch.zeros(x.size[0], 3, 512)
+                          ~~~~~~^^^
+TypeError: 'builtin_function_or_method' object is not subscriptable
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+torch.Size([96, 4, 512])
+torch.Size([96, 5, 1, 512]) torch.Size([96, 5, 4, 512]) torch.Size([96, 5, 72, 512])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 254, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 118, in accuracy
+    p = network.predict(x)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 177, in predict
+    acl_features = torch.cat([all_acl, image_feature.unsqueeze(dim=1)], dim = 1)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0! (when checking argument for argument tensors in method wrapper_CUDA_cat)
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+torch.Size([96, 4, 512])
+torch.Size([96, 5, 1, 512]) torch.Size([96, 5, 4, 512]) torch.Size([96, 5, 72, 512])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 254, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 118, in accuracy
+    p = network.predict(x)
+        ^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 177, in predict
+    acl_features = torch.cat([all_acl, image_feature.unsqueeze(dim=1)], dim = 1).cuda()
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0! (when checking argument for argument tensors in method wrapper_CUDA_cat)
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+torch.Size([96, 4, 512])
+torch.Size([96, 5, 1, 512]) torch.Size([96, 5, 4, 512]) torch.Size([96, 5, 72, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([44, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([13, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([2, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+torch.Size([64, 4, 512])
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.001
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
+0.5671378092  0.5618374558  0.4357647059  0.4124293785  0.5011424219  0.4710365854  0.5594224361  0.5614814815  0.0000000000  5.9419951439  0             2.1907575130 
