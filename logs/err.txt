@@ -1145,3 +1145,911 @@ Traceback (most recent call last):
     acl_features = torch.cat([all_acl, image_feature.unsqueeze(dim=1)], dim = 1).cuda()
                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cpu and cuda:0! (when checking argument for argument tensors in method wrapper_CUDA_cat)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 128, in update
+    all_acl = torch.cat([data[2].cuda().float() for data in minibatches])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 128, in <listcomp>
+    all_acl = torch.cat([data[2].cuda().float() for data in minibatches])
+                         ~~~~^^^
+IndexError: tuple index out of range
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 124, in update
+    print(minibatches[0].size())
+          ^^^^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'size'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 237, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 129, in update
+    all_acl = torch.cat([data[2].cuda().float() for data in minibatches])
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 129, in <listcomp>
+    all_acl = torch.cat([data[2].cuda().float() for data in minibatches])
+                         ~~~~^^^
+IndexError: tuple index out of range
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <module>
+    minibatches_device = [(x.to(device), y.to(device), z.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 231, in <listcomp>
+    for x,y,z in next(train_minibatches_iterator)]
+        ^^^^^
+ValueError: not enough values to unpack (expected 3, got 2)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <module>
+    minibatches_device = [(x.to(device), y.to(device), z.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 231, in <listcomp>
+    for x,y,z in next(train_minibatches_iterator)]
+        ^^^^^
+ValueError: not enough values to unpack (expected 3, got 2)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <module>
+    minibatches_device = [(x.to(device), y.to(device), z.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 231, in <listcomp>
+    for x,y,z in next(train_minibatches_iterator)]
+        ^^^^^
+ValueError: not enough values to unpack (expected 3, got 2)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <module>
+    minibatches_device = [(x.to(device), y.to(device), z.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 231, in <listcomp>
+    for x,y,z in next(train_minibatches_iterator)]
+        ^^^^^
+ValueError: not enough values to unpack (expected 3, got 2)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <module>
+    minibatches_device = [(x.to(device), y.to(device), z.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 231, in <listcomp>
+    for x,y,z in next(train_minibatches_iterator)]
+        ^^^^^
+ValueError: not enough values to unpack (expected 3, got 2)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <module>
+    minibatches_device = [(x.to(device), y.to(device), z.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 231, in <listcomp>
+    for x,y,z in next(train_minibatches_iterator)]
+        ^^^^^
+ValueError: not enough values to unpack (expected 3, got 2)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <module>
+    minibatches_device = [(x.to(device), y.to(device), z.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 231, in <listcomp>
+    for x,y,z in next(train_minibatches_iterator)]
+        ^^^^^
+ValueError: not enough values to unpack (expected 3, got 2)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 229, in <module>
+    minibatches_device = [(x.to(device), y.to(device), z.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <listcomp>
+    for x,y,z in next(train_minibatches_iterator)]
+        ^^^^^
+ValueError: not enough values to unpack (expected 3, got 2)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 229, in <module>
+    minibatches_device = [(x.to(device), y.to(device), z.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <listcomp>
+    for x,y,z in next(train_minibatches_iterator)]
+        ^^^^^
+ValueError: not enough values to unpack (expected 3, got 2)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 229, in <module>
+    minibatches_device = [(x.to(device), y.to(device), z.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <listcomp>
+    for x,y,z in next(train_minibatches_iterator)]
+        ^^^^^
+ValueError: not enough values to unpack (expected 3, got 2)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 323, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 161, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 204, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 93, in make_dataset
+    prompts_disc = np.load(prompts_path)
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/numpy/lib/npyio.py", line 432, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/numpy/lib/format.py", line 787, in read_array
+    raise ValueError("Object arrays cannot be loaded when "
+ValueError: Object arrays cannot be loaded when allow_pickle=False
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 324, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 162, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 205, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 94, in make_dataset
+    prompts_disc = np.load(prompts_path)
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/numpy/lib/npyio.py", line 432, in load
+    return format.read_array(fid, allow_pickle=allow_pickle,
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/numpy/lib/format.py", line 787, in read_array
+    raise ValueError("Object arrays cannot be loaded when "
+ValueError: Object arrays cannot be loaded when allow_pickle=False
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 323, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 161, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 204, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 94, in make_dataset
+    scores = prompts_disc["score"]
+             ~~~~~~~~~~~~^^^^^^^^^
+IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 324, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 162, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 205, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 95, in make_dataset
+    scores = prompts_disc["score"]
+             ~~~~~~~~~~~~^^^^^^^^^
+IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 324, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 162, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 205, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 94, in make_dataset
+    print(prompts_disc.type)
+          ^^^^^^^^^^^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'type'. Did you mean: 'dtype'?
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 324, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 162, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 205, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 95, in make_dataset
+    scores = prompts_disc["score"]
+             ~~~~~~~~~~~~^^^^^^^^^
+IndexError: only integers, slices (`:`), ellipsis (`...`), numpy.newaxis (`None`) and integer or boolean arrays are valid indices
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 325, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 163, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 206, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 94, in make_dataset
+    prompts_disc = dict(prompts_disc)
+                   ^^^^^^^^^^^^^^^^^^
+TypeError: iteration over a 0-d array
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 324, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 162, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 205, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 95, in make_dataset
+    scores = prompts_disc.get('score')
+             ^^^^^^^^^^^^^^^^
+AttributeError: 'numpy.ndarray' object has no attribute 'get'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 324, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 162, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 205, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 96, in make_dataset
+    feature = prompts_disc.item().get['feature']
+              ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+TypeError: 'builtin_function_or_method' object is not subscriptable
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 324, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 162, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 205, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 100, in make_dataset
+    prompts = feature[large_index, :]
+              ~~~~~~~^^^^^^^^^^^^^^^^
+IndexError: index 4 is out of bounds for axis 0 with size 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 328, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 166, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 209, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 101, in make_dataset
+    prompts[i,:] = feature[j, :]
+                   ~~~~~~~^^^^^^
+IndexError: index 4 is out of bounds for axis 0 with size 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 329, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 167, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 210, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 102, in make_dataset
+    prompts[i,:] = feature[j, :]
+                   ~~~~~~~^^^^^^
+IndexError: index 4 is out of bounds for axis 0 with size 4
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 332, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 170, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 213, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 105, in make_dataset
+    prompts[i,:] = feature[j, :]
+                   ~~~~~~~^^^^^^
+TypeError: list indices must be integers or slices, not tuple
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 332, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 170, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 213, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 105, in make_dataset
+    prompts[i,:] = feature[j, :]
+                   ~~~~~~~^^^^^^
+TypeError: list indices must be integers or slices, not tuple
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 229, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 332, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 170, in __init__
+    samples = self.make_dataset(self.root, class_to_idx, extensions, is_valid_file)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 213, in make_dataset
+    return make_dataset(directory, class_to_idx, extensions=extensions, is_valid_file=is_valid_file)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 105, in make_dataset
+    prompts[i,:] = feature[j, :]
+                   ~~~~~~~^^^^^^
+TypeError: list indices must be integers or slices, not tuple
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 253, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 119, in accuracy
+    p = network.predict(x, z)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 177, in predict
+    prompts = self.prompt_generator(acl_features)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 296, in forward
+    acp = self.meta_net(im_features[:, i, :]) 
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 must have the same dtype
+/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py:128: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  all_acl = torch.cat([torch.tensor(data[2]).cuda().float() for data in minibatches])
+/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py:175: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  all_acl = torch.tensor(z).cuda()
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 253, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 119, in accuracy
+    p = network.predict(x, z)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 177, in predict
+    prompts = self.prompt_generator(acl_features)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 296, in forward
+    acp = self.meta_net(im_features[:, i, :]) 
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/linear.py", line 114, in forward
+    return F.linear(input, self.weight, self.bias)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: mat1 and mat2 must have the same dtype
+/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py:134: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  all_acl = torch.cat([torch.tensor(data[2]).cuda().type_as(image_features) for data in minibatches])
+/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py:174: UserWarning: To copy construct from a tensor, it is recommended to use sourceTensor.clone().detach() or sourceTensor.clone().detach().requires_grad_(True), rather than torch.tensor(sourceTensor).
+  all_acl = torch.tensor(z).cuda().type_as(image_feature)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 114, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 512, in add_param_group
+    raise TypeError("optimizer can only optimize Tensors, "
+TypeError: optimizer can only optimize Tensors, but one of the params is dict
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 114, in __init__
+    self.optimizer = torch.optim.SGD(
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/sgd.py", line 27, in __init__
+    super().__init__(params, defaults)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 192, in __init__
+    self.add_param_group(param_group)
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/optimizer.py", line 512, in add_param_group
+    raise TypeError("optimizer can only optimize Tensors, "
+TypeError: optimizer can only optimize Tensors, but one of the params is list
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 156, in update
+    text_features = self.text_encoder(tokenized_prompts, prompts)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 312, in forward
+    x = prompts + self.positional_embedding.type(self.dtype)
+        ~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (77) must match the size of tensor b (512) at non-singleton dimension 1
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 156, in update
+    text_features = self.text_encoder(prompts, tokenized_prompts)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 312, in forward
+    x = self.positional_embedding.type(self.dtype) + prompts
+        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~
+RuntimeError: The size of tensor a (77) must match the size of tensor b (4) at non-singleton dimension 1
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 156, in update
+    text_features = self.text_encoder(prompts, tokenized_prompts)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 314, in forward
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 203, in forward
+    return self.resblocks(x)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 190, in forward
+    x = x + self.attention(self.ln_1(x))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/clip/model.py", line 187, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 5215, in multi_head_attention_forward
+    raise RuntimeError(f"The shape of the 2D attn_mask is {attn_mask.shape}, but should be {correct_2d_size}.")
+RuntimeError: The shape of the 2D attn_mask is torch.Size([77, 77]), but should be (4, 4).
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 152, in update
+    prompts = torch.cat([
+              ^^^^^^^^^^^
+RuntimeError: Sizes of tensors must match except in dimension 2. Expected size 96 but got size 5 for tensor number 1 in the list.
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 164, in update
+    text_features = text_features[:, all_y, :] #dimension = [batchsize x domains, class_num, 512]
+                    ~~~~~~~~~~~~~^^^^^^^^^^^^^
+IndexError: too many indices for tensor of dimension 2
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 164, in update
+    true_class_text_feature = torch.cat([text_features[:,i,:] for i in all_y])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 164, in <listcomp>
+    true_class_text_feature = torch.cat([text_features[:,i,:] for i in all_y])
+                                         ~~~~~~~~~~~~~^^^^^^^
+IndexError: too many indices for tensor of dimension 2
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 164, in update
+    true_class_text_feature = torch.cat([text_features[:,i,:] for i in all_y])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 164, in <listcomp>
+    true_class_text_feature = torch.cat([text_features[:,i,:] for i in all_y])
+                                         ~~~~~~~~~~~~~^^^^^^^
+IndexError: too many indices for tensor of dimension 2
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 169, in update
+    disc_input = self.grl(disc_input)
+                 ^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/networks.py", line 100, in forward
+    coeff = np.float(
+            ^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/numpy/__init__.py", line 305, in __getattr__
+    raise AttributeError(__former_attrs__[attr])
+AttributeError: module 'numpy' has no attribute 'float'.
+`np.float` was a deprecated alias for the builtin `float`. To avoid this error in existing code, use `float` by itself. Doing this will not modify any behavior and is safe. If you specifically wanted the numpy scalar type, use `np.float64` here.
+The aliases was originally deprecated in NumPy 1.20; for more details and guidance see the original release note at:
+    https://numpy.org/devdocs/release/1.20.0-notes.html#deprecations. Did you mean: 'cfloat'?
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 170, in update
+    disc_out = self.discriminator(disc_input)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/batchnorm.py", line 171, in forward
+    return F.batch_norm(
+           ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 2450, in batch_norm
+    return torch.batch_norm(
+           ^^^^^^^^^^^^^^^^^
+RuntimeError: running_mean should contain 96 elements not 1024
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 171, in update
+    disc_out = self.discriminator(disc_input)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/batchnorm.py", line 171, in forward
+    return F.batch_norm(
+           ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 2450, in batch_norm
+    return torch.batch_norm(
+           ^^^^^^^^^^^^^^^^^
+RuntimeError: running_mean should contain 96 elements not 1024
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 171, in update
+    disc_out = self.discriminator(disc_input)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/batchnorm.py", line 171, in forward
+    return F.batch_norm(
+           ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 2450, in batch_norm
+    return torch.batch_norm(
+           ^^^^^^^^^^^^^^^^^
+RuntimeError: running_mean should contain 96 elements not 1024
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 168, in update
+    disc_input = image_features + true_class_text_feature
+                 ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (96) must match the size of tensor b (9216) at non-singleton dimension 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 169, in update
+    disc_input = image_features + true_class_text_feature
+                 ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (96) must match the size of tensor b (9216) at non-singleton dimension 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 169, in update
+    disc_input = image_features + true_class_text_feature
+                 ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (96) must match the size of tensor b (9216) at non-singleton dimension 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 168, in update
+    disc_input = image_features + true_class_text_feature
+                 ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (96) must match the size of tensor b (9216) at non-singleton dimension 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 169, in update
+    disc_input = image_features + true_class_text_feature
+                 ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (96) must match the size of tensor b (9216) at non-singleton dimension 0
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 166, in update
+    true_class_text_feature = torch.cat([true_class_text_feature[i,all_y[i],:] for i in range(true_class_text_feature.size())])
+                                                                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: 'torch.Size' object cannot be interpreted as an integer
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 169, in update
+    disc_input = image_features + true_class_text_feature
+                 ~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~~~~
+RuntimeError: The size of tensor a (512) must match the size of tensor b (49152) at non-singleton dimension 1
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 166, in update
+    true_class_text_feature = torch.cat([true_class_text_feature[i,all_y[i],:].unsqueenze(0) for i in range(true_class_text_feature.size()[0])])
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 166, in <listcomp>
+    true_class_text_feature = torch.cat([true_class_text_feature[i,all_y[i],:].unsqueenze(0) for i in range(true_class_text_feature.size()[0])])
+                                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'Tensor' object has no attribute 'unsqueenze'. Did you mean: 'unsqueeze'?
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 177, in update
+    disc_loss = F.cross_entropy(disc_out, disc_labels)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 3029, in cross_entropy
+    return torch._C._nn.cross_entropy_loss(input, target, weight, _Reduction.get_enum(reduction), ignore_index, label_smoothing)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Expected all tensors to be on the same device, but found at least two devices, cuda:0 and cpu! (when checking argument for argument target in method wrapper_CUDA_nll_loss_forward)

@@ -47,5 +47,5 @@ Set self.clip_model.parameters.reguires_grad = False!
 Set self.clip_model.parameters.reguires_grad = False!
 Initial context: "a photo of a"
 Number of context words (tokens): 4
-env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         loss          step          step_time    
-0.5671378092  0.5618374558  0.4357647059  0.4124293785  0.5011424219  0.4710365854  0.5594224361  0.5614814815  0.0000000000  5.9419951439  0             2.1907575130 
+classificati  disc_loss     env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         step          step_time    
+7.4593710899  1.1793643236  0.1687279152  0.1625441696  0.0296470588  0.0320150659  0.0064737243  0.0045731707  0.1007034432  0.0859259259  0.0000000000  0             3.1279110909 

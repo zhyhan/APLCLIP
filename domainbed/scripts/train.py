@@ -151,7 +151,6 @@ if __name__ == "__main__":
         out_splits.append((out, out_weights))
         if len(uda):
             uda_splits.append((uda, uda_weights))
-
     train_loaders = [InfiniteDataLoader(
         dataset=env,
         weights=env_weights,
@@ -227,8 +226,8 @@ if __name__ == "__main__":
     last_results_keys = None
     for step in range(start_step, n_steps):
         step_start_time = time.time()
-        minibatches_device = [(x.to(device), y.to(device))
-            for x,y in next(train_minibatches_iterator)]
+        minibatches_device = [(x.to(device), y.to(device), z.to(device))
+            for x,y,z in next(train_minibatches_iterator)]
         if args.task == "domain_adaptation":
             uda_device = [x.to(device)
                 for x,_ in next(uda_minibatches_iterator)]

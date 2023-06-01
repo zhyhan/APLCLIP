@@ -1,5 +1,5 @@
 #!/bin/bash
-#SBATCH --job-name=test          # Job name
+#SBATCH --job-name=APLCLIP_without_align          # Job name
 #SBATCH --output=output.txt   # Standard output and error log.%A_%a
 #SBATCH --nodes=1                   # Run all processes on a single node    
 #SBATCH --ntasks=1                  # Run on a single CPU

@@ -107,74 +107,90 @@ class APLCLIP(CLIP):
         self.dtype = self.clip_model.dtype
         self.text_encoder = TextEncoder(self.clip_model)
         self.prompt_generator.ctx.requires_grad = True
+        self.discriminator = networks.DomainDiscriminator(in_feature=self.clip_model.text_projection.shape[1], hidden_size=1024).to('cuda')
+        
+        self.grl = networks.WarmStartGradientReverseLayer(alpha=1., lo=0., hi=1., max_iters=1000, auto_step=True)
         #self.prompt_generator.meta_net.requires_grad = True
         self.optimizer = torch.optim.SGD(
-            (list(self.prompt_generator.meta_net.parameters()) + [self.prompt_generator.ctx]),
+            (list(self.prompt_generator.meta_net.parameters()) + [self.prompt_generator.ctx] + list(self.discriminator.get_parameters())),
             lr=self.hparams["lr"],
             momentum=self.hparams["momentum"]
         )
+        # self.optimizer_disc = torch.optim.SGD(
+        #     self.discriminator.get_parameters(),
+        #     lr=self.hparams["lr"],
+        #     momentum=self.hparams["momentum"]
+        # )
         # self.optimizer = torch.optim.SGD(
         #     [self.prompt_generator.ctx],
         #     lr=self.hparams["lr"],
         #     momentum=self.hparams["momentum"]
         # )
     def update(self, minibatches, unlabeled=None):
-        # minibatches = [[domain_1], [domain_2], [domain_3]]
-        #all_x = [data[0].cpu().float() for data in minibatches]
+
         all_x = [data[0].cuda().float() for data in minibatches]
         all_y = torch.cat([data[1].cuda().long() for data in minibatches])
-        #anticausal information size = [batch, 4, 512]
-        all_acl = torch.zeros(all_y.size()[0], 3, 512).cuda()
-        #all_acl = torch.cat([data[1].cuda().float() for data in minibatches])
-        #all_y = torch.cat([data[1].cpu().long() for data in minibatches])
-        #  encode image for each domain and concat them
+
         image_features = [self.clip_model.encode_image(x) for x in all_x]
 
         image_features = torch.cat(image_features)
 
-        #size = [batch, 5, 512]
+        all_acl = torch.cat([data[2].cuda().type_as(image_features) for data in minibatches])
         acl_features = torch.cat([all_acl, image_features.unsqueeze(dim=1)], dim = 1)
 
 
         #acl_features = acl_features.mean(dim=0, keepdim=True) #consider the computation speed
-        ctx = self.prompt_generator(acl_features, ctx_only=True)
+        ctx, image_features = self.prompt_generator(acl_features, ctx_only=True)
 
         N = 96 #每个样本都要算一个独立的text encoder, 虽然这样会减慢速度。
         #N = 1
         prefix = self.prompt_generator.token_prefix.expand(N, -1, -1, -1) # [N, n_cls, 1, dim]
         suffix = self.prompt_generator.token_suffix.expand(N, -1, -1, -1)
-        ctx = ctx.expand(self.prompt_generator.n_cls, -1, -1, -1)
+        ctx = ctx.expand(self.prompt_generator.n_cls, -1, -1, -1) #expand to class
         ctx = ctx.permute(1, 0, 2, 3)
 
-        #torch.Size([1, 5, 1, 512]) torch.Size([96, 5, 4, 512]) torch.Size([1, 5, 72, 512])
-        #print(prefix.size(), ctx.size(), suffix.size())
         prompts = torch.cat([
             prefix,
             ctx,
             suffix
         ], dim=-2)
-        
+
         prompts = prompts.reshape(N * self.prompt_generator.n_cls, -1, self.prompt_generator.ctx_dim)
 
         tokenized_prompts = self.prompt_generator.tokenized_prompts
         tokenized_prompts = tokenized_prompts.repeat(N, 1)
         text_features = self.text_encoder(prompts, tokenized_prompts)
 
+        true_class_text_feature = text_features.reshape(N, self.prompt_generator.n_cls, -1)
+        #true_class_text_feature = true_class_text_feature[:, all_y, :]
+        true_class_text_feature = torch.cat([true_class_text_feature[i,all_y[i],:].unsqueeze(0) for i in range(true_class_text_feature.size()[0])])
+
+        disc_input = image_features + true_class_text_feature
+
+        disc_input = self.grl(disc_input)
+        disc_out = self.discriminator(disc_input)
+        disc_labels = torch.cat([
+            torch.full((x.shape[0], ), i, dtype=torch.int64)
+            for i, (x, y, z) in enumerate(minibatches)
+        ]).to('cuda')
+        disc_loss = F.cross_entropy(disc_out, disc_labels)
+
         image_features = image_features / image_features.norm(dim=-1, keepdim=True)
         text_features = text_features / text_features.norm(dim=-1, keepdim=True)
         logits_per_image = self.clip_model.logit_scale.exp() * image_features @ text_features.t()
-        loss = F.cross_entropy(logits_per_image, all_y)
+        classification_loss = F.cross_entropy(logits_per_image, all_y) 
+        loss = classification_loss + disc_loss
 
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
-        return {"loss": loss.item()}
+        return {"classification_loss": classification_loss.item(), "disc_loss": disc_loss.item()}
      
-    def predict(self, x):
+    def predict(self, x, z):
         image_feature = self.clip_model.encode_image(x)
-        all_acl = torch.zeros(x.size()[0], 3, 512).cuda()
+        all_acl = z.cuda().type_as(image_feature)
         acl_features = torch.cat([all_acl, image_feature.unsqueeze(dim=1)], dim = 1)
-        prompts = self.prompt_generator(acl_features)
+        prompts, image_feature = self.prompt_generator(acl_features)
 
         image_feature = image_feature / image_feature.norm(dim=-1, keepdim=True)
 
@@ -224,10 +240,12 @@ class CoCoOpPromptLearner(CLIP):
            nn.ReLU(inplace=True),
            nn.Linear(embed_dim // 16, ctx_dim)
         )
+        self.meta_net = nn.Linear(embed_dim, embed_dim)
+        
 
         classnames = [name.replace("_", " ") for name in classnames]
         name_lens = [len(_tokenizer.encode(name)) for name in classnames]
-        prompts = [prompt_prefix + " " + name + "." for name in classnames]
+        prompts = [name + " " + "causes" for name in classnames]
 
         tokenized_prompts = torch.cat([clip.tokenize(p) for p in prompts]).to(self.device)
         with torch.no_grad():
@@ -248,8 +266,6 @@ class CoCoOpPromptLearner(CLIP):
 
         self.dtype = dtype
         self.ctx_dim = ctx_dim
-
-
     def construct_prompts(self, ctx, prefix, suffix, label=None):
         # dim0 is either batch_size (during training) or n_cls (during testing)
         # ctx: context tokens, with shape of (dim0, n_ctx, ctx_dim)
@@ -270,7 +286,6 @@ class CoCoOpPromptLearner(CLIP):
         )
 
         return prompts
-
     def reset_classnames(self, classnames, arch):
         self.n_cls = len(classnames)
         classnames = [name.replace("_", " ") for name in classnames]
@@ -300,8 +315,9 @@ class CoCoOpPromptLearner(CLIP):
         ctx = ctx.unsqueeze(0)             # (1, n_ctx, ctx_dim)
         ctx_shifted = ctx + bias           # (batch, n_ctx, ctx_dim)
         #print(ctx_shifted.size())
+        image_features = acps[-1].squeeze(1)
         if ctx_only:
-            return ctx_shifted # don't expand to n_cls, optimize one ctx for all classes
+            return ctx_shifted, image_features # don't expand to n_cls, optimize one ctx for all classes
         
         # Use instance-conditioned context tokens for all classes
         prompts = []
@@ -311,7 +327,7 @@ class CoCoOpPromptLearner(CLIP):
             prompts.append(pts_i)
         prompts = torch.stack(prompts)
         
-        return prompts
+        return prompts, image_features
 
 class TextEncoder(nn.Module):
     def __init__(self, clip_model):
@@ -334,3 +350,4 @@ class TextEncoder(nn.Module):
         x = x[torch.arange(x.shape[0]), tokenized_prompts.argmax(dim=-1)] @ self.text_projection
 
         return x
+    

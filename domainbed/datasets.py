@@ -2,11 +2,13 @@
 
 import os
 import torch
+
+from domainbed.folder import ImageFolder
+
 from PIL import Image, ImageFile
 from torchvision import transforms
 import torchvision.datasets.folder
 from torch.utils.data import TensorDataset, Subset
-from torchvision.datasets import MNIST, ImageFolder
 from torchvision.transforms.functional import rotate
 
 from wilds.datasets.camelyon17_dataset import Camelyon17Dataset
@@ -230,7 +232,7 @@ class MultipleEnvironmentImageFolder(MultipleDomainDataset):
             self.datasets.append(env_dataset)
 
         self.input_shape = (3, 224, 224,)
-        self.num_classes = len(self.datasets[-1].classes)
+        self.num_classes = len(self.datasets[-1].classes)#这里要小心
 
 class VLCS(MultipleEnvironmentImageFolder):
     CHECKPOINT_FREQ = 300
