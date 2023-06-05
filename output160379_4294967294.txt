@@ -1,0 +1,58 @@
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: APLCLIP
+	checkpoint_freq: None
+	data_dir: /home/zhongyi.han/dataset
+	dataset: VLCS
+	holdout_fraction: 0.2
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	data_augmentation: True
+	lr: 0.005
+	mlp_depth: 3
+	mlp_dropout: 0.1
+	mlp_width: 512
+	momentum: 0.1
+	nonlinear_classifier: False
+	num_domain_tokens: 16
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+Using clip_transform ViT-B/16
+Set self.clip_model.parameters.reguires_grad = False!
+Set self.clip_model.parameters.reguires_grad = False!
+Initial context: "a photo of a"
+Number of context words (tokens): 4
+class_loss    disc_loss     dist_loss     env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         step          step_time    
+7.1835193634  1.1300519705  0.8862382770  0.0971731449  0.0883392226  0.1665882353  0.1468926554  0.2307692308  0.2286585366  0.1980747871  0.2162962963  0.0000000000  0             1.9191439152 
+4.5619719315  0.6222692208  0.8956426771  0.8816254417  0.9151943463  0.7416470588  0.7683615819  0.8076923077  0.7728658537  0.8293224732  0.8162962963  8.4805653710  300           0.7313815888 
+4.2701168784  0.4359213432  0.8539206817  0.8886925795  0.9116607774  0.7600000000  0.7721280603  0.8377760853  0.7987804878  0.8644946316  0.8355555556  16.961130742  600           0.7315269589 
+4.1113827038  0.4011213355  0.8509083033  0.8948763251  0.8939929329  0.7736470588  0.7796610169  0.8358720487  0.7926829268  0.8582006664  0.8503703704  25.441696113  900           0.7319744102 
+4.0865105955  0.3841957993  0.8484960628  0.8144876325  0.8197879859  0.7849411765  0.7947269303  0.8522467631  0.8140243902  0.8700481303  0.8548148148  33.922261484  1200          0.7323909378 
+4.0087600589  0.3888501392  0.8430325963  0.8922261484  0.8833922261  0.7910588235  0.7947269303  0.8716679360  0.8323170732  0.8933728249  0.8637037037  42.402826855  1500          0.7312101189 
+3.9927489257  0.3967517642  0.8443469489  0.9240282686  0.9187279152  0.8004705882  0.8079096045  0.8739527799  0.8140243902  0.8893002592  0.8651851852  50.883392226  1800          0.7325034467 
+slurmstepd-gpu-16: error: *** JOB 160379 ON gpu-16 CANCELLED AT 2023-06-05T17:01:05 ***

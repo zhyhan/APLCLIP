@@ -136,13 +136,14 @@ class APLCLIP(CLIP):
         image_features = torch.cat(image_features)
 
         all_acl = torch.cat([data[2].cuda().type_as(image_features) for data in minibatches])
+        #all_acl = torch.zeros(image_features.size()[0], 3, 512).cuda()
         acl_features = torch.cat([all_acl, image_features.unsqueeze(dim=1)], dim = 1)
 
 
         #acl_features = acl_features.mean(dim=0, keepdim=True) #consider the computation speed
         ctx, image_features = self.prompt_generator(acl_features, ctx_only=True)
 
-        N = 96 #每个样本都要算一个独立的text encoder, 虽然这样会减慢速度。
+        N = 32*3 #每个样本都要算一个独立的text encoder, 虽然这样会减慢速度。
         #N = 1
         prefix = self.prompt_generator.token_prefix.expand(N, -1, -1, -1) # [N, n_cls, 1, dim]
         suffix = self.prompt_generator.token_suffix.expand(N, -1, -1, -1)
@@ -161,8 +162,8 @@ class APLCLIP(CLIP):
         tokenized_prompts = tokenized_prompts.repeat(N, 1)
         text_features = self.text_encoder(prompts, tokenized_prompts)
 
+        #TODO: design a good merge algorithm
         true_class_text_feature = text_features.reshape(N, self.prompt_generator.n_cls, -1)
-        #true_class_text_feature = true_class_text_feature[:, all_y, :]
         true_class_text_feature = torch.cat([true_class_text_feature[i,all_y[i],:].unsqueeze(0) for i in range(true_class_text_feature.size()[0])])
 
         disc_input = image_features + true_class_text_feature
@@ -179,15 +180,25 @@ class APLCLIP(CLIP):
         text_features = text_features / text_features.norm(dim=-1, keepdim=True)
         logits_per_image = self.clip_model.logit_scale.exp() * image_features @ text_features.t()
         classification_loss = F.cross_entropy(logits_per_image, all_y) 
-        loss = classification_loss + disc_loss
+        #通过设计margin loss，增加每个类prompt的context差距，进而学习到更具有相关的prompt token。
+        #第一步：找出正确的true_class_text_feature
+        #第二步：计算true_class_text_feature与其它text_feature的距离，计算平均距离，让这个距离越大越好
+        #第三步：计算损失
+        true_class_text_feature = true_class_text_feature / true_class_text_feature.norm(dim=-1, keepdim=True)
+        distences_per_image = true_class_text_feature@text_features.t()
+        dist_loss = distences_per_image.mean()
+
+
+        loss = classification_loss + 0.1*disc_loss - 0.01*dist_loss
 
         self.optimizer.zero_grad()
         loss.backward()
         self.optimizer.step()
-        return {"classification_loss": classification_loss.item(), "disc_loss": disc_loss.item()}
+        return {"class_loss": classification_loss.item(), "disc_loss": disc_loss.item(), "dist_loss": dist_loss.item()}
      
     def predict(self, x, z):
         image_feature = self.clip_model.encode_image(x)
+        #all_acl = torch.zeros(x.size()[0], 3, 512).cuda()
         all_acl = z.cuda().type_as(image_feature)
         acl_features = torch.cat([all_acl, image_feature.unsqueeze(dim=1)], dim = 1)
         prompts, image_feature = self.prompt_generator(acl_features)
@@ -214,6 +225,7 @@ class CoCoOpPromptLearner(CLIP):
         dtype = self.clip_model.dtype
         n_ctx = 4
         ctx_init = "a_photo_of_a"
+        #ctx_init = "cause_the_presence_of"
         ctx_position = 'end'
 
         classnames =  hparams['class_names']
@@ -228,24 +240,26 @@ class CoCoOpPromptLearner(CLIP):
         with torch.no_grad():
             embedding = self.clip_model.token_embedding(prompt).type(dtype)
         ctx_vectors = embedding[0, 1 : 1 + n_ctx, :]
-        prompt_prefix = ctx_init
+        prompt_prefix = "cause_the_presence_of"
+        prompt_prefix = prompt_prefix.replace("_", " ")
         print(f'Initial context: "{prompt_prefix}"')
         print(f"Number of context words (tokens): {n_ctx}")
         self.prompt_prefix = prompt_prefix
 
         #To optimize
-        self.ctx = nn.Parameter(ctx_vectors) # to be optimized
+        self.ctx = nn.Parameter(ctx_vectors)
         self.meta_net = nn.Sequential(
            nn.Linear(embed_dim, embed_dim // 16),
            nn.ReLU(inplace=True),
            nn.Linear(embed_dim // 16, ctx_dim)
         )
-        self.meta_net = nn.Linear(embed_dim, embed_dim)
+        #self.meta_net = nn.Linear(embed_dim, embed_dim)
         
 
         classnames = [name.replace("_", " ") for name in classnames]
         name_lens = [len(_tokenizer.encode(name)) for name in classnames]
-        prompts = [name + " " + "causes" for name in classnames]
+        #prompts = [name + " " + "causes" for name in classnames]
+        prompts = [name + " " + prompt_prefix + " " +  ctx_init + "." for name in classnames]
 
         tokenized_prompts = torch.cat([clip.tokenize(p) for p in prompts]).to(self.device)
         with torch.no_grad():
@@ -254,8 +268,8 @@ class CoCoOpPromptLearner(CLIP):
         # These token vectors will be saved when in save_model(),
         # but they should be ignored in load_model() as we want to use
         # those computed using the current class names
-        self.register_buffer("token_prefix", embedding[:, :1, :])  # SOS 句子起始标识符
-        self.register_buffer("token_suffix", embedding[:, 1 + n_ctx :, :])  # CLS, EOS #句子结束表示符
+        self.register_buffer("token_prefix", embedding[:, :1+5, :])  # SOS 句子起始标识符
+        self.register_buffer("token_suffix", embedding[:, 1+5+n_ctx:, :])  # CLS, EOS #句子结束表示符
 
         self.ctx_init = ctx_init
         self.tokenized_prompts = tokenized_prompts  # torch.Tensor

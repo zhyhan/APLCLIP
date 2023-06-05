@@ -36,7 +36,7 @@ class DomainDiscriminator(nn.Sequential):
     def __init__(self, in_feature: int, hidden_size: int, batch_norm=True):
         if batch_norm:
             super(DomainDiscriminator, self).__init__(
-                nn.Linear(in_feature, hidden_size),
+				nn.Linear(in_feature, hidden_size),
                 nn.BatchNorm1d(hidden_size),
                 nn.ReLU(),
                 nn.Linear(hidden_size, hidden_size),

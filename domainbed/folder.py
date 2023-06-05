@@ -90,26 +90,26 @@ def make_dataset(
             for fname in sorted(fnames):
                 path = os.path.join(root, fname)
                 prompts_path = os.path.join(root, fname.split(".")[0]+'.npy')
-                prompts_disc = np.load(prompts_path, allow_pickle=True)
-                scores = prompts_disc.item().get('score')
-                feature = prompts_disc.item().get('feature')
-                prompts = np.zeros((3, 512))
-                if len(scores) >= 3: #choose three
-                    large_index = sorted(range(len(scores)), key=lambda i: scores[i])[-3:]
-                    if len(scores) > len(feature):
-                        for i, j in enumerate(large_index):
-                            prompts[i,:] = feature[j-1, :]#I have made a mistake...
-                    else:
-                        for i, j in enumerate(large_index):
-                            prompts[i,:] = feature[j]
-                elif len(scores) == 2:
-                    prompts[0,:] = feature[0]
-                    prompts[1,:] = feature[1]
-                    prompts[2,:] = feature[0]
-                elif len(scores) == 1:
-                    prompts[0,:] = feature[0]
-                    prompts[1,:] = feature[0]
-                    prompts[2,:] = feature[0]
+                prompts = np.load(prompts_path, allow_pickle=True)
+                # scores = prompts_disc.item().get('score')
+                # feature = prompts_disc.item().get('feature')
+                # prompts = np.zeros((3, 512))
+                # if len(scores) >= 3: #choose three
+                #     large_index = sorted(range(len(scores)), key=lambda i: scores[i])[-3:]
+                #     if len(scores) > len(feature):
+                #         for i, j in enumerate(large_index):
+                #             prompts[i,:] = feature[j-1, :]#I have made a mistake...
+                #     else:
+                #         for i, j in enumerate(large_index):
+                #             prompts[i,:] = feature[j]
+                # elif len(scores) == 2:
+                #     prompts[0,:] = feature[0]
+                #     prompts[1,:] = feature[1]
+                #     prompts[2,:] = feature[0]
+                # elif len(scores) == 1:
+                #     prompts[0,:] = feature[0]
+                #     prompts[1,:] = feature[0]
+                #     prompts[2,:] = feature[0]
 
                 if is_valid_file(path):
                     item = path, class_index, prompts

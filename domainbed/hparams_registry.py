@@ -96,7 +96,7 @@ def _hparams(algorithm, dataset, random_seed):
     if dataset in SMALL_IMAGES or algorithm in ["DPLCLIP"]:  # DPLCLIP using SGD follower prior work.
         _hparam('lr', 1e-3, lambda r: 10**r.uniform(-4.5, -2.5))
     else:
-        _hparam('lr', 1e-3, lambda r: 10**r.uniform(-5, -3.5))#TODO: adjust learning rate
+        _hparam('lr', 5e-3, lambda r: 10**r.uniform(-4.5, -2.5))#TODO: adjust learning rate
 
     if dataset in SMALL_IMAGES or algorithm in ["DPLCLIP", "APLCLIP"]:
         _hparam('weight_decay', 0., lambda r: 0.)
