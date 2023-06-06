@@ -107,27 +107,31 @@ class APLCLIP(CLIP):
         self.dtype = self.clip_model.dtype
         self.text_encoder = TextEncoder(self.clip_model)
         self.prompt_generator.ctx.requires_grad = True
-        self.discriminator = networks.DomainDiscriminator(in_feature=self.clip_model.text_projection.shape[1], hidden_size=1024).to('cuda')
-        
-        self.grl = networks.WarmStartGradientReverseLayer(alpha=1., lo=0., hi=1., max_iters=1000, auto_step=True)
+        #self.discriminator = networks.DomainDiscriminator(in_feature=self.clip_model.text_projection.shape[1], hidden_size=1024).to('cuda')
+        self.discriminator = networks.MLP(self.clip_model.text_projection.shape[1], num_domains, self.hparams)
+        #self.grl = networks.WarmStartGradientReverseLayer(alpha=1., lo=0., hi=1., max_iters=1000, auto_step=True)
         #self.prompt_generator.meta_net.requires_grad = True
-        self.optimizer = torch.optim.SGD(
-            (list(self.prompt_generator.meta_net.parameters()) + [self.prompt_generator.ctx] + list(self.discriminator.get_parameters())),
-            lr=self.hparams["lr"],
-            momentum=self.hparams["momentum"]
-        )
-        # self.optimizer_disc = torch.optim.SGD(
-        #     self.discriminator.get_parameters(),
-        #     lr=self.hparams["lr"],
-        #     momentum=self.hparams["momentum"]
-        # )
+        self.register_buffer('update_count', torch.tensor([0]))
         # self.optimizer = torch.optim.SGD(
-        #     [self.prompt_generator.ctx],
+        #     (list(self.prompt_generator.meta_net.parameters()) + [self.prompt_generator.ctx]),
         #     lr=self.hparams["lr"],
         #     momentum=self.hparams["momentum"]
         # )
-    def update(self, minibatches, unlabeled=None):
 
+        self.gen_opt = torch.optim.Adam(
+            (list(self.prompt_generator.meta_net.parameters()) + [self.prompt_generator.ctx]),
+            lr=self.hparams["lr_g"],
+            weight_decay=self.hparams['weight_decay_g'],
+            betas=(self.hparams['beta1'], 0.9))
+        
+        self.disc_opt = torch.optim.Adam(
+            list(self.discriminator.parameters()),
+            lr=self.hparams["lr_d"],
+            weight_decay=self.hparams['weight_decay_d'],
+            betas=(self.hparams['beta1'], 0.9))
+
+    def update(self, minibatches, unlabeled=None):
+        self.update_count += 1
         all_x = [data[0].cuda().float() for data in minibatches]
         all_y = torch.cat([data[1].cuda().long() for data in minibatches])
 
@@ -168,33 +172,68 @@ class APLCLIP(CLIP):
 
         disc_input = image_features + true_class_text_feature
 
-        disc_input = self.grl(disc_input)
         disc_out = self.discriminator(disc_input)
         disc_labels = torch.cat([
             torch.full((x.shape[0], ), i, dtype=torch.int64)
             for i, (x, y, z) in enumerate(minibatches)
         ]).to('cuda')
         disc_loss = F.cross_entropy(disc_out, disc_labels)
+        disc_softmax = F.softmax(disc_out, dim=1)
+        input_grad = autograd.grad(disc_softmax[:, disc_labels].sum(),
+            [disc_input], create_graph=True)[0]
+        grad_penalty = (input_grad**2).sum(dim=1).mean(dim=0)
+        disc_loss += self.hparams['grad_penalty'] * grad_penalty
 
-        image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-        text_features = text_features / text_features.norm(dim=-1, keepdim=True)
-        logits_per_image = self.clip_model.logit_scale.exp() * image_features @ text_features.t()
-        classification_loss = F.cross_entropy(logits_per_image, all_y) 
-        #通过设计margin loss，增加每个类prompt的context差距，进而学习到更具有相关的prompt token。
-        #第一步：找出正确的true_class_text_feature
-        #第二步：计算true_class_text_feature与其它text_feature的距离，计算平均距离，让这个距离越大越好
-        #第三步：计算损失
-        true_class_text_feature = true_class_text_feature / true_class_text_feature.norm(dim=-1, keepdim=True)
-        distences_per_image = true_class_text_feature@text_features.t()
-        dist_loss = distences_per_image.mean()
+        d_steps_per_g = self.hparams['d_steps_per_g_step']
+
+        if (self.update_count.item() % (1+d_steps_per_g) < d_steps_per_g):#偶数
+
+            self.disc_opt.zero_grad()
+            disc_loss.backward()
+            self.disc_opt.step()
+            return {'disc_loss': disc_loss.item()}
+        else:#基数
+            image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+            text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+            logits_per_image = self.clip_model.logit_scale.exp() * image_features @ text_features.t()
+            classification_loss = F.cross_entropy(logits_per_image, all_y) 
+            #通过设计margin loss，增加每个类prompt的context差距，进而学习到更具有相关的prompt token。
+            #第一步：找出正确的true_class_text_feature
+            #第二步：计算true_class_text_feature与其它text_feature的距离，计算平均距离，让这个距离越大越好
+            #第三步：计算损失
+            true_class_text_feature = true_class_text_feature / true_class_text_feature.norm(dim=-1, keepdim=True)
+            distences_per_image = true_class_text_feature@text_features.t()
+            dist_loss = distences_per_image.mean()
+
+            #loss = classification_loss + 0.1*disc_loss - 0.01*dist_loss
+            gen_loss = (classification_loss +
+                        (self.hparams['lambda'] * -disc_loss) - 0.01*dist_loss)
+            self.disc_opt.zero_grad()
+            self.gen_opt.zero_grad()
+            gen_loss.backward()
+            self.gen_opt.step()
+            return {"class_loss": classification_loss.item(), "disc_loss": disc_loss.item(), "dist_loss": dist_loss.item()}
 
 
-        loss = classification_loss + 0.1*disc_loss - 0.01*dist_loss
 
-        self.optimizer.zero_grad()
-        loss.backward()
-        self.optimizer.step()
-        return {"class_loss": classification_loss.item(), "disc_loss": disc_loss.item(), "dist_loss": dist_loss.item()}
+        # image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+        # text_features = text_features / text_features.norm(dim=-1, keepdim=True)
+        # logits_per_image = self.clip_model.logit_scale.exp() * image_features @ text_features.t()
+        # classification_loss = F.cross_entropy(logits_per_image, all_y) 
+        # #通过设计margin loss，增加每个类prompt的context差距，进而学习到更具有相关的prompt token。
+        # #第一步：找出正确的true_class_text_feature
+        # #第二步：计算true_class_text_feature与其它text_feature的距离，计算平均距离，让这个距离越大越好
+        # #第三步：计算损失
+        # true_class_text_feature = true_class_text_feature / true_class_text_feature.norm(dim=-1, keepdim=True)
+        # distences_per_image = true_class_text_feature@text_features.t()
+        # dist_loss = distences_per_image.mean()
+
+        # loss = classification_loss + 0.1*disc_loss - 0.01*dist_loss
+
+        # self.optimizer.zero_grad()
+        # loss.backward()
+        # self.optimizer.step()
+        # return {"class_loss": classification_loss.item(), "disc_loss": disc_loss.item(), "dist_loss": dist_loss.item()}
      
     def predict(self, x, z):
         image_feature = self.clip_model.encode_image(x)
@@ -206,7 +245,6 @@ class APLCLIP(CLIP):
         image_feature = image_feature / image_feature.norm(dim=-1, keepdim=True)
 
         tokenized_prompts = self.prompt_generator.tokenized_prompts
-
         logit_scale = self.clip_model.logit_scale.data.exp()
         
         logits = []
@@ -259,7 +297,7 @@ class CoCoOpPromptLearner(CLIP):
         classnames = [name.replace("_", " ") for name in classnames]
         name_lens = [len(_tokenizer.encode(name)) for name in classnames]
         #prompts = [name + " " + "causes" for name in classnames]
-        prompts = [name + " " + prompt_prefix + " " +  ctx_init + "." for name in classnames]
+        prompts = [name + " " + prompt_prefix + " " + ctx_init + "." for name in classnames]
 
         tokenized_prompts = torch.cat([clip.tokenize(p) for p in prompts]).to(self.device)
         with torch.no_grad():
