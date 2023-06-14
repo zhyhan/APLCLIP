@@ -27,9 +27,9 @@ from domainbed.lib.query import Q
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Domain generalization')
-    parser.add_argument('--data_dir', type=str, default="~/dataset")
-    parser.add_argument('--dataset', type=str, default="VLCS")
-    parser.add_argument('--algorithm', type=str, default="CoCoOpCLIP")
+    parser.add_argument('--data_dir', type=str)
+    parser.add_argument('--dataset', type=str, default="RotatedMNIST")
+    parser.add_argument('--algorithm', type=str, default="ERM")
     parser.add_argument('--task', type=str, default="domain_generalization",
         help='domain_generalization | domain_adaptation')
     parser.add_argument('--hparams', type=str,
@@ -47,12 +47,12 @@ if __name__ == "__main__":
         help='Checkpoint every N steps. Default is dataset-dependent.')
     parser.add_argument('--test_envs', type=int, nargs='+', default=[0])
     parser.add_argument('--output_dir', type=str, default="train_output")
-    parser.add_argument('--holdout_fraction', type=float, default=0)#TODO: 既然都是按照这个样子来的，那么就不用改了，还是感觉有点浪费数据。
+    parser.add_argument('--holdout_fraction', type=float, default=0.2)
     parser.add_argument('--uda_holdout_fraction', type=float, default=0)
     parser.add_argument('--skip_model_save', action='store_true')
     parser.add_argument('--save_model_every_checkpoint', action='store_true')
     
-    #parser.add_argument('--clip_backbone', type=str, default="None")
+    # parser.add_argument('--clip_backbone', type=str, default="None")
     args = parser.parse_args()
 
     # If we ever want to implement checkpointing, just persist these values
@@ -105,7 +105,6 @@ if __name__ == "__main__":
         device = "cuda"
     else:
         device = "cpu"
-    #device = "cpu"
 
     if args.dataset in vars(datasets):
         dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
@@ -130,13 +129,12 @@ if __name__ == "__main__":
     for env_i, env in enumerate(dataset):
         uda = []
 
-        out, in_ = misc.split_dataset(env,#we can see that out is the validation set, and in_ is the training set.
+        out, in_ = misc.split_dataset(env,
             int(len(env) * args.holdout_fraction),
             misc.seed_hash(args.trial_seed, env_i))
-        #我猜这里是画出来一部分数据做domain adaptation，如果不划分的话是做domain Generalization: 
-        # uda is the target domain available set and in_ is the test set.
+
         if env_i in args.test_envs:
-            uda, in_ = misc.split_dataset(in_, 
+            uda, in_ = misc.split_dataset(in_,
                 int(len(in_)*args.uda_holdout_fraction),
                 misc.seed_hash(args.trial_seed, env_i))
 
@@ -151,6 +149,7 @@ if __name__ == "__main__":
         out_splits.append((out, out_weights))
         if len(uda):
             uda_splits.append((uda, uda_weights))
+
     train_loaders = [InfiniteDataLoader(
         dataset=env,
         weights=env_weights,
@@ -182,7 +181,7 @@ if __name__ == "__main__":
 
     algorithm_class = algorithms.get_algorithm_class(args.algorithm)
     algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
-        len(dataset) - len(args.test_envs), hparams)#len(dataset) - len(args.test_envs)表示leave one domain for text，使用其他的domain来学习
+        len(dataset) - len(args.test_envs), hparams)
 
     if algorithm_dict is not None:
         algorithm.load_state_dict(algorithm_dict)
@@ -226,8 +225,8 @@ if __name__ == "__main__":
     last_results_keys = None
     for step in range(start_step, n_steps):
         step_start_time = time.time()
-        minibatches_device = [(x.to(device), y.to(device), z.to(device))
-            for x,y,z in next(train_minibatches_iterator)]
+        minibatches_device = [(x.to(device), y.to(device))
+            for x,y in next(train_minibatches_iterator)]
         if args.task == "domain_adaptation":
             uda_device = [x.to(device)
                 for x,_ in next(uda_minibatches_iterator)]

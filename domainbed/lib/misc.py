@@ -96,12 +96,12 @@ def random_pairs_of_minibatches(minibatches):
     for i in range(len(minibatches)):
         j = i + 1 if i < (len(minibatches) - 1) else 0
 
-        xi, yi, zi = minibatches[perm[i]][0], minibatches[perm[i]][1], minibatches[perm[i]][2]
-        xj, yj, zj = minibatches[perm[j]][0], minibatches[perm[j]][1], minibatches[perm[j]][2]
+        xi, yi = minibatches[perm[i]][0], minibatches[perm[i]][1]
+        xj, yj = minibatches[perm[j]][0], minibatches[perm[j]][1]
 
         min_n = min(len(xi), len(xj))
 
-        pairs.append(((xi[:min_n], yi[:min_n], zi[:min_n]), (xj[:min_n], yj[:min_n]), zj[:min_n]))
+        pairs.append(((xi[:min_n], yi[:min_n]), (xj[:min_n], yj[:min_n])))
 
     return pairs
 
@@ -112,11 +112,10 @@ def accuracy(network, loader, weights, device):
 
     network.eval()
     with torch.no_grad():
-        for x, y, z in loader:
+        for x, y in loader:
             x = x.to(device)
             y = y.to(device)
-            z = z.to(device) #prompts
-            p = network.predict(x, z)
+            p = network.predict(x)
             if weights is None:
                 batch_weights = torch.ones(len(x))
             else:
