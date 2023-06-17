@@ -14,7 +14,7 @@ from .simple_tokenizer import SimpleTokenizer as _Tokenizer
 from torch.optim.lr_scheduler import CosineAnnealingLR
 
 
-import clip
+from domainbed.clip import clip
 
 _tokenizer = _Tokenizer()
 
@@ -670,20 +670,11 @@ class MetricSoftmaxAlignPatch(CLIP):
         self.featurizer = self.clip_model.visual
         self.discriminator = networks.MLP(self.clip_model.text_projection.shape[1], num_domains, self.hparams)
         self.register_buffer('update_count', torch.tensor([0]))
-        print(self.featurizer)
         for name, param in self.featurizer.named_parameters():
             param.requires_grad = True
-            #print(name)
-
-        for name, param in self.featurizer.transformer.resblocks.named_children():
-            print(name)
+        #     #print(name)
 
         params_to_update = [param for name, param in self.featurizer.named_parameters() if name.startswith('transformer.resblocks.11')]
-
-        # self.QKV_linear_weight = self.featurizer.transformer.resblocks[-1].attn.in_proj_weight
-        # self.QKV_linear_bias = self.featurizer.transformer.resblocks[-1].attn.in_proj_bias
-        # self.c_linear_weight = self.featurizer.transformer.resblocks[-1].out_proj.weight
-        # self.c_linear_bias = self.featurizer.transformer.resblocks[-1].out_proj.bias
 
 
         self.gen_opt = torch.optim.AdamW(#only update little parameters, knowledge vit structures
@@ -710,17 +701,16 @@ class MetricSoftmaxAlignPatch(CLIP):
         self.update_count += 1
         all_x = torch.cat([data[0].cuda().float() for data in minibatches])
         all_y = torch.cat([data[1].cuda().long() for data in minibatches])
+        all_index = torch.cat([data[2].cuda() for data in minibatches])
 
-        image_features = self.featurizer(all_x)
-
-        print(image_features.size())
+        image_features, mask_features = self.featurizer(all_x, all_index, train=True)
 
         #discriminator
-        disc_input = image_features
+        disc_input = mask_features
         disc_out = self.discriminator(disc_input)
         disc_labels = torch.cat([
            torch.full((x.shape[0], ), i, dtype=torch.int64)
-           for i, (x, y) in enumerate(minibatches)
+           for i, (x, _, _) in enumerate(minibatches)
         ]).to('cuda')
         disc_loss = F.cross_entropy(disc_out, disc_labels)
         disc_softmax = F.softmax(disc_out, dim=1)
@@ -751,8 +741,8 @@ class MetricSoftmaxAlignPatch(CLIP):
             self.gen_scheduler.step()
             return {"class_loss": classification_loss.item(), "disc_loss": disc_loss.item(), "lr": self.gen_opt.param_groups[0]['lr']}
      
-    def predict(self, x):
-        image_feature = self.featurizer(x)
+    def predict(self, x, z):
+        image_feature = self.featurizer(x, z)
         image_feature = image_feature / image_feature.norm(dim=-1, keepdim=True)
         logits_per_image = self.clip_model.logit_scale.exp() * image_feature @ self.text_features.t()
         return logits_per_image

@@ -143,10 +143,16 @@ def download_domain_net(data_dir):
     # Original URL: http://ai.bu.edu/M3SDA/
     full_path = stage_path(data_dir, "domain_net")
 
+    # urls = [
+    #     "http://csr.bu.edu/ftp/visda/2019/multi-source/groundtruth/clipart.zip",
+    #     "http://csr.bu.edu/ftp/visda/2019/multi-source/infograph.zip",
+    #     "http://csr.bu.edu/ftp/visda/2019/multi-source/groundtruth/painting.zip",
+    #     "http://csr.bu.edu/ftp/visda/2019/multi-source/quickdraw.zip",
+    #     "http://csr.bu.edu/ftp/visda/2019/multi-source/real.zip",
+    #     "http://csr.bu.edu/ftp/visda/2019/multi-source/sketch.zip"
+    # ]
+
     urls = [
-        "http://csr.bu.edu/ftp/visda/2019/multi-source/groundtruth/clipart.zip",
-        "http://csr.bu.edu/ftp/visda/2019/multi-source/infograph.zip",
-        "http://csr.bu.edu/ftp/visda/2019/multi-source/groundtruth/painting.zip",
         "http://csr.bu.edu/ftp/visda/2019/multi-source/quickdraw.zip",
         "http://csr.bu.edu/ftp/visda/2019/multi-source/real.zip",
         "http://csr.bu.edu/ftp/visda/2019/multi-source/sketch.zip"
@@ -169,10 +175,9 @@ def download_terra_incognita(data_dir):
     # Original URL: https://beerys.github.io/CaltechCameraTraps/
     full_path = stage_path(data_dir, "terra_incognita")
        
-    download_and_extract(
-        "https://lilablobssc.blob.core.windows.net/caltechcameratraps/eccv_18_all_images_sm.tar.gz",
-        os.path.join(full_path, "terra_incognita_images.tar.gz"))
-    
+    # download_and_extract(
+    #     "https://lilablobssc.blob.core.windows.net/caltechcameratraps/eccv_18_all_images_sm.tar.gz",
+    #     os.path.join(full_path, "terra_incognita_images.tar.gz"))
     download_and_extract(
         "https://lilablobssc.blob.core.windows.net/caltechcameratraps/eccv_18_annotations.tar.gz",
         os.path.join(full_path, "terra_incognita_annotations.tar.gz"))
@@ -185,7 +190,7 @@ def download_terra_incognita(data_dir):
     ]
 
     images_folder = os.path.join(full_path, "eccv_18_all_images_sm/")
-    annotations_file = os.path.join(full_path, "CaltechCameraTrapsECCV18.json")
+    annotations_file = "/l/users/zhongyi.han/dataset/terra_incognita/eccv_18_annotation_files/trans_test_annotations.json"#os.path.join(full_path, "caltech_images_20210113.json")
     destination_folder = full_path 
 
     stats = {}
@@ -237,8 +242,8 @@ def download_terra_incognita(data_dir):
 
                 dst_path = os.path.join(loc_cat_folder, image_fname)
                 src_path = os.path.join(images_folder, image_fname)
-
-                shutil.copyfile(src_path, dst_path)
+                if os.path.exists(src_path):
+                    shutil.copyfile(src_path, dst_path)
     
     shutil.rmtree(images_folder)
     os.remove(annotations_file)

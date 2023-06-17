@@ -46,7 +46,7 @@ def _hparams(algorithm, dataset, random_seed):
         _hparam('beta1', 0.5, lambda r: r.choice([0., 0.5]))
         _hparam('mlp_width', 512, lambda r: int(2 ** r.uniform(6, 10)))
         _hparam('mlp_depth', 3, lambda r: int(r.choice([3, 4, 5])))
-        _hparam('mlp_dropout', 0.2, lambda r: r.choice([0., 0.1, 0.5]))
+        _hparam('mlp_dropout', 0., lambda r: r.choice([0., 0.1, 0.5]))
 
     elif algorithm == "RSC":
         _hparam('rsc_f_drop_factor', 1/3, lambda r: r.uniform(0, 0.5))
@@ -126,7 +126,7 @@ def _hparams(algorithm, dataset, random_seed):
     if algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch'] and dataset in SMALL_IMAGES:
         _hparam('lr_d', 1e-3, lambda r: 10**r.uniform(-4.5, -2.5) )
     elif algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch']:
-        _hparam('lr_d', 1e-3, lambda r: 10**r.uniform(-5, -3.5) )
+        _hparam('lr_d', 5e-2, lambda r: 10**r.uniform(-5, -3.5) )
 
 
     if algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch'] and dataset in SMALL_IMAGES:
