@@ -109,7 +109,7 @@ def accuracy(network, loader, weights, device):
     correct = 0
     total = 0
     weights_offset = 0
-
+    network.ema.apply_shadow()
     network.eval()
     with torch.no_grad():
         for x, y, z in loader:
@@ -128,6 +128,7 @@ def accuracy(network, loader, weights, device):
             else:
                 correct += (p.argmax(1).eq(y).float() * batch_weights).sum().item()
             total += batch_weights.sum().item()
+    network.ema.restore()
     network.train()
 
     return correct / total

@@ -33,7 +33,7 @@ class DomainDiscriminator(nn.Sequential):
         - Outputs: :math:`(minibatch, 1)`
     """
 
-    def __init__(self, in_feature: int, hidden_size: int, batch_norm=True):
+    def __init__(self, in_feature: int, hidden_size: int, class_num: int, batch_norm=True):
         if batch_norm:
             super(DomainDiscriminator, self).__init__(
 				nn.Linear(in_feature, hidden_size),
@@ -42,7 +42,7 @@ class DomainDiscriminator(nn.Sequential):
                 nn.Linear(hidden_size, hidden_size),
                 nn.BatchNorm1d(hidden_size),
                 nn.ReLU(),
-                nn.Linear(hidden_size, 3),
+                nn.Linear(hidden_size, class_num),
             )
 
     def get_parameters(self):

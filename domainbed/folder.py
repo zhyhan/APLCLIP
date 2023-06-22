@@ -91,19 +91,11 @@ def make_dataset(
         for root, _, fnames in sorted(os.walk(target_dir, followlinks=True)):
             for fname in sorted(fnames):
                 path = os.path.join(root, fname)
-                #prompts = np.load(prompts_path, allow_pickle=True)
+                
                 if is_valid_file(path):
-                    indices = os.path.join(root, fname.split(".")[0]+'_indices.npy')
-                    indices = np.load(indices)
-                    # mask_tensor = torch.ones((197, 768), dtype=torch.bool)#true
-                    # mask_tensor[indices,:]=False
-                    # mask_tensor[0,:]=False
-                    mask_tensor = torch.zeros(197, dtype=torch.bool)#true
-                    mask_tensor[indices]=True
-                    mask_tensor[0]=True
-                    item = path, class_index, mask_tensor
+                    indices = os.path.join(root, fname.split(".")[0]+'_anticausal_indices.npy')
+                    item = path, class_index, indices
                     instances.append(item)
-
                     if target_class not in available_classes:
                         available_classes.add(target_class)
 
@@ -237,13 +229,16 @@ class DatasetFolder(VisionDataset):
         Returns:
             tuple: (sample, target) where target is class_index of the target class.
         """
-        path, target, indices = self.samples[index]
+        path, target, patch_path = self.samples[index]
+        
         sample = self.loader(path)
         if self.transform is not None:
             sample = self.transform(sample)
         if self.target_transform is not None:
             target = self.target_transform(target)
-        return sample, target, indices
+
+        patch_indices = npy_loader(patch_path)
+        return sample, target, patch_indices
 
     def __len__(self) -> int:
         return len(self.samples)
@@ -269,14 +264,22 @@ def accimage_loader(path: str) -> Any:
         # Potentially a decoding problem, fall back to PIL.Image
         return pil_loader(path)
 
+def npy_loader(path: str) -> Any:
+    indices = np.load(path)
+    #print(indices)
+    #mask_tensor = torch.zeros(197, dtype=torch.bool)#true
+    indices = torch.from_numpy(indices).to(torch.bool)
+    #mask_tensor[indices]=True
+    #mask_tensor[0]=True
+    return indices
 
 def default_loader(path: str) -> Any:
     from torchvision import get_image_backend
-
     if get_image_backend() == "accimage":
         return accimage_loader(path)
     else:
         return pil_loader(path)
+    
 
 
 class ImageFolder(DatasetFolder):

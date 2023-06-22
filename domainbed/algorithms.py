@@ -4,6 +4,7 @@ import torchvision
 import torch.nn as nn
 import torch.nn.functional as F
 import torch.autograd as autograd
+from scipy.stats import beta
 
 import copy
 import numpy as np
@@ -581,7 +582,7 @@ class MetricSoftmaxAlign(CLIP):
         super(MetricSoftmaxAlign, self).__init__(input_shape, num_classes, num_domains, hparams)
         self.dtype = self.clip_model.dtype
         self.featurizer = self.clip_model.visual
-        self.discriminator = networks.MLP(self.clip_model.text_projection.shape[1], num_domains, self.hparams)
+        self.discriminator = networks.DomainDiscriminator(self.clip_model.text_projection.shape[1], num_domains)
         self.register_buffer('update_count', torch.tensor([0]))
         #print(self.featurizer)
         for name, param in self.featurizer.named_parameters():
@@ -663,27 +664,28 @@ class MetricSoftmaxAlign(CLIP):
         logits_per_image = self.clip_model.logit_scale.exp() * image_feature @ self.text_features.t()
         return logits_per_image
     
-class MetricSoftmaxAlignPatch(CLIP):
+class MetricSoftmaxCORALPatch(CLIP):
     def __init__(self, input_shape, num_classes, num_domains, hparams):
-        super(MetricSoftmaxAlignPatch, self).__init__(input_shape, num_classes, num_domains, hparams)
+        super(MetricSoftmaxCORALPatch, self).__init__(input_shape, num_classes, num_domains, hparams)
         self.dtype = self.clip_model.dtype
         self.featurizer = self.clip_model.visual
-        self.discriminator = networks.MLP(self.clip_model.text_projection.shape[1], num_domains, self.hparams)
+        self.discriminator = networks.DomainDiscriminator(in_feature=self.clip_model.text_projection.shape[1], hidden_size=1024, class_num=num_domains).to('cuda')
+        self.grl = networks.WarmStartGradientReverseLayer(alpha=1., lo=0., hi=1., max_iters=1000, auto_step=True)
         self.register_buffer('update_count', torch.tensor([0]))
         for name, param in self.featurizer.named_parameters():
             param.requires_grad = True
-        #     #print(name)
+            #print(name)
 
-        params_to_update = [param for name, param in self.featurizer.named_parameters() if name.startswith('transformer.resblocks.11')]
-
+        self.ema = BetaEMA(self.featurizer)
+        self.ema.register()
 
         self.gen_opt = torch.optim.AdamW(#only update little parameters, knowledge vit structures
-            params_to_update,
+            list(self.featurizer.parameters()),
             lr=self.hparams["lr_g"],
             betas=(self.hparams['beta1'], 0.9))
         
         self.disc_opt = torch.optim.Adam(
-            list(self.discriminator.parameters()),
+            list(self.discriminator.get_parameters()),
             lr=self.hparams["lr_d"],
             weight_decay=self.hparams['weight_decay_d'],
             betas=(self.hparams['beta1'], 0.9))
@@ -706,43 +708,186 @@ class MetricSoftmaxAlignPatch(CLIP):
         image_features, mask_features = self.featurizer(all_x, all_index, train=True)
 
         #discriminator
-        disc_input = mask_features
+        disc_input = self.grl(mask_features)
         disc_out = self.discriminator(disc_input)
         disc_labels = torch.cat([
            torch.full((x.shape[0], ), i, dtype=torch.int64)
            for i, (x, _, _) in enumerate(minibatches)
         ]).to('cuda')
         disc_loss = F.cross_entropy(disc_out, disc_labels)
-        disc_softmax = F.softmax(disc_out, dim=1)
-        input_grad = autograd.grad(disc_softmax[:, disc_labels].sum(),
-           [disc_input], create_graph=True)[0]
-        grad_penalty = (input_grad**2).sum(dim=1).mean(dim=0)
-        disc_loss += self.hparams['grad_penalty'] * grad_penalty
+        image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+        logits_per_image = self.clip_model.logit_scale.exp() * image_features @ self.text_features.t()#self.clip_model.logit_scale.exp() = 100
 
-        d_steps_per_g = self.hparams['d_steps_per_g_step']
-        if (self.update_count.item() % (1+d_steps_per_g) < d_steps_per_g):#偶数
-            self.disc_opt.zero_grad()
-            disc_loss.backward()
-            self.disc_opt.step()
-            #self.disc_scheduler.step()
-            return {'disc_loss': disc_loss.item()}
-        else:#奇数
-            image_features = image_features / image_features.norm(dim=-1, keepdim=True)
-            #text_features = self.class_embeddings / self.class_embeddings.norm(dim=-1, keepdim=True)
-            logits_per_image = self.clip_model.logit_scale.exp() * image_features @ self.text_features.t()#self.clip_model.logit_scale.exp() = 100
+        classification_loss = F.cross_entropy(logits_per_image, all_y)
+        gen_loss = classification_loss + disc_loss
 
-            classification_loss = F.cross_entropy(logits_per_image, all_y)
-            gen_loss = (classification_loss +
-                       (self.hparams['lambda'] * -disc_loss))
-            self.disc_opt.zero_grad()
-            self.gen_opt.zero_grad()
-            gen_loss.backward()
-            self.gen_opt.step()
-            self.gen_scheduler.step()
-            return {"class_loss": classification_loss.item(), "disc_loss": disc_loss.item(), "lr": self.gen_opt.param_groups[0]['lr']}
+        self.disc_opt.zero_grad()
+        self.gen_opt.zero_grad()
+
+        gen_loss.backward()
+
+        self.disc_opt.step()
+        self.gen_opt.step()
+        self.gen_scheduler.step()
+        self.ema.update()
+        return {"class_loss": classification_loss.item(), "disc_loss": disc_loss.item()}
      
     def predict(self, x, z):
         image_feature = self.featurizer(x, z)
         image_feature = image_feature / image_feature.norm(dim=-1, keepdim=True)
         logits_per_image = self.clip_model.logit_scale.exp() * image_feature @ self.text_features.t()
         return logits_per_image
+
+class MetricSoftmaxAlignPatch(CLIP):
+    def __init__(self, input_shape, num_classes, num_domains, hparams):
+        super(MetricSoftmaxAlignPatch, self).__init__(input_shape, num_classes, num_domains, hparams)
+        self.dtype = self.clip_model.dtype
+        self.featurizer = self.clip_model.visual
+        self.discriminator = networks.DomainDiscriminator(in_feature=self.clip_model.text_projection.shape[1], hidden_size=1024, class_num=num_domains).to('cuda')
+        self.grl = networks.WarmStartGradientReverseLayer(alpha=1., lo=0., hi=1., max_iters=1000, auto_step=True)
+        self.register_buffer('update_count', torch.tensor([0]))
+        for name, param in self.featurizer.named_parameters():
+            param.requires_grad = True
+            #print(name)
+
+        self.ema = BetaEMA(self.featurizer)
+        self.ema.register()
+
+        self.gen_opt = torch.optim.AdamW(#only update little parameters, knowledge vit structures
+            list(self.featurizer.parameters()),
+            lr=self.hparams["lr_g"],
+            betas=(self.hparams['beta1'], 0.9))
+        
+        self.disc_opt = torch.optim.Adam(
+            list(self.discriminator.get_parameters()),
+            lr=self.hparams["lr_d"],
+            weight_decay=self.hparams['weight_decay_d'],
+            betas=(self.hparams['beta1'], 0.9))
+        
+        classnames = [name.replace('_', ' ') for name in hparams['class_names']]
+
+        self.gen_scheduler = CosineAnnealingLR(self.gen_opt, T_max=5000, eta_min=1e-8, last_epoch=-1, verbose=False)
+        #self.disc_scheduler = CosineAnnealingLR(self.disc_opt, T_max=5000, eta_min=1e-5, last_epoch=-1, verbose=False)
+        self.disc_scheduler = CosineAnnealingLR(self.gen_opt, T_max=5000, eta_min=1e-5, last_epoch=-1, verbose=False)
+        self.prompt = torch.cat([clip.tokenize(f'a photo of a {ppt}') for ppt in classnames]).to(self.device)
+        self.class_embeddings = self.clip_model.encode_text(self.prompt)
+        self.text_features = self.class_embeddings / self.class_embeddings.norm(dim=-1, keepdim=True)
+
+    def update(self, minibatches, unlabeled=None):
+        self.update_count += 1
+        all_x = torch.cat([data[0].cuda().float() for data in minibatches])
+        all_y = torch.cat([data[1].cuda().long() for data in minibatches])
+        all_index = torch.cat([data[2].cuda() for data in minibatches])
+
+        image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+
+        #discriminator
+        disc_input = self.grl(mask_features)
+        disc_out = self.discriminator(disc_input)
+        disc_labels = torch.cat([
+           torch.full((x.shape[0], ), i, dtype=torch.int64)
+           for i, (x, _, _) in enumerate(minibatches)
+        ]).to('cuda')
+        disc_loss = F.cross_entropy(disc_out, disc_labels)
+        image_features = image_features / image_features.norm(dim=-1, keepdim=True)
+        logits_per_image = self.clip_model.logit_scale.exp() * image_features @ self.text_features.t()#self.clip_model.logit_scale.exp() = 100
+
+        classification_loss = F.cross_entropy(logits_per_image, all_y)
+        gen_loss = classification_loss + disc_loss
+
+        self.disc_opt.zero_grad()
+        self.gen_opt.zero_grad()
+
+        gen_loss.backward()
+
+        self.disc_opt.step()
+        self.gen_opt.step()
+        self.gen_scheduler.step()
+        self.disc_scheduler.step()
+        self.ema.update()
+        return {"class_loss": classification_loss.item(), "disc_loss": disc_loss.item()}
+     
+    def predict(self, x, z):
+        image_feature, _ = self.featurizer(x, z)
+        image_feature = image_feature / image_feature.norm(dim=-1, keepdim=True)
+        logits_per_image = self.clip_model.logit_scale.exp() * image_feature @ self.text_features.t()
+        return logits_per_image
+
+class DecayEMA:
+    def __init__(self, model, decay):
+        self.model = model
+        self.decay = decay
+        self.shadow = {}
+        self.backup = {}
+        self.step = 0
+
+    def register(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                self.shadow[name] = param.data.clone()
+
+    def update(self):
+        self.step += 1
+        decay = self.decay * self.step
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                assert name in self.shadow
+                new_average = (1.0 - decay) * param.data + decay * self.shadow[name]
+                self.shadow[name] = new_average.clone()
+
+    def apply_shadow(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                assert name in self.shadow
+                self.backup[name] = param.data
+                param.data = self.shadow[name]
+
+    def restore(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                assert name in self.backup
+                param.data = self.backup[name]
+        self.backup = {}
+
+
+class BetaEMA:
+    def __init__(self, model, n_steps=5000, alpha=0.5, beta=0.5):
+        self.model = model
+        self.alpha = alpha
+        self.beta = beta
+        self.n_steps = n_steps
+        self.shadow = {}
+        self.backup = {}
+        self.step = 0
+        self.weights_sum = 0
+
+    def register(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                self.shadow[name] = param.data.clone()
+
+    def update(self):
+        self.step += 1
+        weight = beta.pdf((self.step+0.5) / (self.n_steps+1), self.alpha, self.beta)
+        self.weights_sum += weight
+        self.previous_weight  = (self.weights_sum - weight) / self.weights_sum
+        self.current_weight = weight/self.weights_sum
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                assert name in self.shadow
+                new_average = self.previous_weight * self.shadow[name] +  self.current_weight * param.data
+                self.shadow[name] = new_average.clone()
+
+    def apply_shadow(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                assert name in self.shadow
+                self.backup[name] = param.data
+                param.data = self.shadow[name]
+
+    def restore(self):
+        for name, param in self.model.named_parameters():
+            if param.requires_grad:
+                assert name in self.backup
+                param.data = self.backup[name]
+        self.backup = {}

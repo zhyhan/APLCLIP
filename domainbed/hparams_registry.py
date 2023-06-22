@@ -112,7 +112,7 @@ def _hparams(algorithm, dataset, random_seed):
     elif algorithm == 'ARM':
         _hparam('batch_size', 8, lambda r: 8)
     elif dataset == 'DomainNet':
-        _hparam('batch_size', 60, lambda r: int(2**r.uniform(3, 5)) )
+        _hparam('batch_size', 32, lambda r: int(2**r.uniform(3, 5)) )
     else:
         _hparam('batch_size', 32, lambda r: int(2**r.uniform(3, 5.5)) )
 
@@ -126,7 +126,7 @@ def _hparams(algorithm, dataset, random_seed):
     if algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch'] and dataset in SMALL_IMAGES:
         _hparam('lr_d', 1e-3, lambda r: 10**r.uniform(-4.5, -2.5) )
     elif algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch']:
-        _hparam('lr_d', 5e-2, lambda r: 10**r.uniform(-5, -3.5) )
+        _hparam('lr_d', 1e-2, lambda r: 10**r.uniform(-5, -3.5) )
 
 
     if algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch'] and dataset in SMALL_IMAGES:
