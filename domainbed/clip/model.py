@@ -267,75 +267,28 @@ class VisionTransformer(nn.Module):
         return masked_input
 
 
-    def forward(self, x: torch.Tensor, z:torch.Tensor, train=False):
+    def forward(self, x: torch.Tensor, z:torch.Tensor, mask=False):
         x = self.conv1(x)  # shape = [*, width, grid, grid]
         x = x.reshape(x.shape[0], x.shape[1], -1)  # shape = [*, width, grid ** 2]
         x = x.permute(0, 2, 1)  # shape = [*, grid ** 2, width]
         x = torch.cat([self.class_embedding.to(x.dtype) + torch.zeros(x.shape[0], 1, x.shape[-1], dtype=x.dtype, device=x.device), x], dim=1)  # shape = [*, grid ** 2 + 1, width]
-        x = x + self.positional_embedding.to(x.dtype)#TODO: 将权重信息加进来
+        x = x + self.positional_embedding.to(x.dtype)
 
-        
-        x_mask = x.clone()
-        x_mask = self.remove_patches(x_mask, z)
-        x = 0.1*x + 0.9*x_mask
+        if mask:
+            self.mask_ratio = 0.3
+            patch_keep = 1. - self.mask_ratio
+            T_H = int(np.floor((x.shape[1]-1)*patch_keep))
+            perm = 1 + torch.randperm(x.shape[1]-1)[:T_H]  # keep class token
+            idx = torch.cat([torch.zeros(1, dtype=perm.dtype, device=perm.device), perm])
+            x = x[:, idx, :]
         x = self.ln_pre(x)
         x = x.permute(1, 0, 2)  # NLD -> LND
         x = self.transformer(x)
         x = x.permute(1, 0, 2)  # LND -> NLD
         x = self.ln_post(x[:, 0, :])
         if self.proj is not None:
-            x = x @ self.proj
-        return x, x
-        #random remove some patches
-        # if train:
-        #     #self.mask_ratio = 0.5
-        #     x_mask = x.clone()
-        #     x_mask = self.remove_patches(x_mask, z)
-        #     x = 0.1*x + 0.9*x_mask
-        #     x = self.ln_pre(x)
-        #     x = x.permute(1, 0, 2)  # NLD -> LND
-        #     x = self.transformer(x)
-        #     x = x.permute(1, 0, 2)  # LND -> NLD
-        #     x = self.ln_post(x[:, 0, :])
-        #     if self.proj is not None:
-        #         x = x @ self.proj
-            
-        #     # x_mask = self.remove_patches(x_mask, z)#reduce the patches numbers
-        #     # #x_mask = self.mask_patches(x_mask, z)#using all the masks but let some to zero
-        #     # x_mask = self.ln_pre(x_mask)
-        #     # x_mask = x_mask.permute(1, 0, 2)  # NLD -> LND
-        #     # x_mask = self.transformer(x_mask)
-        #     # x_mask = x_mask.permute(1, 0, 2)  # LND -> NLD
-        #     # x_mask = torch.mean(x_mask[:, 1:, :], dim=1)
-        #     # x_mask = self.ln_post(x_mask)
-        #     # if self.proj is not None:
-        #     #     x_mask = x_mask @ self.proj
-
-        #     return x, x
-        # # if train:
-        # #     x = self.remove_patches(x, z)
-        # #     x = self.ln_pre(x)
-        # #     x = x.permute(1, 0, 2)  # NLD -> LND
-        # #     x = self.transformer(x)
-        # #     x = x.permute(1, 0, 2)  # LND -> NLD
-        # #     x = self.ln_post(x[:, 0, :])
-        # #     if self.proj is not None:
-        # #         x = x @ self.proj
-
-        # #     return x, x
-        # else:
-        #     x = self.ln_pre(x)
-
-        #     x = x.permute(1, 0, 2)  # NLD -> LND
-        #     x = self.transformer(x)
-        #     x = x.permute(1, 0, 2)  # LND -> NLD
-
-        #     x = self.ln_post(x[:, 0, :])
-
-        #     if self.proj is not None:
-        #         x = x @ self.proj
-
-        #     return x
+            x = x @ self.proj           
+        return x
 
 
 class CLIP(nn.Module):

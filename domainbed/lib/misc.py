@@ -112,7 +112,7 @@ def accuracy(network, loader, weights, device):
     network.ema.apply_shadow()
     network.eval()
     with torch.no_grad():
-        for x, y, z in loader:
+        for x, _, y, z in loader:
             x = x.to(device)
             y = y.to(device)
             z = z.to(device) #prompts

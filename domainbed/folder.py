@@ -6,9 +6,18 @@ from PIL import Image
 
 from torchvision.datasets.vision import VisionDataset
 
+from PIL import ImageFilter
+import torchvision.transforms as transforms
+
 import torch
 
 import numpy as np
+
+try:
+    from torchvision.transforms import InterpolationMode
+    BICUBIC = InterpolationMode.BICUBIC
+except ImportError:
+    BICUBIC = Image.BICUBIC
 
 
 def has_file_allowed_extension(filename: str, extensions: Union[str, Tuple[str, ...]]) -> bool:
@@ -155,6 +164,7 @@ class DatasetFolder(VisionDataset):
         self.class_to_idx = class_to_idx
         self.samples = samples
         self.targets = [s[1] for s in samples]
+        self.transform_color = transform_color(224)
 
     @staticmethod
     def make_dataset(
@@ -233,18 +243,56 @@ class DatasetFolder(VisionDataset):
         
         sample = self.loader(path)
         if self.transform is not None:
-            sample = self.transform(sample)
+            anchor_sample = self.transform(sample)
+            
         if self.target_transform is not None:
             target = self.target_transform(target)
-
+        target_sample = self.transform_color(sample)
         patch_indices = npy_loader(patch_path)
-        return sample, target, patch_indices
+        return anchor_sample, target_sample, target, patch_indices
 
     def __len__(self) -> int:
         return len(self.samples)
 
 
 IMG_EXTENSIONS = (".jpg", ".jpeg", ".png", ".ppm", ".bmp", ".pgm", ".tif", ".tiff", ".webp")
+
+class GaussianBlur(object):
+    def __init__(self, p=0.5, radius_min=0.1, radius_max=2.):
+        self.prob = p
+        self.radius_min = radius_min
+        self.radius_max = radius_max
+
+    def __call__(self, img):
+        if torch.bernoulli(torch.tensor(self.prob)) == 0:
+            return img
+
+        radius = self.radius_min + torch.rand(1) * (self.radius_max - self.radius_min)
+        return img.filter(ImageFilter.GaussianBlur(radius=radius))
+    
+def get_color_distortion(s=1.0):
+    # s is the strength of color distortion.
+    color_jitter = transforms.ColorJitter(0.8*s, 0.8*s, 0.8*s, 0.2*s)
+    rnd_color_jitter = transforms.RandomApply([color_jitter], p=0.8)
+    rnd_gray = transforms.RandomGrayscale(p=0.2)
+    color_distort = transforms.Compose([
+        rnd_color_jitter,
+        rnd_gray])
+    return color_distort
+
+def _convert_image_to_rgb(image):
+    return image.convert("RGB")
+
+def transform_color(n_px):
+    return transforms.Compose([
+        transforms.Resize(n_px, interpolation=BICUBIC),
+        transforms.CenterCrop(n_px),
+        _convert_image_to_rgb,
+        get_color_distortion(s=0.5),
+        GaussianBlur(p=0.5),
+        transforms.ToTensor(),
+        transforms.Normalize((0.48145466, 0.4578275, 0.40821073), (0.26862954, 0.26130258, 0.27577711)),
+    ])
 
 
 def pil_loader(path: str) -> Image.Image:
@@ -268,7 +316,7 @@ def npy_loader(path: str) -> Any:
     indices = np.load(path)
     #print(indices)
     #mask_tensor = torch.zeros(197, dtype=torch.bool)#true
-    indices = torch.from_numpy(indices).to(torch.bool)
+    indices = torch.from_numpy(indices).to(torch.bool)#TODO, 计算一个有效的权重
     #mask_tensor[indices]=True
     #mask_tensor[0]=True
     return indices

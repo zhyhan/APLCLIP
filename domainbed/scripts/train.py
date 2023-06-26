@@ -47,7 +47,7 @@ if __name__ == "__main__":
         help='Checkpoint every N steps. Default is dataset-dependent.')
     parser.add_argument('--test_envs', type=int, nargs='+', default=[0])
     parser.add_argument('--output_dir', type=str, default="train_output")
-    parser.add_argument('--holdout_fraction', type=float, default=0.1)
+    parser.add_argument('--holdout_fraction', type=float, default=0.2)
     parser.add_argument('--uda_holdout_fraction', type=float, default=0)
     parser.add_argument('--skip_model_save', action='store_true')
     parser.add_argument('--save_model_every_checkpoint', action='store_true')
@@ -226,8 +226,8 @@ if __name__ == "__main__":
     last_results_keys = None
     for step in range(start_step, n_steps):
         step_start_time = time.time()
-        minibatches_device = [(x.to(device), y.to(device), z.to(device))
-            for x,y,z in next(train_minibatches_iterator)]
+        minibatches_device = [(xa.to(device), xt.to(device), y.to(device), z.to(device))
+            for xa, xt, y, z in next(train_minibatches_iterator)]
         if args.task == "domain_adaptation":
             uda_device = [x.to(device)
                 for x,_ in next(uda_minibatches_iterator)]

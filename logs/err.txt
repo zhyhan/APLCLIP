@@ -15295,3 +15295,935 @@ Traceback (most recent call last):
     image_feature = image_feature / image_feature.norm(dim=-1, keepdim=True)
                                     ^^^^^^^^^^^^^^^^^^
 AttributeError: 'tuple' object has no attribute 'norm'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 782, in update
+    image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 291, in forward
+    x = self.transformer(x, key_padding_mask=attention_mask)#mask is a N, L
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Transformer.forward() got an unexpected keyword argument 'key_padding_mask'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 782, in update
+    image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 291, in forward
+    x = self.transformer(x, key_padding_mask=attention_mask)#mask is a N, L
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Transformer.forward() got an unexpected keyword argument 'key_padding_mask'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 782, in update
+    image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 291, in forward
+    x = self.transformer(x, key_padding_mask=attention_mask)#mask is a N, L
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Transformer.forward() got an unexpected keyword argument 'key_padding_mask'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 782, in update
+    image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 291, in forward
+    x = self.transformer(x, key_padding_mask=attention_mask)#mask is a N, L
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Transformer.forward() got an unexpected keyword argument 'key_padding_mask'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 782, in update
+    image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 291, in forward
+    x = self.transformer(x, key_padding_mask=attention_mask)#mask is a N, L
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Transformer.forward() got an unexpected keyword argument 'key_padding_mask'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 782, in update
+    image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 291, in forward
+    x = self.transformer(x, key_padding_mask=attention_mask)#mask is a N, L
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Transformer.forward() got an unexpected keyword argument 'key_padding_mask'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 782, in update
+    image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 291, in forward
+    x = self.transformer(x, key_padding_mask=attention_mask)#mask is a N, L
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Transformer.forward() got an unexpected keyword argument 'key_padding_mask'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 773, in __init__
+    self.class_embeddings = self.clip_model.encode_text(self.prompt)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 450, in encode_text
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 204, in forward
+    return self.resblocks(x, key_padding_mask)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: Sequential.forward() takes 2 positional arguments but 3 were given
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 773, in __init__
+    self.class_embeddings = self.clip_model.encode_text(self.prompt)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 465, in encode_text
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 219, in forward
+    return self.resblocks([x, key_padding_mask])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 193, in forward
+    x = x + self.attention(self.ln_1(x), key_padding_mask)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 188, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask, key_padding_mask=key_padding_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 5276, in multi_head_attention_forward
+    assert key_padding_mask.shape == (bsz, src_len), \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: expecting key_padding_mask shape of (5, 77), but got torch.Size([5, 512])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 773, in __init__
+    self.class_embeddings = self.clip_model.encode_text(self.prompt)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 453, in encode_text
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 206, in forward
+    return self.resblocks([x, key_padding_mask])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 193, in forward
+    x = x + self.attention(self.ln_1(x), key_padding_mask)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 188, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask, key_padding_mask=key_padding_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 5276, in multi_head_attention_forward
+    assert key_padding_mask.shape == (bsz, src_len), \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: expecting key_padding_mask shape of (5, 77), but got torch.Size([5, 512])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 773, in __init__
+    self.class_embeddings = self.clip_model.encode_text(self.prompt)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 453, in encode_text
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 206, in forward
+    return self.resblocks([x, key_padding_mask])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 193, in forward
+    x = x + self.attention(self.ln_1(x), key_padding_mask)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 188, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask, key_padding_mask=key_padding_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 5276, in multi_head_attention_forward
+    assert key_padding_mask.shape == (bsz, src_len), \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: expecting key_padding_mask shape of (5, 77), but got torch.Size([5, 512])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 773, in __init__
+    self.class_embeddings = self.clip_model.encode_text(self.prompt)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 454, in encode_text
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 207, in forward
+    return self.resblocks([x, key_padding_mask])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 194, in forward
+    x = x + self.attention(self.ln_1(x), key_padding_mask)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 188, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask, key_padding_mask=key_padding_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 5276, in multi_head_attention_forward
+    assert key_padding_mask.shape == (bsz, src_len), \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: expecting key_padding_mask shape of (5, 77), but got torch.Size([5, 512])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 773, in __init__
+    self.class_embeddings = self.clip_model.encode_text(self.prompt)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 454, in encode_text
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 207, in forward
+    return self.resblocks([x, key_padding_mask])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 194, in forward
+    x = x + self.attention(self.ln_1(x), key_padding_mask)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 188, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask, key_padding_mask=key_padding_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 5276, in multi_head_attention_forward
+    assert key_padding_mask.shape == (bsz, src_len), \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: expecting key_padding_mask shape of (5, 77), but got torch.Size([5, 512])
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 773, in __init__
+    self.class_embeddings = self.clip_model.encode_text(self.prompt)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 453, in encode_text
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 206, in forward
+    return self.resblocks([x, key_padding_mask])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 193, in forward
+    x = x + self.attention(self.ln_1(x), key_padding_mask=key_padding_mask)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 188, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask, key_padding_mask=key_padding_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 5140, in multi_head_attention_forward
+    is_batched = _mha_shape_check(query, key, value, key_padding_mask, attn_mask, num_heads)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 4964, in _mha_shape_check
+    assert key_padding_mask.dim() == 1, \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: For unbatched (2-D) `query`, expected `key_padding_mask` to be `None` or 1-D but found 2-D tensor instead
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 773, in __init__
+    self.class_embeddings = self.clip_model.encode_text(self.prompt)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 454, in encode_text
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 207, in forward
+    return self.resblocks([x, key_padding_mask])
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 194, in forward
+    x = x + self.attention(self.ln_1(x), key_padding_mask)
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 188, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask, key_padding_mask=key_padding_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 5140, in multi_head_attention_forward
+    is_batched = _mha_shape_check(query, key, value, key_padding_mask, attn_mask, num_heads)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 4964, in _mha_shape_check
+    assert key_padding_mask.dim() == 1, \
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: For unbatched (2-D) `query`, expected `key_padding_mask` to be `None` or 1-D but found 2-D tensor instead
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 253, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 119, in accuracy
+    p = network.predict(x, z)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 811, in predict
+    image_feature, _ = self.featurizer(x, z)
+                       ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 340, in forward
+    x = x.permute(1, 0, 2)  # LND -> NLD
+        ^^^^^^^^^
+AttributeError: 'list' object has no attribute 'permute'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 253, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 119, in accuracy
+    p = network.predict(x, z)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 811, in predict
+    image_feature, _ = self.featurizer(x, z)
+    ^^^^^^^^^^^^^^^^
+ValueError: too many values to unpack (expected 2)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 253, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 125, in accuracy
+    batch_weights = batch_weights.to(device)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 782, in update
+    image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 287, in forward
+    attention_mask = self.get_mask(z)
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 272, in get_mask
+    indices = indices[:, 0]=True#let the weight of class token large also. 
+              ~~~~~~~^^^^^^
+TypeError: 'bool' object does not support item assignment
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 782, in update
+    image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 287, in forward
+    attention_mask = self.get_mask(z)
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 272, in get_mask
+    indices = indices[:, 0]=True#let the weight of class token large also. 
+              ~~~~~~~^^^^^^
+TypeError: 'bool' object does not support item assignment
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 782, in update
+    image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 287, in forward
+    attention_mask = self.get_mask(z)
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 272, in get_mask
+    indices = indices[:, 0]=True#let the weight of class token large also. 
+              ~~~~~~~^^^^^^
+TypeError: 'bool' object does not support item assignment
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 782, in update
+    image_features, mask_features = self.featurizer(all_x, all_index, train=True)
+                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 287, in forward
+    attention_mask = self.get_mask(z)
+                     ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 272, in get_mask
+    indices = indices[:, 0]=True#let the weight of class token large also. 
+              ~~~~~~~^^^^^^
+TypeError: 'bool' object does not support item assignment
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/optim/lr_scheduler.py:139: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 253, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 115, in accuracy
+    for x, y, z in loader:
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/fast_data_loader.py", line 70, in __iter__
+    yield next(self._infinite_iterator)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1329, in _next_data
+    idx, data = self._get_data()
+                ^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1295, in _get_data
+    success, data = self._try_get_data()
+                    ^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1133, in _try_get_data
+    data = self._data_queue.get(timeout=timeout)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/queues.py", line 113, in get
+    if not self._poll(timeout):
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 256, in poll
+    return self._poll(timeout)
+           ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 423, in _poll
+    r = wait([self], timeout)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/multiprocessing/connection.py", line 930, in wait
+    ready = selector.select(timeout)
+            ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 790, in update
+    ]).to('cuda')
+       ^^^^^^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 253, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 119, in accuracy
+    p = network.predict(x, z)
+        ^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 812, in predict
+    image_feature = image_feature / image_feature.norm(dim=-1, keepdim=True)
+                                    ^^^^^^^^^^^^^^^^^^
+AttributeError: 'tuple' object has no attribute 'norm'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 808, in update
+    return {"class_loss": classification_loss.item(), "disc_loss": disc_loss.item()}
+                          ^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <module>
+    for x,y,z in next(train_minibatches_iterator)]
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/fast_data_loader.py", line 43, in __iter__
+    yield next(self._infinite_iterator)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 634, in __next__
+    data = self._next_data()
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1346, in _next_data
+    return self._process_data(data)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/dataloader.py", line 1372, in _process_data
+    data.reraise()
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/_utils.py", line 644, in reraise
+    raise exception
+TypeError: Caught TypeError in DataLoader worker process 0.
+Original Traceback (most recent call last):
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/_utils/worker.py", line 308, in _worker_loop
+    data = fetcher.fetch(index)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in fetch
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/utils/data/_utils/fetch.py", line 51, in <listcomp>
+    data = [self.dataset[idx] for idx in possibly_batched_index]
+            ~~~~~~~~~~~~^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 75, in __getitem__
+    return self.underlying_dataset[self.keys[key]]
+           ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 249, in __getitem__
+    target_sample = transform_color(sample)
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 271, in transform_color
+    transforms.Resize(n_px, interpolation=BICUBIC),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torchvision/transforms/transforms.py", line 341, in __init__
+    raise TypeError(f"Size should be int or sequence. Got {type(size)}")
+TypeError: Size should be int or sequence. Got <class 'PIL.Image.Image'>
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 255, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 228, in __init__
+    clip_transform = clip.load(hparams['clip_backbone'])[1]
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/clip.py", line 120, in load
+    model_path = _download(_MODELS[name], download_root or os.path.expanduser("~/.cache/clip"))
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/clip.py", line 54, in _download
+    if hashlib.sha256(open(download_target, "rb").read()).hexdigest() == expected_sha256:
+       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Exception ignored in: <module 'threading' from '/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/threading.py'>
+Traceback (most recent call last):
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/threading.py", line 1583, in _shutdown
+    lock.acquire()
+KeyboardInterrupt: 
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 255, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 355, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 167, in __init__
+    self.transform_color = transform_color(224)
+                           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 274, in transform_color
+    transforms._convert_image_to_rgb,
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'torchvision.transforms' has no attribute '_convert_image_to_rgb'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 111, in <module>
+    dataset = vars(datasets)[args.dataset](args.data_dir, args.test_envs, hparams)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 255, in __init__
+    super().__init__(self.dir, test_envs, hparams['data_augmentation'], hparams)
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/datasets.py", line 242, in __init__
+    env_dataset = ImageFolder(path, #这里可能需要更改 
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 371, in __init__
+    super().__init__(
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 167, in __init__
+    self.transform_color = transform_color(224)
+                           ^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/folder.py", line 291, in transform_color
+    transforms.get_color_distortion(s=0.5),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: module 'torchvision.transforms' has no attribute 'get_color_distortion'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 229, in <module>
+    minibatches_device = [(x.to(device), y.to(device), z.to(device))
+                         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 230, in <listcomp>
+    for x,y,z in next(train_minibatches_iterator)]
+        ^^^^^
+ValueError: too many values to unpack (expected 3)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 832, in update
+    disc_input = self.grl(image_features_anchor)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/networks.py", line 106, in forward
+    return GradientReverseFunction.apply(input, coeff)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/autograd/function.py", line 506, in apply
+    return super().apply(*args, **kwargs)  # type: ignore[misc]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/networks.py", line 55, in forward
+    output = input * 1.0
+             ~~~~~~^~~~~
+TypeError: unsupported operand type(s) for *: 'NoneType' and 'float'
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 834, in update
+    disc_labels = torch.cat([
+                            ^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 836, in <listcomp>
+    for i, (x, _, _) in enumerate(minibatches)
+           ^^^^^^^^^
+ValueError: too many values to unpack (expected 3)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 834, in update
+    disc_labels = torch.cat([
+                            ^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 836, in <listcomp>
+    for i, (x, _, _, _) in enumerate(minibatches)
+           ^^^^^^^^^
+ValueError: too many values to unpack (expected 3)
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 864, in update
+    self.ema.update()
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 936, in update
+    self.shadow[name] = new_average.clone()
+                        ^^^^^^^^^^^^^^^^^^^
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 828, in update
+    image_features_anchor = self.featurizer(all_x_anchor, all_index, mask=True)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 284, in forward
+    x = self.ln_pre(x)
+        ^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1601, in __getattr__
+    def __getattr__(self, name: str) -> Union[Tensor, 'Module']:
+
+KeyboardInterrupt
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 850, in update
+    kloss = self.klloss(torch.softmax(logits_per_image_anchor), torch.softmax(logits_per_image_target))
+                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+TypeError: softmax() received an invalid combination of arguments - got (Tensor), but expected one of:
+ * (Tensor input, int dim, torch.dtype dtype, *, Tensor out)
+ * (Tensor input, name dim, *, torch.dtype dtype)
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 820, in __init__
+    self.softmax = torch.softmax(dim=-1)
+                   ^^^^^^^^^^^^^^^^^^^^^
+TypeError: softmax() received an invalid combination of arguments - got (dim=int, ), but expected one of:
+ * (Tensor input, int dim, torch.dtype dtype, *, Tensor out)
+ * (Tensor input, name dim, *, torch.dtype dtype)
+
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 184, in <module>
+    algorithm = algorithm_class(dataset.input_shape, dataset.num_classes,
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 820, in __init__
+    self.softmax = nn.softmax(dim=-1)
+                   ^^^^^^^^^^
+AttributeError: module 'torch.nn' has no attribute 'softmax'. Did you mean: 'Softmax'?
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 869, in update
+    return {"class_loss": closs.item(), "disc_loss": dloss.item(), "ali_loss": mloss.item()}
+                                                                               ^^^^^
+NameError: name 'mloss' is not defined. Did you mean: 'dloss'?
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 862, in update
+    gen_loss.backward()
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/_tensor.py", line 487, in backward
+    torch.autograd.backward(
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/autograd/__init__.py", line 200, in backward
+    Variable._execution_engine.run_backward(  # Calls into the C++ engine to run the backward pass
+KeyboardInterrupt
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 253, in <module>
+    acc = misc.accuracy(algorithm, loader, weights, device)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/lib/misc.py", line 116, in accuracy
+    x = x.to(device)
+        ^^^^^^^^^^^^
+KeyboardInterrupt
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py:2919: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(

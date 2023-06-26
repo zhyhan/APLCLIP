@@ -38,7 +38,7 @@ def _hparams(algorithm, dataset, random_seed):
     # Algorithm-specific hparam definitions. Each block of code below
     # corresponds to exactly one algorithm.
 
-    if algorithm in ['DANN', 'CDANN', 'MetricSoftmax', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch']:
+    if algorithm in ['DANN', 'CDANN', 'MetricSoftmax', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch', 'CMSAN']:
         _hparam('lambda', 1.0, lambda r: 10**r.uniform(-2, 2))
         _hparam('weight_decay_d', 0., lambda r: 10**r.uniform(-6, -2))
         _hparam('d_steps_per_g_step', 1, lambda r: int(2**r.uniform(0, 3)))
@@ -119,20 +119,20 @@ def _hparams(algorithm, dataset, random_seed):
 
     if algorithm in ['DANN', 'CDANN'] and dataset in SMALL_IMAGES:
         _hparam('lr_g', 1e-3, lambda r: 10**r.uniform(-4.5, -2.5) )
-    elif algorithm in ['DANN', 'CDANN', 'MetricSoftmax', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch']:
+    elif algorithm in ['DANN', 'CDANN', 'MetricSoftmax', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch', 'CMSAN']:
         _hparam('lr_g', 1e-5, lambda r: 10**r.uniform(-5, -3.5) )
 
 
-    if algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch'] and dataset in SMALL_IMAGES:
+    if algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch', 'CMSAN'] and dataset in SMALL_IMAGES:
         _hparam('lr_d', 1e-3, lambda r: 10**r.uniform(-4.5, -2.5) )
-    elif algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch']:
+    elif algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch', 'CMSAN']:
         _hparam('lr_d', 1e-2, lambda r: 10**r.uniform(-5, -3.5) )
 
 
-    if algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch'] and dataset in SMALL_IMAGES:
+    if algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch', 'CMSAN'] and dataset in SMALL_IMAGES:
         _hparam('weight_decay_g', 0., lambda r: 0.)
-    elif algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch']:
-        _hparam('weight_decay_g', 0., lambda r: 10**r.uniform(-6, -2) )
+    elif algorithm in ['DANN', 'CDANN', 'MetricSoftmaxAlign', 'MetricSoftmaxAlignPatch', 'CMSAN']:
+        _hparam('weight_decay_g', 0., lambda r: 10**r.uniform(-6, -2))
 
 
     return hparams
