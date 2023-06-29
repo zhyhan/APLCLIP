@@ -1,0 +1,252 @@
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 830, in update
+    image_features_target = self.featurizer(all_x_target, all_index, mask=False)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 300, in forward
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 204, in forward
+    return self.resblocks(x)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 191, in forward
+    x = x + self.attention(self.ln_1(x))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 188, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 5188, in multi_head_attention_forward
+    q, k, v = _in_projection_packed(query, key, value, in_proj_weight, in_proj_bias)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 4765, in _in_projection_packed
+    proj = linear(q, w, b)
+           ^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 168.00 MiB (GPU 0; 39.59 GiB total capacity; 6.98 GiB already allocated; 80.62 MiB free; 7.20 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [1]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [1]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 830, in update
+    image_features_target = self.featurizer(all_x_target, all_index, mask=False)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 300, in forward
+    x = self.transformer(x)
+        ^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 204, in forward
+    return self.resblocks(x)
+           ^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/container.py", line 217, in forward
+    input = module(input)
+            ^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 191, in forward
+    x = x + self.attention(self.ln_1(x))
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 188, in attention
+    return self.attn(x, x, x, need_weights=False, attn_mask=self.attn_mask)[0]
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/activation.py", line 1189, in forward
+    attn_output, attn_output_weights = F.multi_head_attention_forward(
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 5188, in multi_head_attention_forward
+    q, k, v = _in_projection_packed(query, key, value, in_proj_weight, in_proj_bias)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/functional.py", line 4765, in _in_projection_packed
+    proj = linear(q, w, b)
+           ^^^^^^^^^^^^^^^
+torch.cuda.OutOfMemoryError: CUDA out of memory. Tried to allocate 168.00 MiB (GPU 0; 39.59 GiB total capacity; 6.98 GiB already allocated; 80.62 MiB free; 7.20 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [2]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [2]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+slurmstepd-gpu-06: error: *** JOB 176465 ON gpu-06 CANCELLED AT 2023-06-29T16:08:52 ***

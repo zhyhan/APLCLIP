@@ -1,0 +1,259 @@
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+class_loss    disc_loss     env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         kl_loss       step          step_time    
+0.9550199509  1.1487872601  0.8315789474  0.8553719008  0.6889793841  0.6995412844  0.8916416416  0.8871331828  0.8977562468  0.9126436782  0.0000000000  1.4413919449  0             2.0846872330 
+0.3511867548  0.5853500763  0.8672768879  0.8388429752  0.8498345635  0.7981651376  0.9569569570  0.9435665914  0.9449260581  0.9402298851  4.3935926773  0.4516289515  300           1.4084848094 
+0.1803461278  0.7461337076  0.8677345538  0.8429752066  0.8854670400  0.8279816514  0.9692192192  0.9458239278  0.9563997960  0.9448275862  8.7871853547  0.2554342415  600           1.4092674780 
+0.1355178490  0.8566530110  0.8723112128  0.8429752066  0.9040468313  0.8486238532  0.9742242242  0.9525959368  0.9632840388  0.9494252874  13.180778032  0.2077570176  900           1.4101898376 
+0.1133379813  0.9488787969  0.8718535469  0.8471074380  0.9160091626  0.8532110092  0.9789789790  0.9548532731  0.9696583376  0.9494252874  17.574370709  0.1789372652  1200          1.4110557842 
+0.0820452273  1.0036860591  0.8695652174  0.8429752066  0.9221175872  0.8600917431  0.9822322322  0.9593679458  0.9742478327  0.9517241379  21.967963386  0.1446715024  1500          1.4114686235 
+0.0670781322  1.0267949980  0.8727688787  0.8429752066  0.9284805294  0.8623853211  0.9849849850  0.9593679458  0.9757776645  0.9517241379  26.361556064  0.1253984422  1800          1.4121057749 
+0.0577939307  1.0470721811  0.8723112128  0.8429752066  0.9338254009  0.8646788991  0.9862362362  0.9638826185  0.9783273840  0.9540229885  30.755148741  0.1094992048  2100          1.4129362210 
+0.0473797550  1.0580261062  0.8750572082  0.8471074380  0.9376431662  0.8623853211  0.9882382382  0.9616252822  0.9796022438  0.9517241379  35.148741418  0.0964380618  2400          1.4129959440 
+0.0424736204  1.0644855911  0.8750572082  0.8429752066  0.9434970730  0.8692660550  0.9889889890  0.9616252822  0.9813870474  0.9517241379  39.542334096  0.0829843555  2700          1.4146300340 
+0.0370970219  1.0653959823  0.8745995423  0.8512396694  0.9475693561  0.8715596330  0.9904904905  0.9616252822  0.9829168791  0.9494252874  43.935926773  0.0726804414  3000          1.4132979560 
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [1]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [1]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+class_loss    disc_loss     env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         kl_loss       step          step_time    
+0.8283079267  1.1565603018  0.8329519451  0.8429752066  0.6851616187  0.6834862385  0.8908908909  0.8826185102  0.8962264151  0.9172413793  0.0000000000  1.3685745001  0             2.1444244385 
+0.2301210196  0.6576832698  0.9295194508  0.8553719008  0.7411555103  0.7293577982  0.9567067067  0.9435665914  0.9474757777  0.9448275862  4.3935926773  0.3919398064  300           1.4089239359 
+0.1140204050  0.7272224837  0.9510297483  0.8719008264  0.7434461695  0.7316513761  0.9717217217  0.9480812641  0.9581845997  0.9494252874  8.7871853547  0.2351664243  600           1.4100214489 
+0.0857880231  0.8280159360  0.9624713959  0.8801652893  0.7482820056  0.7431192661  0.9779779780  0.9571106095  0.9653238144  0.9517241379  13.180778032  0.1888519394  900           1.4114605943 
+0.0675342402  0.9375815612  0.9693363844  0.8801652893  0.7462458641  0.7385321101  0.9809809810  0.9571106095  0.9704232534  0.9517241379  17.574370709  0.1532744569  1200          1.4117257516 
+0.0501396042  0.9989360678  0.9734553776  0.8842975207  0.7480274879  0.7362385321  0.9834834835  0.9616252822  0.9752677206  0.9494252874  21.967963386  0.1350149367  1500          1.4122543303 
+0.0404734703  1.0244181639  0.9775743707  0.8925619835  0.7462458641  0.7431192661  0.9857357357  0.9616252822  0.9778174401  0.9471264368  26.361556064  0.1212504688  1800          1.4136203297 
+0.0396538828  1.0473021577  0.9803203661  0.8966942149  0.7470094172  0.7408256881  0.9872372372  0.9616252822  0.9798572157  0.9425287356  30.755148741  0.1094321378  2100          1.4147060188 
+0.0308308644  1.0523759981  0.9807780320  0.8925619835  0.7465003818  0.7454128440  0.9892392392  0.9638826185  0.9831718511  0.9425287356  35.148741418  0.0825865922  2400          1.4142500385 
+0.0234510221  1.0571107994  0.9821510297  0.9008264463  0.7457368287  0.7408256881  0.9912412412  0.9661399549  0.9841917389  0.9425287356  39.542334096  0.0729323964  2700          1.4136391060 
+0.0208097084  1.0596195769  0.9835240275  0.9008264463  0.7442097226  0.7385321101  0.9917417417  0.9638826185  0.9859765426  0.9402298851  43.935926773  0.0597133069  3000          1.4144782154 
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [2]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [2]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+class_loss    disc_loss     env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         kl_loss       step          step_time    
+1.2028936148  1.1350536346  0.8334096110  0.8512396694  0.6922881140  0.6697247706  0.8928928929  0.8848758465  0.8969913310  0.9172413793  0.0000000000  1.8346650600  0             3.4887754917 
+0.3748343489  0.5124686187  0.9263157895  0.8719008264  0.8452532451  0.7981651376  0.9186686687  0.9164785553  0.9446710862  0.9333333333  4.3935926773  0.4853989308  300           1.4111058283 
+0.1735849385  0.7580395132  0.9473684211  0.8760330579  0.8839399338  0.8279816514  0.9201701702  0.9097065463  0.9574196838  0.9448275862  8.7871853547  0.2566171278  600           1.4116004809 
+0.1169063341  0.8360655077  0.9601830664  0.8719008264  0.8997200305  0.8394495413  0.9196696697  0.9142212190  0.9673635900  0.9494252874  13.180778032  0.2129646967  900           1.4120963375 
+0.0942504036  0.9351085275  0.9665903890  0.8760330579  0.9134639857  0.8463302752  0.9191691692  0.9164785553  0.9722080571  0.9471264368  17.574370709  0.1827957214  1200          1.4127533062 
+0.0806390279  0.9842817102  0.9707093822  0.8842975207  0.9198269280  0.8509174312  0.9194194194  0.9209932280  0.9750127486  0.9494252874  21.967963386  0.1591420325  1500          1.4132699196 
+0.0625226979  1.0239138160  0.9734553776  0.8966942149  0.9274624586  0.8555045872  0.9179179179  0.9209932280  0.9767975523  0.9425287356  26.361556064  0.1363432122  1800          1.4137039558 
+0.0554670072  1.0372019192  0.9752860412  0.8966942149  0.9312802240  0.8646788991  0.9166666667  0.9187358916  0.9790922998  0.9448275862  30.755148741  0.1155166956  2100          1.4132892005 
+0.0454442753  1.0420393842  0.9766590389  0.9008264463  0.9358615424  0.8692660550  0.9159159159  0.9187358916  0.9798572157  0.9448275862  35.148741418  0.0948923339  2400          1.4136391942 
+0.0417325603  1.0527460812  0.9771167048  0.8966942149  0.9406973785  0.8738532110  0.9156656657  0.9187358916  0.9803671596  0.9425287356  39.542334096  0.0831714877  2700          1.4134644190 
+0.0365734173  1.0588259478  0.9775743707  0.9008264463  0.9424790023  0.8807339450  0.9141641642  0.9187358916  0.9813870474  0.9356321839  43.935926773  0.0751728002  3000          1.4141555015 
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [3]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [3]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 831, in update
+    image_features_anchor = self.featurizer(all_x_anchor, all_index, mask=True)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 307, in forward
+    x = self.remove_patches(x, z)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 288, in remove_patches
+    return input_tensor
+           ^^^^^^^^^^^^
+NameError: name 'input_tensor' is not defined

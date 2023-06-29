@@ -10,7 +10,7 @@
 #SBATCH --time=12:00:00             # Specify the time needed for your experiment
 #SBATCH --qos=gpu-8                 # To enable the use of up to 8 GPUs
 
-#export CUDA_VISIBLE_DEVICES=2
+#export CUDA_VISIBLE_DEVICES=0
 python -m domainbed.scripts.train\
        --data_dir /l/users/zhongyi.han/dataset\
        --output_dir ./logs\

@@ -244,7 +244,7 @@ class DatasetFolder(VisionDataset):
         sample = self.loader(path)
         if self.transform is not None:
             anchor_sample = self.transform(sample)
-            
+            #target_sample = anchor_sample
         if self.target_transform is not None:
             target = self.target_transform(target)
         target_sample = self.transform_color(sample)
@@ -289,7 +289,7 @@ def transform_color(n_px):
         transforms.CenterCrop(n_px),
         _convert_image_to_rgb,
         get_color_distortion(s=0.5),
-        GaussianBlur(p=0.5),
+        #GaussianBlur(p=0.5),
         transforms.ToTensor(),
         transforms.Normalize((0.48145466, 0.4578275, 0.40821073), (0.26862954, 0.26130258, 0.27577711)),
     ])

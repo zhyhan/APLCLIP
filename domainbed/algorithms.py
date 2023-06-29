@@ -822,8 +822,8 @@ class CMSAN(CLIP):
 
     def update(self, minibatches, unlabeled=None):
         self.update_count += 1
-        all_x_target = torch.cat([data[0].cuda().float() for data in minibatches])
-        all_x_anchor = torch.cat([data[1].cuda().float() for data in minibatches])
+        all_x_anchor = torch.cat([data[0].cuda().float() for data in minibatches])
+        all_x_target = torch.cat([data[1].cuda().float() for data in minibatches])
         all_y = torch.cat([data[2].cuda().long() for data in minibatches])
         all_index = torch.cat([data[3].cuda() for data in minibatches])
 
@@ -831,14 +831,22 @@ class CMSAN(CLIP):
         image_features_anchor = self.featurizer(all_x_anchor, all_index, mask=True)
 
 
-        #discriminator loss
-        disc_input = self.grl(image_features_anchor)
-        disc_out = self.discriminator(disc_input)
+        # #discriminator loss
+        # disc_input = self.grl(image_features_target)
+        # disc_out = self.discriminator(disc_input)
+        # disc_labels = torch.cat([
+        #    torch.full((x.shape[0], ), i, dtype=torch.int64)
+        #    for i, (x,_,_,_) in enumerate(minibatches)
+        # ]).to('cuda')
+        # dloss = F.cross_entropy(disc_out, disc_labels)
+        
+        disc_input_anchor = self.grl(image_features_anchor)
+        disc_out_anchor = self.discriminator(disc_input_anchor)
         disc_labels = torch.cat([
            torch.full((x.shape[0], ), i, dtype=torch.int64)
            for i, (x,_,_,_) in enumerate(minibatches)
         ]).to('cuda')
-        dloss = F.cross_entropy(disc_out, disc_labels)
+        dloss_anchor = F.cross_entropy(disc_out_anchor, disc_labels)
 
         #anchor model loss
         image_features_target = image_features_target / image_features_target.norm(dim=-1, keepdim=True)
@@ -848,13 +856,16 @@ class CMSAN(CLIP):
         logits_per_image_anchor = self.clip_model.logit_scale.exp() * image_features_anchor @ self.text_features.t()#self.clip_model.logit_scale.exp() = 100
 
         closs = F.cross_entropy(logits_per_image_anchor, all_y)
-        kloss = self.klloss(self.softmax(logits_per_image_anchor), self.softmax(logits_per_image_target))
+        softmax_per_image_anchor = self.softmax(logits_per_image_anchor)
+        softmax_per_image_target = self.softmax(logits_per_image_target)
+        bloss = (-softmax_per_image_target * torch.log(softmax_per_image_anchor)).sum(dim=1).mean()
+
         #mloss = torch.mean(torch.sum(torch.log(logits_per_image_anchor**(-logits_per_image_target)), dim=1))#cross entropy loss TODO
         #compute me-max regularizer
         #rloss = 0.
         #avg_probs = torch.mean(logits_per_image_anchor, dim=0)
         #rloss = - torch.sum(torch.log(avg_probs**(-avg_probs))) + math.log(float(len(avg_probs)))#todo
-        gen_loss = closs + dloss + kloss #+ rloss
+        gen_loss = closs + bloss + dloss_anchor#+ rloss
 
         self.disc_opt.zero_grad()
         self.gen_opt.zero_grad()
@@ -866,7 +877,7 @@ class CMSAN(CLIP):
         self.gen_scheduler.step()
         self.disc_scheduler.step()
         self.ema.update()
-        return {"class_loss": closs.item(), "disc_loss": dloss.item(), "kl_loss": kloss.item()}
+        return {"closs": closs.item(), "dloss_anchor": dloss_anchor.item(), "bloss": bloss.item()}
      
     def predict(self, x, z):
         image_feature = self.featurizer(x, z)

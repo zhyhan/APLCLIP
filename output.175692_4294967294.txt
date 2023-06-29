@@ -1,0 +1,273 @@
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+class_loss    disc_loss     env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         kl_loss       step          step_time    
+0.9550209045  1.1110101938  0.8315789474  0.8553719008  0.6889793841  0.6995412844  0.8916416416  0.8871331828  0.8977562468  0.9126436782  0.0000000000  1.4413928986  0             4.3607108593 
+0.3469046614  0.5439812505  0.8668192220  0.8429752066  0.8541613642  0.7981651376  0.9574574575  0.9390519187  0.9433962264  0.9310344828  4.3935926773  0.4562632882  300           1.4139293750 
+0.1688054663  0.7562762074  0.8659038902  0.8429752066  0.8857215576  0.8348623853  0.9684684685  0.9480812641  0.9581845997  0.9356321839  8.7871853547  0.2588710873  600           1.4143101041 
+0.1217601729  0.8308513500  0.8700228833  0.8471074380  0.9015016544  0.8486238532  0.9747247247  0.9525959368  0.9637939827  0.9402298851  13.180778032  0.2168986029  900           1.4133970149 
+0.0917012296  0.9316969635  0.8732265446  0.8429752066  0.9124459150  0.8463302752  0.9782282282  0.9480812641  0.9694033656  0.9402298851  17.574370709  0.1937501140  1200          1.4141755017 
+0.0799116068  0.9888842879  0.8755148741  0.8512396694  0.9203359633  0.8555045872  0.9812312312  0.9525959368  0.9742478327  0.9448275862  21.967963386  0.1636120378  1500          1.4143709540 
+0.0601201135  1.0125817821  0.8745995423  0.8553719008  0.9287350471  0.8577981651  0.9822322322  0.9525959368  0.9765425803  0.9448275862  26.361556064  0.1421443534  1800          1.4154667989 
+0.0579849054  1.0407740231  0.8782608696  0.8636363636  0.9340799186  0.8577981651  0.9849849850  0.9525959368  0.9773074962  0.9448275862  30.755148741  0.1228876813  2100          1.4152374585 
+0.0484321259  1.0516810238  0.8814645309  0.8636363636  0.9371341308  0.8600917431  0.9872372372  0.9548532731  0.9785823559  0.9448275862  35.148741418  0.1074066460  2400          1.4149613420 
+0.0433020468  1.0588421943  0.8819221968  0.8595041322  0.9417154492  0.8623853211  0.9877377377  0.9571106095  0.9803671596  0.9448275862  39.542334096  0.0929624106  2700          1.4149523600 
+0.0399224581  1.0601381185  0.8800915332  0.8595041322  0.9437515907  0.8669724771  0.9884884885  0.9593679458  0.9813870474  0.9448275862  43.935926773  0.0913530655  3000          1.4156516409 
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [1]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [1]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 831, in update
+    image_features_anchor = self.featurizer(all_x_anchor, all_index, mask=True)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 306, in forward
+    x = self.remove_patches(x, z)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 272, in remove_patches
+    new_mask = torch.full(mask.shape, False, device=mask.device)
+                          ^^^^
+NameError: name 'mask' is not defined
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [2]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [2]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 831, in update
+    image_features_anchor = self.featurizer(all_x_anchor, all_index, mask=True)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 306, in forward
+    x = self.remove_patches(x, z)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 272, in remove_patches
+    new_mask = torch.full(mask.shape, False, device=mask.device)
+                          ^^^^
+NameError: name 'mask' is not defined
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [3]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [3]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/scripts/train.py", line 236, in <module>
+    step_vals = algorithm.update(minibatches_device, uda_device)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/algorithms.py", line 831, in update
+    image_features_anchor = self.featurizer(all_x_anchor, all_index, mask=True)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/.conda/envs/CLIP/lib/python3.11/site-packages/torch/nn/modules/module.py", line 1501, in _call_impl
+    return forward_call(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 306, in forward
+    x = self.remove_patches(x, z)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/zhongyi.han/project/APLCLIP/domainbed/clip/model.py", line 272, in remove_patches
+    new_mask = torch.full(mask.shape, False, device=mask.device)
+                          ^^^^
+NameError: name 'mask' is not defined

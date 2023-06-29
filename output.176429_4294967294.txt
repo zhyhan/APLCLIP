@@ -1,0 +1,58 @@
+./logs
+Environment:
+	Python: 3.11.3
+	PyTorch: 2.0.0+cu117
+	Torchvision: 0.15.1+cu117
+	CUDA: 11.7
+	CUDNN: 8500
+	NumPy: 1.24.3
+	PIL: 9.5.0
+Args:
+	algorithm: CMSAN
+	checkpoint_freq: None
+	data_dir: /l/users/zhongyi.han/dataset
+	dataset: OfficeHome
+	holdout_fraction: 0.1
+	hparams: {"clip_backbone": "ViT-B/16"}
+	hparams_seed: 0
+	output_dir: ./logs
+	save_model_every_checkpoint: False
+	seed: 0
+	skip_model_save: False
+	steps: None
+	task: domain_generalization
+	test_envs: [0]
+	trial_seed: 0
+	uda_holdout_fraction: 0
+HParams:
+	backbone: clip
+	batch_size: 32
+	beta1: 0.5
+	class_balanced: False
+	clip_backbone: ViT-B/16
+	clip_transform: True
+	d_steps_per_g_step: 1
+	data_augmentation: True
+	grad_penalty: 0.0
+	lambda: 1.0
+	lr: 0.001
+	lr_d: 0.01
+	lr_g: 1e-05
+	mlp_depth: 3
+	mlp_dropout: 0.0
+	mlp_width: 512
+	nonlinear_classifier: False
+	resnet18: False
+	resnet_dropout: 0.0
+	test_envs: [0]
+	weight_decay: 0.0
+	weight_decay_d: 0.0
+	weight_decay_g: 0.0
+Using clip_transform ViT-B/16
+bloss         closs         dloss_anchor  env0_in_acc   env0_out_acc  env1_in_acc   env1_out_acc  env2_in_acc   env2_out_acc  env3_in_acc   env3_out_acc  epoch         step          step_time    
+0.8711880445  0.6726634502  1.1036089659  0.8329519451  0.8471074380  0.6963603970  0.6926605505  0.9001501502  0.8916478555  0.8980112188  0.9172413793  0.0000000000  0             5.3953778744 
+0.2466267242  0.3208016330  0.4579062015  0.8736842105  0.8512396694  0.9083736320  0.8233944954  0.9764764765  0.9503386005  0.9694033656  0.9287356322  4.3935926773  300           1.4170134552 
+0.1232734938  0.1394399046  0.7240454723  0.8791762014  0.8553719008  0.9432425554  0.8577981651  0.9852352352  0.9593679458  0.9831718511  0.9333333333  8.7871853547  600           1.4175851393 
+0.0879641333  0.1071974527  0.8562738270  0.8791762014  0.8553719008  0.9574955459  0.8623853211  0.9889889890  0.9571106095  0.9887812341  0.9310344828  13.180778032  900           1.4164402771 
+0.0726959037  0.0752636744  0.9656863473  0.8787185355  0.8636363636  0.9656401120  0.8761467890  0.9912412412  0.9571106095  0.9908210097  0.9356321839  17.574370709  1200          1.4189033953 
+0.0580136721  0.0624040987  1.0160800376  0.8782608696  0.8595041322  0.9714940188  0.8784403670  0.9929929930  0.9525959368  0.9920958695  0.9333333333  21.967963386  1500          1.4595150272 
