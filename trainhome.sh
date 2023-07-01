@@ -17,6 +17,7 @@ python -m domainbed.scripts.train\
        --algorithm CMSAN\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
+       --seed 2\
        --test_envs 0
 #export CUDA_VISIBLE_DEVICES=0
 python -m domainbed.scripts.train\
@@ -25,6 +26,7 @@ python -m domainbed.scripts.train\
        --algorithm CMSAN\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
+       --seed 2\
        --test_envs 1
 #export CUDA_VISIBLE_DEVICES=0
 python -m domainbed.scripts.train\
@@ -33,6 +35,7 @@ python -m domainbed.scripts.train\
        --algorithm CMSAN\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
+       --seed 2\
        --test_envs 2
 #export CUDA_VISIBLE_DEVICES=0
 python -m domainbed.scripts.train\
@@ -41,4 +44,5 @@ python -m domainbed.scripts.train\
        --algorithm CMSAN\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
+       --seed 2\
        --test_envs 3

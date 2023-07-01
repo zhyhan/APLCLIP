@@ -247,34 +247,34 @@ class VisionTransformer(nn.Module):
         # 存储每个样本的结果
         results = []
 
-        # # 计算要删除的元素数量
-        # T_H = int(np.floor((x.shape[1]-1)*mask_ratio))
+        # 计算要删除的元素数量
+        T_H = int(np.floor((x.shape[1]-1)*mask_ratio))
 
-        # for i in range(x.shape[0]):
-        #     # 找到这个样本中所有可以被删除的位置
-        #     mask_idx = torch.where(mask[i]==False)[0] 
-        #     # 保证不会删除第一个元素
-        #     mask_idx = mask_idx[mask_idx != 0]
+        for i in range(x.shape[0]):
+            # 找到这个样本中所有可以被删除的位置
+            mask_idx = torch.where(mask[i]==False)[0] 
+            # 保证不会删除第一个元素
+            mask_idx = mask_idx[mask_idx != 0]
 
-        #     # 在可以被删除的位置中随机选择一部分
-        #     perm = torch.randperm(mask_idx.shape[0])[:T_H]
-        #     delete_idx = mask_idx[perm]
+            # 在可以被删除的位置中随机选择一部分
+            perm = torch.randperm(mask_idx.shape[0])[:T_H]
+            delete_idx = mask_idx[perm]
 
-        #     # 创建一个全1的mask，然后将要删除的位置设为0
-        #     keep_mask = torch.ones(x.shape[1], dtype=torch.bool)
-        #     keep_mask[delete_idx] = 0
+            # 创建一个全1的mask，然后将要删除的位置设为0
+            keep_mask = torch.ones(x.shape[1], dtype=torch.bool)
+            keep_mask[delete_idx] = 0
 
-        #     # 用这个mask来选择x中要保留的元素
-        #     results.append(x[i, keep_mask, :])
-        # results = torch.cat(results).reshape(x.shape[0], -1, x.shape[-1])
+            # 用这个mask来选择x中要保留的元素
+            results.append(x[i, keep_mask, :])
+        results = torch.cat(results).reshape(x.shape[0], -1, x.shape[-1])
 
         # 使用布尔索引进行切片并保留原始形状
-        x_copy = x.clone()
-        mask[:,0]=True
-        mask = mask.unsqueeze(-1).expand_as(x_copy)
-        #output_tensor = input_tensor.clone()  # 创建一个新的tensor，这样我们就不会更改原始的输入tensor
-        x_copy[~mask] = 0  # 将未被选中的元素设置为零
-        results = 0.1*x + 0.9*x_copy
+        # x_copy = x.clone()
+        # mask[:,0]=True
+        # mask = mask.unsqueeze(-1).expand_as(x_copy)
+        # #output_tensor = input_tensor.clone()  # 创建一个新的tensor，这样我们就不会更改原始的输入tensor
+        # x_copy[~mask] = 0  # 将未被选中的元素设置为零
+        # results = 0.1*x + 0.9*x_copy
         return results
     
     def mask_patches(self, input_tensor, indices, mask_ratio=0.1):

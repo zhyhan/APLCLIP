@@ -829,16 +829,6 @@ class CMSAN(CLIP):
 
         image_features_target = self.featurizer(all_x_target, all_index, mask=False)
         image_features_anchor = self.featurizer(all_x_anchor, all_index, mask=True)
-
-
-        # #discriminator loss
-        # disc_input = self.grl(image_features_target)
-        # disc_out = self.discriminator(disc_input)
-        # disc_labels = torch.cat([
-        #    torch.full((x.shape[0], ), i, dtype=torch.int64)
-        #    for i, (x,_,_,_) in enumerate(minibatches)
-        # ]).to('cuda')
-        # dloss = F.cross_entropy(disc_out, disc_labels)
         
         disc_input_anchor = self.grl(image_features_anchor)
         disc_out_anchor = self.discriminator(disc_input_anchor)
@@ -855,7 +845,7 @@ class CMSAN(CLIP):
         image_features_anchor = image_features_anchor / image_features_anchor.norm(dim=-1, keepdim=True)
         logits_per_image_anchor = self.clip_model.logit_scale.exp() * image_features_anchor @ self.text_features.t()#self.clip_model.logit_scale.exp() = 100
 
-        closs = F.cross_entropy(logits_per_image_anchor, all_y)
+        closs = F.cross_entropy(logits_per_image_target, all_y)
         softmax_per_image_anchor = self.softmax(logits_per_image_anchor)
         softmax_per_image_target = self.softmax(logits_per_image_target)
         bloss = (-softmax_per_image_target * torch.log(softmax_per_image_anchor)).sum(dim=1).mean()
