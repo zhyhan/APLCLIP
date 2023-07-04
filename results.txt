@@ -1,0 +1,37 @@
+Total records: 264
+
+-------- Dataset: VLCS, model selection method: training-domain validation set
+Algorithm             C                     L                     S                     V                     Avg                  
+CMSAN                 98.9 +/- 0.0          68.1 +/- 0.0          81.3 +/- 0.0          86.8 +/- 0.0          83.8                 
+
+-------- Dataset: OfficeHome, model selection method: training-domain validation set
+Algorithm             A                     C                     P                     R                     Avg                  
+CMSAN                 88.2 +/- 0.0          75.9 +/- 0.0          91.9 +/- 0.0          91.8 +/- 0.0          87.0                 
+
+-------- Averages, model selection method: training-domain validation set
+Algorithm                  VLCS                       OfficeHome                 Avg                       
+CMSAN                      83.8 +/- 0.0               87.0 +/- 0.0               85.4                      
+
+-------- Dataset: VLCS, model selection method: leave-one-domain-out cross-validation
+Algorithm             C                     L                     S                     V                     Avg                  
+CMSAN                 X                     X                     X                     X                     X                    
+
+-------- Dataset: OfficeHome, model selection method: leave-one-domain-out cross-validation
+Algorithm             A                     C                     P                     R                     Avg                  
+CMSAN                 X                     X                     X                     X                     X                    
+
+-------- Averages, model selection method: leave-one-domain-out cross-validation
+Algorithm                  VLCS                       OfficeHome                 Avg                       
+CMSAN                      X                          X                          X                         
+
+-------- Dataset: VLCS, model selection method: test-domain validation set (oracle)
+Algorithm             C                     L                     S                     V                     Avg                  
+CMSAN                 97.1 +/- 0.0          67.7 +/- 0.0          81.6 +/- 0.0          85.1 +/- 0.0          82.9                 
+
+-------- Dataset: OfficeHome, model selection method: test-domain validation set (oracle)
+Algorithm             A                     C                     P                     R                     Avg                  
+CMSAN                 88.0 +/- 0.0          76.0 +/- 0.0          91.6 +/- 0.0          91.7 +/- 0.0          86.8                 
+
+-------- Averages, model selection method: test-domain validation set (oracle)
+Algorithm                  VLCS                       OfficeHome                 Avg                       
+CMSAN                      82.9 +/- 0.0               86.8 +/- 0.0               84.9                      

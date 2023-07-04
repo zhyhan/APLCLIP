@@ -31,10 +31,10 @@ def get_grouped_records(records):
     result = collections.defaultdict(lambda: [])
     for r in records:
         for test_env in r["args"]["test_envs"]:
-            group = (r["args"]["trial_seed"],
+            group = (r["args"]["seed"],
                 r["args"]["dataset"],
                 r["args"]["algorithm"],
                 test_env)
             result[group].append(r)
-    return Q([{"trial_seed": t, "dataset": d, "algorithm": a, "test_env": e,
+    return Q([{"seed": t, "dataset": d, "algorithm": a, "test_env": e,
         "records": Q(r)} for (t,d,a,e),r in result.items()])

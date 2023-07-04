@@ -1,6 +1,6 @@
 #!/bin/bash
 #SBATCH --job-name=withpatch             # Job name
-#SBATCH --output=output.%A_%a.txt   # Standard output and error log
+#SBATCH --output=./logs/output.%A_%a.txt   # Standard output and error log
 #SBATCH --nodes=1                   # Run all processes on a single node    
 #SBATCH --ntasks=1                  # Run on a single CPU
 #SBATCH --mem=40G                   # Total RAM to be used
@@ -17,7 +17,7 @@ python -m domainbed.scripts.train\
        --algorithm CMSAN\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
-       --seed 2\
+       --seed 0\
        --test_envs 0
 #export CUDA_VISIBLE_DEVICES=0
 python -m domainbed.scripts.train\
@@ -26,7 +26,7 @@ python -m domainbed.scripts.train\
        --algorithm CMSAN\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
-       --seed 2\
+       --seed 0\
        --test_envs 1
 #export CUDA_VISIBLE_DEVICES=0
 python -m domainbed.scripts.train\
@@ -35,7 +35,7 @@ python -m domainbed.scripts.train\
        --algorithm CMSAN\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
-       --seed 2\
+       --seed 0\
        --test_envs 2
 #export CUDA_VISIBLE_DEVICES=0
 python -m domainbed.scripts.train\
@@ -44,5 +44,5 @@ python -m domainbed.scripts.train\
        --algorithm CMSAN\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
-       --seed 2\
+       --seed 0\
        --test_envs 3

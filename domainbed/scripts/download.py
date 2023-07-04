@@ -27,8 +27,8 @@ def stage_path(data_dir, name):
     return full_path
 
 
-def download_and_extract(url, dst, remove=True):
-    gdown.download(url, dst, quiet=False)
+def download_and_extract(url, dst, remove=False):
+    #gdown.download(url, dst, quiet=False)
 
     if dst.endswith(".tar.gz"):
         tar = tarfile.open(dst, "r:gz")
@@ -178,11 +178,11 @@ def download_terra_incognita(data_dir):
     # download_and_extract(
     #     "https://lilablobssc.blob.core.windows.net/caltechcameratraps/eccv_18_all_images_sm.tar.gz",
     #     os.path.join(full_path, "terra_incognita_images.tar.gz"))
-    download_and_extract(
-        "https://lilablobssc.blob.core.windows.net/caltechcameratraps/eccv_18_annotations.tar.gz",
-        os.path.join(full_path, "terra_incognita_annotations.tar.gz"))
+    # download_and_extract(
+    #     "https://lilablobssc.blob.core.windows.net/caltechcameratraps/eccv_18_annotations.tar.gz",
+    #     os.path.join(full_path, "terra_incognita_annotations.tar.gz"))
 
-    include_locations = [38, 46, 100, 43]
+    include_locations = ["38", "46", "100", "43"]
 
     include_categories = [
         "bird", "bobcat", "cat", "coyote", "dog", "empty", "opossum", "rabbit",
@@ -190,8 +190,8 @@ def download_terra_incognita(data_dir):
     ]
 
     images_folder = os.path.join(full_path, "eccv_18_all_images_sm/")
-    annotations_file = "/l/users/zhongyi.han/dataset/terra_incognita/eccv_18_annotation_files/trans_test_annotations.json"#os.path.join(full_path, "caltech_images_20210113.json")
-    destination_folder = full_path 
+    annotations_file = os.path.join(full_path, "caltech_images_20210113.json")
+    destination_folder = full_path
 
     stats = {}
 
@@ -242,11 +242,12 @@ def download_terra_incognita(data_dir):
 
                 dst_path = os.path.join(loc_cat_folder, image_fname)
                 src_path = os.path.join(images_folder, image_fname)
-                if os.path.exists(src_path):
-                    shutil.copyfile(src_path, dst_path)
-    
-    shutil.rmtree(images_folder)
-    os.remove(annotations_file)
+
+                shutil.copyfile(src_path, dst_path)
+
+    #shutil.rmtree(images_folder)
+    #os.remove(annotations_file)
+
 
 
 # SVIRO #################################################################

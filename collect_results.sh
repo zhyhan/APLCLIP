@@ -1,0 +1,1 @@
+python -m domainbed.scripts.collect_results       --input_dir=/home/zhongyi.han/project/APLCLIP/

@@ -17,7 +17,7 @@ import numpy as np
 import tqdm
 
 from domainbed import datasets
-# from domainbed import algorithms
+from domainbed import algorithms
 from domainbed.lib import misc, reporting
 from domainbed import model_selection
 from domainbed.lib.query import Q
@@ -124,7 +124,7 @@ def print_results_tables(records, selection_method, latex):
         for j, dataset in enumerate(dataset_names):
             trial_averages = (grouped_records
                 .filter_equals("algorithm, dataset", (algorithm, dataset))
-                .group("trial_seed")
+                .group("seed")
                 .map(lambda trial_seed, group:
                     group.select("sweep_acc").mean()
                 )
@@ -147,7 +147,7 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser(
         description="Domain generalization testbed")
     parser.add_argument("--input_dir", type=str, default="")
-    parser.add_argument("--latex", action="store_true")
+    parser.add_argument("--latex", default=True, action="store_true")
     args = parser.parse_args()
 
     results_file = "results.tex" if args.latex else "results.txt"
