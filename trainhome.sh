@@ -10,38 +10,38 @@
 #SBATCH --time=12:00:00             # Specify the time needed for your experiment
 #SBATCH --qos=gpu-8                 # To enable the use of up to 8 GPUs
 
-#export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=3
 python -m domainbed.scripts.train\
        --data_dir /l/users/zhongyi.han/dataset\
        --output_dir ./logs\
-       --algorithm CMSAN\
+       --algorithm CMSANCoral\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
        --seed 0\
        --test_envs 0
-#export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=3
 python -m domainbed.scripts.train\
        --data_dir /l/users/zhongyi.han/dataset\
        --output_dir ./logs\
-       --algorithm CMSAN\
+       --algorithm CMSANCoral\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
        --seed 0\
        --test_envs 1
-#export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=3
 python -m domainbed.scripts.train\
        --data_dir /l/users/zhongyi.han/dataset\
        --output_dir ./logs\
-       --algorithm CMSAN\
+       --algorithm CMSANCoral\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
        --seed 0\
        --test_envs 2
-#export CUDA_VISIBLE_DEVICES=0
+export CUDA_VISIBLE_DEVICES=3
 python -m domainbed.scripts.train\
        --data_dir /l/users/zhongyi.han/dataset\
        --output_dir ./logs\
-       --algorithm CMSAN\
+       --algorithm CMSANCoral\
        --dataset OfficeHome\
        --hparams "{\"clip_backbone\": \"ViT-B/16\"}"\
        --seed 0\

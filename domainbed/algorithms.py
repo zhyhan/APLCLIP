@@ -45,6 +45,9 @@ ALGORITHMS = [
     'CoCoOpCLIP'
     'DPLCLIP',
     'CMSAN',
+    'CMSANCoral',
+    'CMSANwoMask',
+    'CMSANwoMatch',
     'MetricSoftmax',
     'MetricSoftmaxAlign',
     'MetricSoftmaxAlignPatch',
@@ -848,6 +851,100 @@ class CMSAN(CLIP):
         closs = F.cross_entropy(logits_per_image_target, all_y)
         softmax_per_image_anchor = self.softmax(logits_per_image_anchor)
         softmax_per_image_target = self.softmax(logits_per_image_target)
+        mloss = (-softmax_per_image_target * torch.log(softmax_per_image_anchor)).sum(dim=1).mean()
+
+        #mloss = torch.mean(torch.sum(torch.log(logits_per_image_anchor**(-logits_per_image_target)), dim=1))#cross entropy loss TODO
+        #compute me-max regularizer
+        #rloss = 0.
+        #avg_probs = torch.mean(logits_per_image_anchor, dim=0)
+        #rloss = - torch.sum(torch.log(avg_probs**(-avg_probs))) + math.log(float(len(avg_probs)))#todo
+        gen_loss = closs + mloss + dloss_anchor#+ rloss
+
+        self.disc_opt.zero_grad()
+        self.gen_opt.zero_grad()
+
+        gen_loss.backward()
+
+        self.disc_opt.step()
+        self.gen_opt.step()
+        self.gen_scheduler.step()
+        self.disc_scheduler.step()
+        self.ema.update()
+        return {"closs": closs.item(), "dloss_anchor": dloss_anchor.item(), "bloss": mloss.item()}
+     
+    def predict(self, x, z):
+        image_feature = self.featurizer(x, z)
+        image_feature = image_feature / image_feature.norm(dim=-1, keepdim=True)
+        logits_per_image = self.clip_model.logit_scale.exp() * image_feature @ self.text_features.t()
+        return logits_per_image
+
+class CMSANwoMask(CLIP):
+    #Conditional_Maked_Siamese_Alignment_Networks
+    def __init__(self, input_shape, num_classes, num_domains, hparams):
+        super(CMSANwoMask, self).__init__(input_shape, num_classes, num_domains, hparams)
+        self.dtype = self.clip_model.dtype
+        self.featurizer = self.clip_model.visual
+        self.discriminator = networks.DomainDiscriminator(in_feature=self.clip_model.text_projection.shape[1], hidden_size=1024, class_num=num_domains).to('cuda')
+        self.grl = networks.WarmStartGradientReverseLayer(alpha=1., lo=0., hi=1., max_iters=1000, auto_step=True)
+        self.register_buffer('update_count', torch.tensor([0]))
+        for name, param in self.featurizer.named_parameters():
+            param.requires_grad = True
+            #print(name)
+
+        self.ema = BetaEMA(self.featurizer)
+        self.ema.register()
+
+        self.gen_opt = torch.optim.AdamW(#only update little parameters, knowledge vit structures
+            list(self.featurizer.parameters()),
+            lr=self.hparams["lr_g"],
+            betas=(self.hparams['beta1'], 0.9))
+        
+        self.disc_opt = torch.optim.Adam(
+            list(self.discriminator.get_parameters()),
+            lr=self.hparams["lr_d"],
+            weight_decay=self.hparams['weight_decay_d'],
+            betas=(self.hparams['beta1'], 0.9))
+        
+        classnames = [name.replace('_', ' ') for name in hparams['class_names']]
+
+        self.gen_scheduler = CosineAnnealingLR(self.gen_opt, T_max=5000, eta_min=1e-8, last_epoch=-1, verbose=False)
+        #self.disc_scheduler = CosineAnnealingLR(self.disc_opt, T_max=5000, eta_min=1e-5, last_epoch=-1, verbose=False)
+        self.disc_scheduler = CosineAnnealingLR(self.gen_opt, T_max=5000, eta_min=1e-5, last_epoch=-1, verbose=False)
+        self.prompt = torch.cat([clip.tokenize(f'a photo of a {ppt}') for ppt in classnames]).to(self.device)
+        self.class_embeddings = self.clip_model.encode_text(self.prompt)
+        self.text_features = self.class_embeddings / self.class_embeddings.norm(dim=-1, keepdim=True)
+        self.klloss = nn.KLDivLoss()
+        self.softmax = nn.Softmax(dim=-1)
+
+
+    def update(self, minibatches, unlabeled=None):
+        self.update_count += 1
+        all_x_anchor = torch.cat([data[0].cuda().float() for data in minibatches])
+        all_x_target = torch.cat([data[1].cuda().float() for data in minibatches])
+        all_y = torch.cat([data[2].cuda().long() for data in minibatches])
+        all_index = torch.cat([data[3].cuda() for data in minibatches])
+
+        image_features_target = self.featurizer(all_x_target, all_index, mask=False)
+        image_features_anchor = self.featurizer(all_x_anchor, all_index, mask=False)
+        
+        disc_input_anchor = self.grl(image_features_anchor)
+        disc_out_anchor = self.discriminator(disc_input_anchor)
+        disc_labels = torch.cat([
+           torch.full((x.shape[0], ), i, dtype=torch.int64)
+           for i, (x,_,_,_) in enumerate(minibatches)
+        ]).to('cuda')
+        dloss_anchor = F.cross_entropy(disc_out_anchor, disc_labels)
+
+        #anchor model loss
+        image_features_target = image_features_target / image_features_target.norm(dim=-1, keepdim=True)
+        logits_per_image_target = self.clip_model.logit_scale.exp() * image_features_target @ self.text_features.t()#self.clip_model.logit_scale.exp() = 100
+
+        image_features_anchor = image_features_anchor / image_features_anchor.norm(dim=-1, keepdim=True)
+        logits_per_image_anchor = self.clip_model.logit_scale.exp() * image_features_anchor @ self.text_features.t()#self.clip_model.logit_scale.exp() = 100
+
+        closs = F.cross_entropy(logits_per_image_target, all_y)
+        softmax_per_image_anchor = self.softmax(logits_per_image_anchor)
+        softmax_per_image_target = self.softmax(logits_per_image_target)
         bloss = (-softmax_per_image_target * torch.log(softmax_per_image_anchor)).sum(dim=1).mean()
 
         #mloss = torch.mean(torch.sum(torch.log(logits_per_image_anchor**(-logits_per_image_target)), dim=1))#cross entropy loss TODO
@@ -875,7 +972,100 @@ class CMSAN(CLIP):
         logits_per_image = self.clip_model.logit_scale.exp() * image_feature @ self.text_features.t()
         return logits_per_image
 
-    
+class CMSANwoMatch(CLIP):
+    #Conditional_Maked_Siamese_Alignment_Networks
+    def __init__(self, input_shape, num_classes, num_domains, hparams):
+        super(CMSANwoMatch, self).__init__(input_shape, num_classes, num_domains, hparams)
+        self.dtype = self.clip_model.dtype
+        self.featurizer = self.clip_model.visual
+        self.discriminator = networks.DomainDiscriminator(in_feature=self.clip_model.text_projection.shape[1], hidden_size=1024, class_num=num_domains).to('cuda')
+        self.grl = networks.WarmStartGradientReverseLayer(alpha=1., lo=0., hi=1., max_iters=1000, auto_step=True)
+        self.register_buffer('update_count', torch.tensor([0]))
+        for name, param in self.featurizer.named_parameters():
+            param.requires_grad = True
+            #print(name)
+
+        self.ema = BetaEMA(self.featurizer)
+        self.ema.register()
+
+        self.gen_opt = torch.optim.AdamW(#only update little parameters, knowledge vit structures
+            list(self.featurizer.parameters()),
+            lr=self.hparams["lr_g"],
+            betas=(self.hparams['beta1'], 0.9))
+        
+        self.disc_opt = torch.optim.Adam(
+            list(self.discriminator.get_parameters()),
+            lr=self.hparams["lr_d"],
+            weight_decay=self.hparams['weight_decay_d'],
+            betas=(self.hparams['beta1'], 0.9))
+        
+        classnames = [name.replace('_', ' ') for name in hparams['class_names']]
+
+        self.gen_scheduler = CosineAnnealingLR(self.gen_opt, T_max=5000, eta_min=1e-8, last_epoch=-1, verbose=False)
+        #self.disc_scheduler = CosineAnnealingLR(self.disc_opt, T_max=5000, eta_min=1e-5, last_epoch=-1, verbose=False)
+        self.disc_scheduler = CosineAnnealingLR(self.gen_opt, T_max=5000, eta_min=1e-5, last_epoch=-1, verbose=False)
+        self.prompt = torch.cat([clip.tokenize(f'a photo of a {ppt}') for ppt in classnames]).to(self.device)
+        self.class_embeddings = self.clip_model.encode_text(self.prompt)
+        self.text_features = self.class_embeddings / self.class_embeddings.norm(dim=-1, keepdim=True)
+        self.softmax = nn.Softmax(dim=-1)
+
+
+    def update(self, minibatches, unlabeled=None):
+        self.update_count += 1
+        all_x_anchor = torch.cat([data[0].cuda().float() for data in minibatches])
+        #all_x_target = torch.cat([data[1].cuda().float() for data in minibatches])
+        all_y = torch.cat([data[2].cuda().long() for data in minibatches])
+        all_index = torch.cat([data[3].cuda() for data in minibatches])
+
+        image_features_target = self.featurizer(all_x_anchor, all_index, mask=False)
+        image_features_anchor = self.featurizer(all_x_anchor, all_index, mask=True)
+        
+        disc_input_anchor = self.grl(image_features_anchor)
+        disc_out_anchor = self.discriminator(disc_input_anchor)
+        disc_labels = torch.cat([
+           torch.full((x.shape[0], ), i, dtype=torch.int64)
+           for i, (x,_,_,_) in enumerate(minibatches)
+        ]).to('cuda')
+        dloss_anchor = F.cross_entropy(disc_out_anchor, disc_labels)
+
+        #anchor model loss
+        image_features_target = image_features_target / image_features_target.norm(dim=-1, keepdim=True)
+        logits_per_image_target = self.clip_model.logit_scale.exp() * image_features_target @ self.text_features.t()#self.clip_model.logit_scale.exp() = 100
+
+        image_features_anchor = image_features_anchor / image_features_anchor.norm(dim=-1, keepdim=True)
+        logits_per_image_anchor = self.clip_model.logit_scale.exp() * image_features_anchor @ self.text_features.t()#self.clip_model.logit_scale.exp() = 100
+
+        closs = F.cross_entropy(logits_per_image_target, all_y)
+        #softmax_per_image_anchor = self.softmax(logits_per_image_anchor)
+        #softmax_per_image_target = self.softmax(logits_per_image_target)
+        #bloss = (-softmax_per_image_target * torch.log(softmax_per_image_anchor)).sum(dim=1).mean()
+
+        #mloss = torch.mean(torch.sum(torch.log(logits_per_image_anchor**(-logits_per_image_target)), dim=1))#cross entropy loss TODO
+        #compute me-max regularizer
+        #rloss = 0.
+        #avg_probs = torch.mean(logits_per_image_anchor, dim=0)
+        #rloss = - torch.sum(torch.log(avg_probs**(-avg_probs))) + math.log(float(len(avg_probs)))#todo
+        gen_loss = closs + dloss_anchor#+ rloss
+
+        self.disc_opt.zero_grad()
+        self.gen_opt.zero_grad()
+
+        gen_loss.backward()
+
+        self.disc_opt.step()
+        self.gen_opt.step()
+        self.gen_scheduler.step()
+        self.disc_scheduler.step()
+        self.ema.update()
+        return {"closs": closs.item(), "dloss_anchor": dloss_anchor.item()}
+     
+    def predict(self, x, z):
+        image_feature = self.featurizer(x, z)
+        image_feature = image_feature / image_feature.norm(dim=-1, keepdim=True)
+        logits_per_image = self.clip_model.logit_scale.exp() * image_feature @ self.text_features.t()
+        return logits_per_image
+
+
 class DecayEMA:
     def __init__(self, model, decay):
         self.model = model
@@ -912,6 +1102,120 @@ class DecayEMA:
                 param.data = self.backup[name]
         self.backup = {}
 
+class CMSANCoral(CLIP):
+    #Conditional_Maked_Siamese_Alignment_Networks
+    def __init__(self, input_shape, num_classes, num_domains, hparams):
+        super(CMSANCoral, self).__init__(input_shape, num_classes, num_domains, hparams)
+        self.dtype = self.clip_model.dtype
+        self.featurizer = self.clip_model.visual
+        self.register_buffer('update_count', torch.tensor([0]))
+        for name, param in self.featurizer.named_parameters():
+            param.requires_grad = True
+            #print(name)
+
+        self.ema = BetaEMA(self.featurizer)
+        self.ema.register()
+
+        self.gen_opt = torch.optim.AdamW(#only update little parameters, knowledge vit structures
+            list(self.featurizer.parameters()),
+            lr=self.hparams["lr_g"],
+            betas=(self.hparams['beta1'], 0.9))
+        
+        
+        classnames = [name.replace('_', ' ') for name in hparams['class_names']]
+
+        self.gen_scheduler = CosineAnnealingLR(self.gen_opt, T_max=5000, eta_min=1e-8, last_epoch=-1, verbose=False)
+        #self.disc_scheduler = CosineAnnealingLR(self.disc_opt, T_max=5000, eta_min=1e-5, last_epoch=-1, verbose=False)
+        self.prompt = torch.cat([clip.tokenize(f'a photo of a {ppt}') for ppt in classnames]).to(self.device)
+        self.class_embeddings = self.clip_model.encode_text(self.prompt)
+        self.text_features = self.class_embeddings / self.class_embeddings.norm(dim=-1, keepdim=True)
+        self.softmax = nn.Softmax(dim=-1)
+        self.kernel_type = "mean_cov"
+
+    def my_cdist(self, x1, x2):
+        x1_norm = x1.pow(2).sum(dim=-1, keepdim=True)
+        x2_norm = x2.pow(2).sum(dim=-1, keepdim=True)
+        res = torch.addmm(x2_norm.transpose(-2, -1),
+                          x1,
+                          x2.transpose(-2, -1), alpha=-2).add_(x1_norm)
+        return res.clamp_min_(1e-30)
+
+    def gaussian_kernel(self, x, y, gamma=[0.001, 0.01, 0.1, 1, 10, 100,
+                                           1000]):
+        D = self.my_cdist(x, y)
+        K = torch.zeros_like(D)
+
+        for g in gamma:
+            K.add_(torch.exp(D.mul(-g)))
+
+        return K
+    
+    def mmd(self, x, y):
+        if self.kernel_type == "gaussian":
+            Kxx = self.gaussian_kernel(x, x).mean()
+            Kyy = self.gaussian_kernel(y, y).mean()
+            Kxy = self.gaussian_kernel(x, y).mean()
+            return Kxx + Kyy - 2 * Kxy
+        else:
+            mean_x = x.mean(0, keepdim=True)
+            mean_y = y.mean(0, keepdim=True)
+            cent_x = x - mean_x
+            cent_y = y - mean_y
+            cova_x = (cent_x.t() @ cent_x) / (len(x) - 1)
+            cova_y = (cent_y.t() @ cent_y) / (len(y) - 1)
+
+            mean_diff = (mean_x - mean_y).pow(2).mean()
+            cova_diff = (cova_x - cova_y).pow(2).mean()
+
+            return mean_diff + cova_diff
+    def update(self, minibatches, unlabeled=None):
+        self.update_count += 1
+        all_x_anchor = [data[0].cuda().float() for data in minibatches]
+        all_x_target = torch.cat([data[1].cuda().float() for data in minibatches])
+        all_y = torch.cat([data[2].cuda().long() for data in minibatches])
+        all_index = [data[3].cuda() for data in minibatches]
+
+        image_features_target = self.featurizer(all_x_target, all_index, mask=False)
+        #image_features_anchor = self.featurizer(all_x_anchor, all_index, mask=True)
+        domain_features = [self.featurizer(x_anchor, all_index[i], mask=True) for i, x_anchor in enumerate(all_x_anchor)]
+        image_features_anchor = torch.cat(domain_features)
+
+        #anchor model loss
+        penalty = 0
+        nmb = len(minibatches)
+        for i in range(nmb):
+            for j in range(i + 1, nmb):
+                penalty += self.mmd(domain_features[i], domain_features[j])
+        if nmb > 1:
+            penalty /= (nmb * (nmb - 1) / 2)
+
+        image_features_target = image_features_target / image_features_target.norm(dim=-1, keepdim=True)
+        logits_per_image_target = self.clip_model.logit_scale.exp() * image_features_target @ self.text_features.t()#self.clip_model.logit_scale.exp() = 100
+
+        image_features_anchor = image_features_anchor / image_features_anchor.norm(dim=-1, keepdim=True)
+        logits_per_image_anchor = self.clip_model.logit_scale.exp() * image_features_anchor @ self.text_features.t()#self.clip_model.logit_scale.exp() = 100
+
+        closs = F.cross_entropy(logits_per_image_target, all_y)
+        softmax_per_image_anchor = self.softmax(logits_per_image_anchor)
+        softmax_per_image_target = self.softmax(logits_per_image_target)
+        mloss = (-softmax_per_image_target * torch.log(softmax_per_image_anchor)).sum(dim=1).mean()
+
+        gen_loss = closs + mloss + penalty
+
+        self.gen_opt.zero_grad()
+
+        gen_loss.backward()
+
+        self.gen_opt.step()
+        self.gen_scheduler.step()
+        self.ema.update()
+        return {"closs": closs.item(), "penalty": penalty.item(), "bloss": mloss.item()}
+     
+    def predict(self, x, z):
+        image_feature = self.featurizer(x, z)
+        image_feature = image_feature / image_feature.norm(dim=-1, keepdim=True)
+        logits_per_image = self.clip_model.logit_scale.exp() * image_feature @ self.text_features.t()
+        return logits_per_image
 class BetaEMA:
     def __init__(self, model, n_steps=5000, alpha=0.5, beta=0.5):
         self.model = model

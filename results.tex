@@ -3,7 +3,7 @@
 \usepackage{adjustbox}
 \begin{document}
 \section{Full DomainBed results}
-% Total records: 264
+% Total records: 786
 
 \subsection{Model selection: training-domain validation set}
 
@@ -16,6 +16,8 @@
 \textbf{Algorithm}   & \textbf{C}           & \textbf{L}           & \textbf{S}           & \textbf{V}           & \textbf{Avg}         \\
 \midrule
 CMSAN                & 98.7 $\pm$ 0.1       & 68.4 $\pm$ 0.4       & 81.6 $\pm$ 0.1       & 87.6 $\pm$ 0.4       & 84.1                 \\
+CMSANwoMask          & 98.7 $\pm$ 0.3       & 67.5 $\pm$ 0.1       & 81.7 $\pm$ 0.2       & 88.0 $\pm$ 0.3       & 84.0                 \\
+CMSANwoMatch         & 97.2 $\pm$ 0.4       & 67.8 $\pm$ 0.2       & 81.8 $\pm$ 0.3       & 88.0 $\pm$ 0.1       & 83.7                 \\
 \bottomrule
 \end{tabular}}
 \end{center}
@@ -29,6 +31,8 @@ CMSAN                & 98.7 $\pm$ 0.1       & 68.4 $\pm$ 0.4       & 81.6 $\pm$ 
 \textbf{Algorithm}   & \textbf{A}           & \textbf{C}           & \textbf{P}           & \textbf{R}           & \textbf{Avg}         \\
 \midrule
 CMSAN                & 88.1 $\pm$ 0.1       & 75.5 $\pm$ 0.2       & 92.1 $\pm$ 0.1       & 91.9 $\pm$ 0.1       & 86.9                 \\
+CMSANwoMask          & 87.3 $\pm$ 0.1       & 75.9 $\pm$ 0.0       & 92.1 $\pm$ 0.2       & 92.1 $\pm$ 0.2       & 86.8                 \\
+CMSANwoMatch         & 87.2 $\pm$ 0.2       & 75.3 $\pm$ 0.1       & 91.9 $\pm$ 0.1       & 92.1 $\pm$ 0.1       & 86.6                 \\
 \bottomrule
 \end{tabular}}
 \end{center}
@@ -42,6 +46,8 @@ CMSAN                & 88.1 $\pm$ 0.1       & 75.5 $\pm$ 0.2       & 92.1 $\pm$ 
 \textbf{Algorithm}        & \textbf{VLCS}             & \textbf{OfficeHome}       & \textbf{Avg}              \\
 \midrule
 CMSAN                     & 84.1 $\pm$ 0.2            & 86.9 $\pm$ 0.1            & 85.5                      \\
+CMSANwoMask               & 84.0 $\pm$ 0.0            & 86.8 $\pm$ 0.0            & 85.4                      \\
+CMSANwoMatch              & 83.7 $\pm$ 0.1            & 86.6 $\pm$ 0.1            & 85.2                      \\
 \bottomrule
 \end{tabular}}
 \end{center}
@@ -57,6 +63,8 @@ CMSAN                     & 84.1 $\pm$ 0.2            & 86.9 $\pm$ 0.1          
 \textbf{Algorithm}   & \textbf{C}           & \textbf{L}           & \textbf{S}           & \textbf{V}           & \textbf{Avg}         \\
 \midrule
 CMSAN                & X                    & X                    & X                    & X                    & X                    \\
+CMSANwoMask          & X                    & X                    & X                    & X                    & X                    \\
+CMSANwoMatch         & X                    & X                    & X                    & X                    & X                    \\
 \bottomrule
 \end{tabular}}
 \end{center}
@@ -70,6 +78,8 @@ CMSAN                & X                    & X                    & X          
 \textbf{Algorithm}   & \textbf{A}           & \textbf{C}           & \textbf{P}           & \textbf{R}           & \textbf{Avg}         \\
 \midrule
 CMSAN                & X                    & X                    & X                    & X                    & X                    \\
+CMSANwoMask          & X                    & X                    & X                    & X                    & X                    \\
+CMSANwoMatch         & X                    & X                    & X                    & X                    & X                    \\
 \bottomrule
 \end{tabular}}
 \end{center}
@@ -83,6 +93,8 @@ CMSAN                & X                    & X                    & X          
 \textbf{Algorithm}        & \textbf{VLCS}             & \textbf{OfficeHome}       & \textbf{Avg}              \\
 \midrule
 CMSAN                     & X                         & X                         & X                         \\
+CMSANwoMask               & X                         & X                         & X                         \\
+CMSANwoMatch              & X                         & X                         & X                         \\
 \bottomrule
 \end{tabular}}
 \end{center}
@@ -98,6 +110,8 @@ CMSAN                     & X                         & X                       
 \textbf{Algorithm}   & \textbf{C}           & \textbf{L}           & \textbf{S}           & \textbf{V}           & \textbf{Avg}         \\
 \midrule
 CMSAN                & 97.2 $\pm$ 0.1       & 68.2 $\pm$ 0.2       & 81.4 $\pm$ 0.1       & 85.4 $\pm$ 0.1       & 83.0                 \\
+CMSANwoMask          & 96.6 $\pm$ 0.3       & 67.8 $\pm$ 0.2       & 81.3 $\pm$ 0.3       & 84.9 $\pm$ 0.2       & 82.6                 \\
+CMSANwoMatch         & 95.8 $\pm$ 0.3       & 67.1 $\pm$ 0.1       & 81.8 $\pm$ 0.2       & 85.0 $\pm$ 0.3       & 82.4                 \\
 \bottomrule
 \end{tabular}}
 \end{center}
@@ -111,6 +125,8 @@ CMSAN                & 97.2 $\pm$ 0.1       & 68.2 $\pm$ 0.2       & 81.4 $\pm$ 
 \textbf{Algorithm}   & \textbf{A}           & \textbf{C}           & \textbf{P}           & \textbf{R}           & \textbf{Avg}         \\
 \midrule
 CMSAN                & 87.9 $\pm$ 0.2       & 75.9 $\pm$ 0.1       & 91.7 $\pm$ 0.0       & 91.6 $\pm$ 0.1       & 86.8                 \\
+CMSANwoMask          & 87.3 $\pm$ 0.1       & 75.7 $\pm$ 0.1       & 91.8 $\pm$ 0.2       & 91.6 $\pm$ 0.1       & 86.6                 \\
+CMSANwoMatch         & 87.6 $\pm$ 0.2       & 75.0 $\pm$ 0.3       & 91.5 $\pm$ 0.1       & 91.8 $\pm$ 0.2       & 86.5                 \\
 \bottomrule
 \end{tabular}}
 \end{center}
@@ -124,6 +140,8 @@ CMSAN                & 87.9 $\pm$ 0.2       & 75.9 $\pm$ 0.1       & 91.7 $\pm$ 
 \textbf{Algorithm}        & \textbf{VLCS}             & \textbf{OfficeHome}       & \textbf{Avg}              \\
 \midrule
 CMSAN                     & 83.0 $\pm$ 0.1            & 86.8 $\pm$ 0.1            & 84.9                      \\
+CMSANwoMask               & 82.6 $\pm$ 0.2            & 86.6 $\pm$ 0.1            & 84.6                      \\
+CMSANwoMatch              & 82.4 $\pm$ 0.1            & 86.5 $\pm$ 0.1            & 84.5                      \\
 \bottomrule
 \end{tabular}}
 \end{center}
